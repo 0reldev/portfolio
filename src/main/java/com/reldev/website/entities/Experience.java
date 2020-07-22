@@ -40,8 +40,8 @@ public class Experience {
     @Column
     private String city;
 
-    @Column(name = "company_logo")
-    private String companyLogo;
+    @Column(name = "company_logo_url")
+    private String companyLogoUrl;
 
     @Column(name = "filter_tag")
     private String filterTag;
