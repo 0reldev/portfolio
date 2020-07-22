@@ -1,8 +1,10 @@
 package com.reldev.website.controllers;
 
 import com.reldev.website.entities.Experience;
+import com.reldev.website.entities.Skill;
 import com.reldev.website.entities.User;
 import com.reldev.website.repositories.ExperienceRepository;
+import com.reldev.website.repositories.SkillRepository;
 import com.reldev.website.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,9 @@ public class ExperienceController {
     @Autowired
     private ExperienceRepository repository;
 
+    @Autowired
+    private SkillRepository skillRepository;
+
     @GetMapping("/experience")
     public String getExperience(Model out,
                                 @RequestParam(required = false) Long id) {
@@ -39,6 +44,7 @@ public class ExperienceController {
         }
         out.addAttribute("user", user);
         out.addAttribute("experience", experience);
+        out.addAttribute("skillList", skillRepository.findAll());
         return "/experience";
     }
 

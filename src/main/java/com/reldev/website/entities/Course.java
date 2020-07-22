@@ -47,6 +47,9 @@ public class Course {
     @Column(name = "filter_tag")
     private String filterTag;
 
+    @Transient
+    private String skillList;
+
     @ManyToMany
     @JoinTable(name = "course_skill",
             joinColumns = @JoinColumn(name ="course_id"),
@@ -150,5 +153,13 @@ public class Course {
 
     public void setDiploma(String diploma) {
         this.diploma = diploma;
+    }
+
+    public String getSkillList() {
+        return skillList;
+    }
+
+    public void setSkillList(String skillList) {
+        this.skillList = skillList;
     }
 }

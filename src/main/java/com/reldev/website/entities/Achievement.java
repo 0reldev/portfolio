@@ -41,6 +41,9 @@ public class Achievement {
     @Column(name = "filter_tag")
     private String filterTag;
 
+    @Transient
+    private String skillList;
+
     @ManyToMany
     @JoinTable(name = "achievement_skill",
             joinColumns = @JoinColumn(name ="achievement_id"),
@@ -128,6 +131,14 @@ public class Achievement {
 
     public void setFilterTag(String filterTag) {
         this.filterTag = filterTag;
+    }
+
+    public String getSkillList() {
+        return skillList;
+    }
+
+    public void setSkillList(String skillList) {
+        this.skillList = skillList;
     }
 }
 

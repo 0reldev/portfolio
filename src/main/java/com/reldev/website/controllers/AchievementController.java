@@ -2,9 +2,11 @@ package com.reldev.website.controllers;
 
 import com.reldev.website.entities.Achievement;
 import com.reldev.website.entities.Course;
+import com.reldev.website.entities.Skill;
 import com.reldev.website.entities.User;
 import com.reldev.website.repositories.AchievementRepository;
 import com.reldev.website.repositories.CourseRepository;
+import com.reldev.website.repositories.SkillRepository;
 import com.reldev.website.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,9 @@ public class AchievementController {
     @Autowired
     private AchievementRepository repository;
 
+    @Autowired
+    private SkillRepository skillRepository;
+
     @GetMapping("/achievement")
     public String getAchievement(Model out,
                                 @RequestParam(required = false) Long id) {
@@ -41,6 +46,7 @@ public class AchievementController {
         }
         out.addAttribute("user", user);
         out.addAttribute("achievement", achievement);
+        out.addAttribute("skillList", skillRepository.findAll());
         return "/achievement";
     }
 
