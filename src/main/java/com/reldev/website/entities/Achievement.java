@@ -20,10 +20,10 @@ public class Achievement {
     @Column(nullable = false)
     private String title;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
-    @Column
+    @Lob
     private String description;
 
     @Column
@@ -37,6 +37,9 @@ public class Achievement {
 
     @Column(name = "picture_url")
     private String pictureUrl;
+
+    @Column(name = "filter_tag")
+    private String filterTag;
 
     @ManyToMany
     @JoinTable(name = "achievement_skill",
@@ -117,6 +120,14 @@ public class Achievement {
 
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
+    }
+
+    public String getFilterTag() {
+        return filterTag;
+    }
+
+    public void setFilterTag(String filterTag) {
+        this.filterTag = filterTag;
     }
 }
 

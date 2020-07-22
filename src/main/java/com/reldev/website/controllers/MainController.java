@@ -1,6 +1,7 @@
 package com.reldev.website.controllers;
 
 import com.reldev.website.entities.User;
+import com.reldev.website.repositories.AchievementRepository;
 import com.reldev.website.repositories.CourseRepository;
 import com.reldev.website.repositories.ExperienceRepository;
 import com.reldev.website.repositories.SkillRepository;
@@ -25,6 +26,9 @@ public class MainController {
     @Autowired
     private SkillRepository skillRepository;
 
+    @Autowired
+    private AchievementRepository achievementRepository;
+
     @GetMapping("/")
     public String getIndex() {
 
@@ -39,6 +43,7 @@ public class MainController {
         out.addAttribute("experiences", experienceRepository.findAll());
         out.addAttribute("courses", courseRepository.findAll());
         out.addAttribute("skills", skillRepository.findAll());
+        out.addAttribute("achievements", achievementRepository.findAll());
         return "/admin";
     }
 
