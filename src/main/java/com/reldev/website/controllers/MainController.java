@@ -1,6 +1,7 @@
 package com.reldev.website.controllers;
 
 import com.reldev.website.entities.User;
+import com.reldev.website.repositories.ExperienceRepository;
 import com.reldev.website.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,9 @@ public class MainController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ExperienceRepository experienceRepository;
+
     @GetMapping("/")
     public String getIndex() {
 
@@ -20,10 +24,11 @@ public class MainController {
     }
 
     @GetMapping("/admin")
-    public String getAdmin(Model out) {
+    public String getAllDatas(Model out) {
 
         User user = userService.getLoggedUser();
         out.addAttribute("user", user);
+        out.addAttribute("experiences", experienceRepository.findAll());
         return "/admin";
     }
 

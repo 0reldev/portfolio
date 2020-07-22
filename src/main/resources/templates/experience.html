@@ -11,6 +11,9 @@
     <label for="experience-job-title">Intitulé du poste :</label>
     <input id="experience-job-title" name="job-title" placeholder="Développeur" required th:field="*{jobTitle}" type="text">
     <br><br>
+    <label for="experience-company-name">Entreprise :</label>
+    <input id="experience-company-name" name="company-name" placeholder="Google" required th:field="*{companyName}" type="text">
+    <br><br>
     <label for="experience-description">Description :</label>
     <input id="experience-description" name="description" placeholder="Description des missions réalisées." th:field="*{description}" type="text">
     <br><br>
@@ -28,9 +31,6 @@
     <br><br>
     <label for="experience-contract-type">Type de contrat :</label>
     <input id="experience-contract-type" name="contract-type" placeholder="CDI" th:field="*{contractType}" type="text">
-    <br><br>
-    <label for="experience-company-name">Entreprise :</label>
-    <input id="experience-company-name" name="company-name" placeholder="Google" required th:field="*{companyName}" type="text">
     <br><br>
     <label for="experience-city">Ville :</label>
     <input id="experience-city" name="city" placeholder="Nantes" required th:field="*{city}" type="text">
