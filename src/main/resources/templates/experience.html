@@ -12,7 +12,7 @@
     <input id="experience-job-title" name="job-title" placeholder="Développeur" required th:field="*{jobTitle}" type="text">
     <br><br>
     <label for="experience-description">Description :</label>
-    <input id="experience-description" name="description" placeholder="Description des missions réalisées." required th:field="*{description}" type="text">
+    <input id="experience-description" name="description" placeholder="Description des missions réalisées." th:field="*{description}" type="text">
     <br><br>
     <label for="experience-start-date">Date de prise de poste :</label>
     <input id="experience-start-date" name="start-date" class="datepicker" value="01/01/2021" required th:field="*{startDate}" type="date">
@@ -21,13 +21,13 @@
     <input id="experience-end-date" name="end-date" value="01/01/2021" required th:field="*{endDate}" type="date">
     <br><br>
     <label for="experience-duration">Durée :</label>
-    <input id="experience-duration" name="duration" placeholder="6 mois" required th:field="*{duration}" type="text">
+    <input id="experience-duration" name="duration" placeholder="6 mois" th:field="*{duration}" type="text">
     <br><br>
     <label for="experience-sector">Secteur d'activité :</label>
-    <input id="experience-sector" name="sector" placeholder="Industrie automobile" required th:field="*{sector}" type="text">
+    <input id="experience-sector" name="sector" placeholder="Industrie automobile"  th:field="*{sector}" type="text">
     <br><br>
     <label for="experience-contract-type">Type de contrat :</label>
-    <input id="experience-contract-type" name="contract-type" placeholder="CDI" required th:field="*{contractType}" type="text">
+    <input id="experience-contract-type" name="contract-type" placeholder="CDI" th:field="*{contractType}" type="text">
     <br><br>
     <label for="experience-company-name">Entreprise :</label>
     <input id="experience-company-name" name="company-name" placeholder="Google" required th:field="*{companyName}" type="text">
@@ -35,10 +35,10 @@
     <label for="experience-city">Ville :</label>
     <input id="experience-city" name="city" placeholder="Nantes" required th:field="*{city}" type="text">
     <br><br>
-    <label for="experience-company-logo">Ville :</label>
-    <input id="experience-company-logo" name="company-logo" placeholder="URL de l'image" required th:field="*{companyLogoUrl}" type="text">
+    <label for="experience-company-logo">URL du logo de l'entreprise :</label>
+    <input id="experience-company-logo" name="company-logo" placeholder="URL de l'image" th:field="*{companyLogoUrl}" type="text">
     <br><br>
-    <label for="experience-filter-tag">CV :</label>
+    <label for="experience-filter-tag">Libellés :</label>
     <input id="experience-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
     <br><br>
     <input type="submit" value="Valider">
