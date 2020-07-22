@@ -129,12 +129,12 @@ public class Experience {
         this.city = city;
     }
 
-    public String getCompanyLogo() {
-        return companyLogo;
+    public String getCompanyLogoUrl() {
+        return companyLogoUrl;
     }
 
-    public void setCompanyLogo(String companyLogo) {
-        this.companyLogo = companyLogo;
+    public void setCompanyLogoUrl(String companyLogoUrl) {
+        this.companyLogoUrl = companyLogoUrl;
     }
 
     public String getFilterTag() {
