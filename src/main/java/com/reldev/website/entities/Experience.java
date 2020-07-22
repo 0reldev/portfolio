@@ -1,22 +1,20 @@
 package com.reldev.website.entities;
 
-import com.sun.istack.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "course")
-public class Course {
+@Table(name= "experience")
+public class Experience {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Column(nullable =  false, name = "course_title")
-    private String courseTitle;
+    @Column(nullable = false, name = "job_title")
+    private String jobTitle;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date startDate;
@@ -30,19 +28,25 @@ public class Course {
     @Column
     private String description;
 
-    @Column(name = "school_name")
-    private String schoolName;
+    @Column
+    private String sector;
 
-    @Column(name = "school_logo")
-    private String schoolLogo;
+    @Column(name = "contract_type")
+    private String contractType;
+
+    @Column(name = "company_name")
+    private String companyName;
 
     @Column
     private String city;
 
+    @Column(name = "company_logo")
+    private String companyLogo;
+
     @Column(name = "filter_tag")
     private String filterTag;
 
-    public Course() {
+    public Experience() {
     }
 
     public Long getId() {
@@ -53,12 +57,12 @@ public class Course {
         this.id = id;
     }
 
-    public String getCourseTitle() {
-        return courseTitle;
+    public String getJobTitle() {
+        return jobTitle;
     }
 
-    public void setCourseTitle(String courseTitle) {
-        this.courseTitle = courseTitle;
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
     }
 
     public Date getStartDate() {
@@ -93,20 +97,28 @@ public class Course {
         this.description = description;
     }
 
-    public String getSchoolName() {
-        return schoolName;
+    public String getSector() {
+        return sector;
     }
 
-    public void setSchoolName(String schoolName) {
-        this.schoolName = schoolName;
+    public void setSector(String sector) {
+        this.sector = sector;
     }
 
-    public String getSchoolLogo() {
-        return schoolLogo;
+    public String getContractType() {
+        return contractType;
     }
 
-    public void setSchoolLogo(String schoolLogo) {
-        this.schoolLogo = schoolLogo;
+    public void setContractType(String contractType) {
+        this.contractType = contractType;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public String getCity() {
@@ -115,6 +127,14 @@ public class Course {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getCompanyLogo() {
+        return companyLogo;
+    }
+
+    public void setCompanyLogo(String companyLogo) {
+        this.companyLogo = companyLogo;
     }
 
     public String getFilterTag() {
