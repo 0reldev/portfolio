@@ -27,7 +27,7 @@ public class Experience {
     @Column
     private String duration;
 
-    @Column
+    @Lob
     private String description;
 
     @Column

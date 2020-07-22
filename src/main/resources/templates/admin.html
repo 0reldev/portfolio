@@ -10,7 +10,7 @@
 </header>
 <section>
     <h3>Gestion des expériences</h3>
-    <a href="/experience">Créer une expérience</a>
+    <a href="/experience">Entrer une expérience</a>
     <br><br>
     <table>
         <thead>
@@ -34,18 +34,33 @@
         </tr>
         </tbody>
     </table>
-
-    <!-- TODO: afficher toutes les expériences -->
-    <!-- TODO: Ajouter un bouton d'ajout -->
-    <!-- TODO: Ajouter un bouton d'édition -->
-    <!-- TODO: Ajouter un bouton de suppression -->
 </section>
 <section>
     <h3>Gestion des formations</h3>
-    <!-- TODO: afficher toutes les formations -->
-    <!-- TODO: Ajouter un bouton d'ajout -->
-    <!-- TODO: Ajouter un bouton d'édition -->
-    <!-- TODO: Ajouter un bouton de suppression -->
+    <a href="/course">Entrer une formation</a>
+    <br><br>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Intitulé</th>
+            <th>École/organisme</th>
+            <th>Ville</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course : ${courses}">
+            <td th:text="${course.id}">id</td>
+            <td th:text="${course.courseTitle}">Intitulé de la formation</td>
+            <td th:text="${course.schoolName}">Entreprise</td>
+            <td th:text="${course.city}">Ville</td>
+            <td><a th:href="@{/experience(id=${course.id})}">Modifier</a></td>
+            <td><a th:href="@{/experience/delete(id=${course.id})}">Supprimer</a></td>
+        </tr>
+        </tbody>
+    </table>
 </section>
 <section>
     <h3>Gestion des compétences</h3>

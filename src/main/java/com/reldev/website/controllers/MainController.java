@@ -1,6 +1,7 @@
 package com.reldev.website.controllers;
 
 import com.reldev.website.entities.User;
+import com.reldev.website.repositories.CourseRepository;
 import com.reldev.website.repositories.ExperienceRepository;
 import com.reldev.website.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class MainController {
     @Autowired
     private ExperienceRepository experienceRepository;
 
+    @Autowired
+    private CourseRepository courseRepository;
+
     @GetMapping("/")
     public String getIndex() {
 
@@ -29,6 +33,7 @@ public class MainController {
         User user = userService.getLoggedUser();
         out.addAttribute("user", user);
         out.addAttribute("experiences", experienceRepository.findAll());
+        out.addAttribute("courses", courseRepository.findAll());
         return "/admin";
     }
 

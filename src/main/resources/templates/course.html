@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${course.id} ? 'Modification d\'une formation' : 'Création d\' une formation'">Formations</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/course}" th:object="${course}">
+    <input name="id" th:field="*{id}" type="hidden">
+    <label for="course-title">Intitulé de la formation :</label>
+    <input id="course-title" name="course-title" placeholder="Développeur web" required th:field="*{courseTitle}" type="text">
+    <br><br>
+    <label for="course-school-name">École/organisme de formation :</label>
+    <input id="course-school-name" name="school-name" placeholder="Wild Code School" required th:field="*{schoolName}" type="text">
+    <br><br>
+    <label for="course-description">Description :</label>
+    <input id="course-description" name="description" placeholder="Description du cursus." th:field="*{description}" type="text">
+    <br><br>
+    <label for="course-start-date">Date d'entrée en formation :</label>
+    <input id="course-start-date" name="start-date" class="datepicker" value="01/01/2021" required th:field="*{startDate}" type="date">
+    <br><br>
+    <label for="course-end-date">Date de fin de formation :</label>
+    <input id="course-end-date" name="end-date" value="01/01/2021" required th:field="*{endDate}" type="date">
+    <br><br>
+    <label for="course-duration">Durée :</label>
+    <input id="course-duration" name="duration" placeholder="6 mois" th:field="*{duration}" type="text">
+    <br><br>
+    <label for="course-diploma">Diplôme/certification :</label>
+    <input id="course-diploma" name="diploma" placeholder="Diplôme d'ingénieur"  th:field="*{diploma}" type="text">
+    <br><br>
+    <label for="course-city">Ville :</label>
+    <input id="course-city" name="city" placeholder="Nantes" required th:field="*{city}" type="text">
+    <br><br>
+    <label for="course-school-logo">URL du logo de l'entreprise :</label>
+    <input id="course-school-logo" name="school-logo" placeholder="URL de l'image" th:field="*{schoolLogoUrl}" type="text">
+    <br><br>
+    <label for="course-filter-tag">Libellés :</label>
+    <input id="course-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
+    <br><br>
+    <input type="submit" value="Valider">
+</form>
+
+<br>
+<a href="/admin">Retour</a>
+
+</body>
+</html>

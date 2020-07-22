@@ -20,23 +20,26 @@ public class Course {
     @Column(nullable =  false, name = "course_title")
     private String courseTitle;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
 
     @Column
     private String duration;
 
-    @Column
+    @Lob
     private String description;
+
+    @Column
+    private String diploma;
 
     @Column(name = "school_name")
     private String schoolName;
 
-    @Column(name = "school_logo")
-    private String schoolLogo;
+    @Column(name = "school_logo_url")
+    private String schoolLogoUrl;
 
     @Column
     private String city;
@@ -109,12 +112,12 @@ public class Course {
         this.schoolName = schoolName;
     }
 
-    public String getSchoolLogo() {
-        return schoolLogo;
+    public String getSchoolLogoUrl() {
+        return schoolLogoUrl;
     }
 
-    public void setSchoolLogo(String schoolLogo) {
-        this.schoolLogo = schoolLogo;
+    public void setSchoolLogoUrl(String schoolLogoUrl) {
+        this.schoolLogoUrl = schoolLogoUrl;
     }
 
     public String getCity() {
@@ -139,5 +142,13 @@ public class Course {
 
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
+    }
+
+    public String getDiploma() {
+        return diploma;
+    }
+
+    public void setDiploma(String diploma) {
+        this.diploma = diploma;
     }
 }
