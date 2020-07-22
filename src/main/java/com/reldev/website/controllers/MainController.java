@@ -1,10 +1,33 @@
 package com.reldev.website.controllers;
 
+import com.reldev.website.entities.User;
+import com.reldev.website.repositories.AchievementRepository;
+import com.reldev.website.repositories.CourseRepository;
+import com.reldev.website.repositories.ExperienceRepository;
+import com.reldev.website.repositories.SkillRepository;
+import com.reldev.website.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private ExperienceRepository experienceRepository;
+
+    @Autowired
+    private CourseRepository courseRepository;
+
+    @Autowired
+    private SkillRepository skillRepository;
+
+    @Autowired
+    private AchievementRepository achievementRepository;
 
     @GetMapping("/")
     public String getIndex() {
@@ -13,8 +36,22 @@ public class MainController {
     }
 
     @GetMapping("/admin")
-    public String getAdmin() {
+    public String getAllDatas(Model out) {
 
+        User user = userService.getLoggedUser();
+        out.addAttribute("user", user);
+        out.addAttribute("experiences", experienceRepository.findAll());
+        out.addAttribute("courses", courseRepository.findAll());
+        out.addAttribute("skills", skillRepository.findAll());
+        out.addAttribute("achievements", achievementRepository.findAll());
         return "/admin";
     }
+
+    @GetMapping("/login")
+    public String getLogIn() {
+
+        return "/login";
+    }
+
 }
+

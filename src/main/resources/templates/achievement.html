@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${achievement.id} ? 'Modification d\'une réalisation' : 'Création d\'une réalisation'">Réalisations</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/achievement}" th:object="${achievement}">
+    <input name="id" th:field="*{id}" type="hidden">
+    <label for="achievement-title">Nom de la réalisation :</label>
+    <input id="achievement-title" name="achievement-title" placeholder="Nom du projet" required th:field="*{title}" type="text">
+    <br><br>
+    <label for="achievement-company">Entreprise :</label>
+    <input id="achievement-company" name="achievement-company" placeholder="Wild Code School" required th:field="*{organism}" type="text">
+    <br><br>
+    <label for="course-description">Description :</label>
+    <input id="course-description" name="description" placeholder="Description du cursus." th:field="*{description}" type="text">
+    <br><br>
+    <label for="achievement-date">Date :</label>
+    <input id="achievement-date" name="date" class="datepicker" value="01/01/2021" required th:field="*{date}" type="date">
+    <br><br>
+    <label for="achievement-customer">Client :</label>
+    <input id="achievement-customer" name="customer" placeholder="Synergie Family" th:field="*{customer}" type="text">
+    <br><br>
+    <label for="achievement-url">URL :</label>
+    <input id="achievement-url" name="url" placeholder="URL du projet"  th:field="*{url}" type="text">
+    <br><br>
+    <label for="achievement-picture-url">URL d'une image représentant la réalisation :</label>
+    <input id="achievement-picture-url" name="picture-url" placeholder="URL de l'image" th:field="*{pictureUrl}" type="text">
+    <br><br>
+    <label for="achievement-filter-tag">Libellés :</label>
+    <input id="achievement-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
+    <br><br>
+<!--    TODO: add the skills-->
+    <input type="submit" value="Valider">
+</form>
+
+<br>
+<a href="/admin">Retour</a>
+
+</body>
+</html>
