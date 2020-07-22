@@ -3,7 +3,9 @@ package com.reldev.website.entities;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name= "experience")
@@ -45,6 +47,12 @@ public class Experience {
 
     @Column(name = "filter_tag")
     private String filterTag;
+
+    @ManyToMany
+    @JoinTable(name = "experience_skill",
+            joinColumns = @JoinColumn(name ="experience_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    private List<Skill> skills = new ArrayList<>();
 
     public Experience() {
     }
@@ -143,5 +151,13 @@ public class Experience {
 
     public void setFilterTag(String filterTag) {
         this.filterTag = filterTag;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
     }
 }

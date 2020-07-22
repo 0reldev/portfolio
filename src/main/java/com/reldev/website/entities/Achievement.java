@@ -4,7 +4,9 @@ import com.sun.istack.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "achievement")
@@ -35,6 +37,12 @@ public class Achievement {
 
     @Column(name = "picture_url")
     private String pictureUrl;
+
+    @ManyToMany
+    @JoinTable(name = "achievement_skill",
+            joinColumns = @JoinColumn(name ="achievement_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    private List<Skill> skills = new ArrayList<>();
 
     public Achievement() {
     }
@@ -101,6 +109,14 @@ public class Achievement {
 
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
     }
 }
 
