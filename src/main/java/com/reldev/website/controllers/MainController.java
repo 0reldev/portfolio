@@ -39,6 +39,7 @@ public class MainController {
     public String getIndex(Model out) {
 
         out.addAttribute("experiences", experienceRepository.findAll());
+        out.addAttribute("courses", courseRepository.findAll());
         return "/index";
     }
 

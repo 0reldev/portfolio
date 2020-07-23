@@ -7,3 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Long> {
 }
+
+/*
+TODO: add a query to find all the stuff ordered by date*/
