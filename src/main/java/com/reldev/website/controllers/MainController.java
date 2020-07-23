@@ -1,21 +1,23 @@
 package com.reldev.website.controllers;
 
 import com.reldev.website.entities.User;
-import com.reldev.website.repositories.AchievementRepository;
-import com.reldev.website.repositories.CourseRepository;
-import com.reldev.website.repositories.ExperienceRepository;
-import com.reldev.website.repositories.SkillRepository;
+import com.reldev.website.repositories.*;
 import com.reldev.website.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MainController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private ExperienceRepository experienceRepository;
@@ -28,6 +30,10 @@ public class MainController {
 
     @Autowired
     private AchievementRepository achievementRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
 
     @GetMapping("/")
     public String getIndex(Model out) {
@@ -52,6 +58,22 @@ public class MainController {
     public String getLogIn() {
 
         return "/login";
+    }
+
+    @GetMapping("/init")
+    @ResponseBody
+    public String getInit() {
+
+        User user = new User();
+        user.setPassword(passwordEncoder.encode("kiwi"));
+/*
+        TODO: secure the password
+*/
+        user.setRole("ROLE_ADMIN");
+        user.setUsername("aurelien");
+
+        userRepository.save(user);
+        return "ok";
     }
 
 }

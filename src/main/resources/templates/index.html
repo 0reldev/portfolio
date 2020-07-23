@@ -35,7 +35,7 @@
     <div class="experiencesContainerForDesktop" th:each="experience : ${experiences} ">
         <div class="timeBlock">
             <div class="dateBlock">
-                <p th:text="|${experience.startDate} – ${experience.endDate}|">dates</p>
+                <p th:text="|${#calendars.format(experience.startDate,'yyyy')} – ${#calendars.format(experience.endDate,'yyyy')}|">dates</p>
             </div>
             <div class="durationBlock">
                 <p th:text="${experience.duration}">durée</p>
