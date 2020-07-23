@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -28,14 +28,54 @@
             </div>
         </div>
     </div>
-
-
-
-
 </header>
 
 <section class="experienceSection">
     <h3>EXPÉRIENCE</h3>
+    <div class="experiencesContainerForDesktop" th:each="experience : ${experiences} ">
+        <div class="timeBlock">
+            <div class="dateBlock">
+                <p th:text="|${experience.startDate} – ${experience.endDate}|">dates</p>
+            </div>
+            <div class="durationBlock">
+                <p th:text="${experience.duration}">durée</p>
+            </div>
+        </div>
+        <div class="jobBlock">
+            <div class="jobHeadBlock">
+                <div class="jobSpecBlock">
+                    <div class="jobTitleBlock">
+                        <p th:text="${experience.jobTitle}">Poste</p>
+                    </div>
+                    <div class="jobContractBlock">
+                        <p th:text="${experience.contractType}">type de contrat</p>
+                    </div>
+                </div>
+                <div class="jobCompanyBlock">
+                    <div class="jobCompanyNameBlock">
+                        <p th:text="${experience.companyName}">Entreprise</p>
+                    </div>
+                    <div class="jobCompanyLogoBlock">
+                        <img alt="logo"
+                             th:src="${experience.companyLogoUrl}">
+                    </div>
+                    <div class="jobCityBlock">
+                        <p th:text="${experience.city}">Ville</p>
+                    </div>
+                </div>
+            </div>
+            <div class="jobDescriptionBlock">
+                <p th:text="${experience.description}">Description</p>
+            </div>
+            <div class="jobSkillBlock">
+<!--                TODO: connect skills here-->
+            </div>
+
+        </div>
+
+    </div>
+
+
 
 </section>
 

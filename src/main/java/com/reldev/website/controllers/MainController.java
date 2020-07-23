@@ -30,8 +30,9 @@ public class MainController {
     private AchievementRepository achievementRepository;
 
     @GetMapping("/")
-    public String getIndex() {
+    public String getIndex(Model out) {
 
+        out.addAttribute("experiences", experienceRepository.findAll());
         return "/index";
     }
 
