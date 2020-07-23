@@ -14,7 +14,6 @@ header {
     background-image: url("../pictures/profile-picture.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 
@@ -45,7 +44,110 @@ body {
     background-size: cover;
 }
 
+section {
+    padding: 2em;
+}
 
-@media screen and (min-width: 768px) {
+p {
+    font-family: 'Lora', serif;
+    line-height: 200%;
+}
+
+.experienceSection {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.experiencesContainerForDesktop {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+}
+
+.timeBlock {
+    display: flex;
+    flex-direction: column;
+    min-width: 20%;
+    text-align: center;
+}
+
+.durationBlock, .jobContractBlock, .pinAndCityBlock {
+    font-size: smaller;
+}
+
+.jobBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+.jobHeadBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.companyLogo {
+    height: 50px;
+}
+
+.jobSpecBlock {
+    width: auto;
+    margin-right: 10rem;
+}
+
+.jobDescriptionBlock {
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.jobTitleBlock p {
+    font-weight: bold;
+}
+
+.jobCompanyBlock {
+    text-align: right;
+    padding-right: 10%;
+}
+
+.jobDescriptionBlock {
+    padding-right: 10%;
+}
+
+@media screen and (max-width: 768px) {
+
+    .jobCompanyLogoBlock {
+        display: none;
+    }
+
+    .durationBlock, .jobContractBlock {
+        display: none;
+    }
+
+    .jobHeadBlock {
+        flex-direction: column;
+    }
+
+    .jobCompanyBlock {
+        flex-direction: row;
+    }
+
+    .jobCompanyNameBlock {
+        font-size: smaller;
+        font-weight: bold;
+    }
+
+    .jobSpecBlock {
+        width: auto;
+        margin-right: 1rem;
+    }
+
+    .jobBlock {
+        padding: 0 1rem;
+    }
+
+    .dateBlock {
+        font-size: smaller;
+    }
 
 }

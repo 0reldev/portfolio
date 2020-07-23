@@ -6,7 +6,7 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet"> </head>
 <body>
 <header>
     <h1 class="myNameTitle"> Aurélien Lonni</h1>
@@ -31,7 +31,7 @@
 </header>
 
 <section class="experienceSection">
-    <h3>EXPÉRIENCE</h3>
+    <div><h3>EXPÉRIENCE</h3></div>
     <div class="experiencesContainerForDesktop" th:each="experience : ${experiences} ">
         <div class="timeBlock">
             <div class="dateBlock">
@@ -56,26 +56,25 @@
                         <p th:text="${experience.companyName}">Entreprise</p>
                     </div>
                     <div class="jobCompanyLogoBlock">
-                        <img alt="logo"
+                        <img class="companyLogo" alt="logo"
                              th:src="${experience.companyLogoUrl}">
                     </div>
-                    <div class="jobCityBlock">
-                        <p th:text="${experience.city}">Ville</p>
+                    <div class="pinAndCityBlock">
+<!--
+                        TODO: add a location pin icon
+-->
+                            <p th:text="${experience.city}">Ville</p></div>
                     </div>
                 </div>
+                <div class="jobDescriptionBlock">
+                    <p th:text="${experience.description}">Description</p>
+                </div>
+                <div class="jobSkillBlock">
+                    <!-- TODO: connect skills here-->
+                </div>
             </div>
-            <div class="jobDescriptionBlock">
-                <p th:text="${experience.description}">Description</p>
-            </div>
-            <div class="jobSkillBlock">
-<!--                TODO: connect skills here-->
-            </div>
-
         </div>
-
     </div>
-
-
 
 </section>
 
