@@ -43,12 +43,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/pictures/*").permitAll()
                 .antMatchers("/login/**").permitAll()
                 .antMatchers("/").permitAll()
-/*                .antMatchers("/admin").permitAll()*/
-                .antMatchers("/experience/**").permitAll()
-                .antMatchers("/course/**").permitAll()
-                .antMatchers("/skill/**").permitAll()
-                .antMatchers("/achievement/**").permitAll()
-                .antMatchers("/admin").hasAnyRole("ADMIN") /*TODO: manage the restricted access*/
+                .antMatchers("/experience/**").hasAnyRole("ADMIN")
+                .antMatchers("/course/**").hasAnyRole("ADMIN")
+                .antMatchers("/skill/**").hasAnyRole("ADMIN")
+                .antMatchers("/achievement/**").hasAnyRole("ADMIN")
+                .antMatchers("/admin").hasAnyRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
