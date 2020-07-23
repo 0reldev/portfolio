@@ -8,3 +8,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AchievementRepository extends JpaRepository<Achievement, Long> {
 }
+
+/*
+TODO: add a query to find all the stuff ordered by date*/
+
+/*
+TODO: create a PUBLICATIONS entity*/

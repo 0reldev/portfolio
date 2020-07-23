@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-image: url("../pictures/header-background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 10rem;
+}
+
+footer {
+    background-color: rgba(1,1,1,0.1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.profilePicDiv {
+    background-image: url("../pictures/profile-picture.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+h1, h2, h3, nav, footer {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+h3 {
+    padding: 5% 0;
+}
+
+.myNameTitle, .websiteTitle {
+    text-align: center;
+}
+
+nav ul, footer ul {
+    list-type: none;
+}
+
+footer li, footer a {
+    color: orangered;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: gold;
+}
+
+
+li {
+    display:block;
+    line-height: 200%;
+}
+
+body {
+    background-image: url("../pictures/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+section {
+    padding: 2em;
+}
+
+p {
+    font-family: 'Lora', serif;
+    line-height: 200%;
+}
+
+.experienceSection {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.experiencesContainerForDesktop {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+}
+
+.timeBlock {
+    display: flex;
+    flex-direction: column;
+    min-width: 20%;
+    text-align: center;
+}
+
+.durationBlock, .jobContractBlock, .pinAndCityBlock {
+    font-size: smaller;
+}
+
+.jobBlock {
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+}
+
+.jobHeadBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.companyLogo {
+    height: 50px;
+}
+
+.jobSpecBlock {
+    width: auto;
+    margin-right: 10rem;
+}
+
+.jobDescriptionBlock {
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.jobTitleBlock p {
+    font-weight: bold;
+}
+
+.jobCompanyBlock {
+    text-align: right;
+    padding-right: 10%;
+}
+
+.jobDescriptionBlock {
+    padding-right: 10%;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    footer {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .jobCompanyLogoBlock {
+        display: none;
+    }
+
+    .durationBlock, .jobContractBlock {
+        display: none;
+    }
+
+    .jobHeadBlock {
+        flex-direction: column;
+    }
+
+    .jobCompanyBlock {
+        flex-direction: row;
+    }
+
+    .jobCompanyNameBlock {
+        font-size: smaller;
+        font-weight: bold;
+    }
+
+    .jobSpecBlock {
+        width: auto;
+        margin-right: 1rem;
+    }
+
+    .jobBlock {
+        padding: 0 1rem;
+    }
+
+    .dateBlock {
+        font-size: smaller;
+    }
+
+}
