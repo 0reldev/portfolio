@@ -7,7 +7,41 @@ header {
     background-image: url("../pictures/header-background.png");
     background-repeat: no-repeat;
     background-size: cover;
+    height: 10rem;
 }
+
+.profilPicDiv {
+    background-image: url("../pictures/profile-picture.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 5rem;
+
+}
+
+
+h1, h2, h3, nav {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.myNameTitle, .websiteTitle {
+    text-align: center;
+}
+
+nav ul {
+    list-list-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    align-content: space-around;
+}
+
+body {
+    background-image: url("../pictures/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 
 @media screen and (min-width: 768px) {
 
