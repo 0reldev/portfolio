@@ -14,13 +14,17 @@ header {
     background-image: url("../pictures/profile-picture.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    width: 5rem;
 
 }
 
 
 h1, h2, h3, nav {
     font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+h3 {
+    padding: 5% 0;
 }
 
 .myNameTitle, .websiteTitle {
@@ -33,7 +37,6 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    align-content: space-around;
 }
 
 body {
