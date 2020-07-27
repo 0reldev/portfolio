@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Portfolio</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" th:href="@{css/style.css}">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet"> </head>
 <body>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="jobCompanyLogoBlock">
                         <img class="companyLogo"
-                             th:src="${experience.companyLogoUrl}">
+                             th:src="${experience.companyLogoUrl}" th:alt="${experience.companyName}">
                     </div>
                     <div class="pinAndCityBlock">
 <!--
@@ -103,7 +103,7 @@
                     </div>
                     <div class="jobCompanyLogoBlock">
                         <img class="companyLogo"
-                             th:src="${course.schoolLogoUrl}">
+                             th:src="${course.schoolLogoUrl}" th:alt="${course.schoolName}">
                     </div>
                     <div class="pinAndCityBlock">
                         <!--

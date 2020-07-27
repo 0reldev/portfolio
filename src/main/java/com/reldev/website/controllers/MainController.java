@@ -67,9 +67,6 @@ public class MainController {
 
         User user = new User();
         user.setPassword(passwordEncoder.encode("kiwi"));
-/*
-        TODO: secure the password
-*/
         user.setRole("ROLE_ADMIN");
         user.setUsername("aurelien");
 

@@ -41,7 +41,7 @@ h3 {
 }
 
 nav ul, footer ul {
-    list-type: none;
+    list-style: none;
 }
 
 footer li, footer a {
