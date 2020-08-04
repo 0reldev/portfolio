@@ -20,10 +20,18 @@ footer {
     justify-content: space-around;
 }
 
+.photoAndTitles {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+}
+
 .profilePicDiv {
     background-image: url("../pictures/profile-picture.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100px;
+    height: 100px;
 }
 
 
