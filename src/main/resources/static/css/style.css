@@ -20,10 +20,30 @@ footer {
     justify-content: space-around;
 }
 
+.photoAndTitles {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+}
+
+.orangeLine {
+    background-color: orange;
+    height: 10px;
+}
+
+.logInButton {
+    float: right;
+}
+
 .profilePicDiv {
     background-image: url("../pictures/profile-picture.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    width: 150px;
+    height: 150px;
+    border: 10px solid orange;
+    border-radius: 50%;
+    margin: 0 2em;
 }
 
 
@@ -145,6 +165,10 @@ p {
     footer {
         flex-direction: column;
         height: auto;
+    }
+
+    .profilePicDiv {
+        display: none;
     }
 
     .jobCompanyLogoBlock {
