@@ -7,7 +7,6 @@ header {
     background-image: url("../pictures/header-background.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 10rem;
 }
 
 footer {
@@ -27,7 +26,6 @@ footer {
 }
 
 .orangeLine {
-    background-color: orange;
     height: 10px;
 }
 
@@ -49,16 +47,7 @@ footer {
 
 h1, h2, h3, nav, footer {
     font-family: 'Quicksand', sans-serif;
-    text-align: center;
 }
-
-h3 {
-    padding: 5% 0;
-}
-
-/*.myNameTitle, .websiteTitle {
-    text-align: center;
-}*/
 
 nav ul, footer ul {
     list-type: none;
@@ -73,11 +62,6 @@ footer a:hover {
     color: gold;
 }
 
-
-/*li {
-    display:block;
-    line-height: 200%;
-}*/
 
 body {
     background-image: url("../pictures/background.png");
