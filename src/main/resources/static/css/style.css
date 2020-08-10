@@ -56,9 +56,9 @@ h3 {
     padding: 5% 0;
 }
 
-.myNameTitle, .websiteTitle {
+/*.myNameTitle, .websiteTitle {
     text-align: center;
-}
+}*/
 
 nav ul, footer ul {
     list-type: none;
@@ -74,10 +74,10 @@ footer a:hover {
 }
 
 
-li {
+/*li {
     display:block;
     line-height: 200%;
-}
+}*/
 
 body {
     background-image: url("../pictures/background.png");
