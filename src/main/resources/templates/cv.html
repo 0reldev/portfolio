@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>CV</title>
+        <link rel="stylesheet" href="/css/style.css">
+
+        <!-- Google icons and fonts importation -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div th:replace="navbar.html :: navbar"></div>
+        <section class="experienceSection" id="experienceSection">
+            <div><h3>EXPÉRIENCE</h3></div>
+            <div class="experiencesContainerForDesktop" th:each="experience : ${experiences} ">
+                <div class="timeBlock">
+                    <div class="dateBlock">
+                        <p th:text="|${#calendars.format(experience.startDate,'yyyy')} – ${#calendars.format(experience.endDate,'yyyy')}|">dates</p>
+                    </div>
+                    <div class="durationBlock">
+                        <p th:text="${experience.duration}">durée</p>
+                    </div>
+                </div>
+    <!--
+                TODO: disposer les expérience dans des larges images cards de Materialize, ça fera plus propre.
+    -->
+                <div class="jobBlock">
+                    <div class="jobHeadBlock">
+                        <div class="jobSpecBlock">
+                            <div class="jobTitleBlock">
+                                <p th:text="${experience.jobTitle}">Poste</p>
+                            </div>
+                            <div class="jobContractBlock">
+                                <p th:text="${experience.contractType}">type de contrat</p>
+                            </div>
+                        </div>
+                        <div class="jobCompanyBlock">
+                            <div class="jobCompanyNameBlock">
+                                <p th:text="${experience.companyName}">Entreprise</p>
+                            </div>
+                            <div class="jobCompanyLogoBlock">
+                                <img class="companyLogo"
+                                     th:src="${experience.companyLogoUrl}">
+                            </div>
+                            <div class="pinAndCityBlock">
+        <!--
+                                TODO: add a location pin icon
+        -->
+                                    <p th:text="${experience.city}">Ville</p></div>
+                            </div>
+                        </div>
+                        <div class="jobDescriptionBlock">
+                            <p th:text="${experience.description}">Description</p>
+                        </div>
+                        <div class="jobSkillBlock">
+                            <!-- TODO: connect skills here-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="experienceSection" id="educationSection">
+            <div><h3>ÉTUDES ET FORMATIONS</h3></div>
+            <div class="experiencesContainerForDesktop" th:each="course : ${courses} ">
+                <div class="timeBlock">
+                    <div class="dateBlock">
+                        <p th:text="|${#calendars.format(course.startDate,'yyyy')} – ${#calendars.format(course.endDate,'yyyy')}|">dates</p>
+                    </div>
+                    <div class="durationBlock">
+                        <p th:text="${course.duration}">durée</p>
+                    </div>
+                </div>
+                <div class="jobBlock">
+                    <div class="jobHeadBlock">
+                        <div class="jobSpecBlock">
+                            <div class="jobTitleBlock">
+                                <p th:text="${course.courseTitle}">Poste</p>
+                            </div>
+                        </div>
+                        <div class="jobCompanyBlock">
+                            <div class="jobCompanyNameBlock">
+                                <p th:text="${course.schoolName}">École/centre de formation</p>
+                            </div>
+                            <div class="jobCompanyLogoBlock">
+                                <img class="companyLogo"
+                                     th:src="${course.schoolLogoUrl}">
+                            </div>
+                            <div class="pinAndCityBlock">
+                                <!--
+                                                        TODO: add a location pin icon
+                                -->
+                                <p th:text="${course.city}">Ville</p></div>
+                        </div>
+                    </div>
+                    <div class="jobDescriptionBlock">
+                        <p th:text="${course.description}">Description</p>
+                    </div>
+                    <div class="jobSkillBlock">
+                        <!-- TODO: connect skills here-->
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+    <!--
+    <section class="skillsSection" id="skillsSection">
+        <div><h3>COMPÉTENCES</h3></div>
+        <div class="skillContainer">
+            <div class="skillCategoryContainer">
+    &lt;!&ndash;                TODO: create a Category entity for skills,
+                            and add a ManyToMany relation for showing
+                            each skill for each category&ndash;&gt;
+            </div>
+        </div>
+    -->
+
+
+    <!--TODO: complete the achievement section-->
+    <!--</section>
+
+    <section class="achievementsSection" id="achievementsSection">
+        <h3>RÉALISATIONS</h3>
+
+    </section>-->
+
+        <footer th:replace="footer.html :: footer">
+        </footer>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                M.AutoInit();
+            });
+        </script>
+    </body>
+</html>
