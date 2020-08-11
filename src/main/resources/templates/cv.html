@@ -15,10 +15,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     </head>
     <body>
-    <header>
-        <div th:replace="navbar.html :: navbar"></div>
-    </header>
-        <section class="experienceSection" id="experienceSection">
+        <header>
+            <div th:replace="navbar.html :: navbar"></div>
+        </header>
+        <div id="experienceSection"></div>
+        <section class="experienceSection">
             <div><h3>EXPÉRIENCE</h3></div>
             <div class="experiencesContainerForDesktop" th:each="experience : ${experiences} ">
                 <div class="timeBlock">
@@ -67,7 +68,8 @@
                 </div>
             </div>
         </section>
-        <section class="experienceSection" id="educationSection">
+        <div id="educationSection"></div>
+        <section class="experienceSection">
             <div><h3>ÉTUDES ET FORMATIONS</h3></div>
             <div class="experiencesContainerForDesktop" th:each="course : ${courses} ">
                 <div class="timeBlock">
