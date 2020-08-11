@@ -66,49 +66,49 @@
             </div>
         </section>
 
-    <section class="experienceSection">
-        <div><h3>ÉTUDES ET FORMATIONS</h3></div>
-        <div class="experiencesContainerForDesktop" th:each="course : ${courses} ">
-            <div class="timeBlock">
-                <div class="dateBlock">
-                    <p th:text="|${#calendars.format(course.startDate,'yyyy')} – ${#calendars.format(course.endDate,'yyyy')}|">dates</p>
-                </div>
-                <div class="durationBlock">
-                    <p th:text="${course.duration}">durée</p>
-                </div>
-            </div>
-            <div class="jobBlock">
-                <div class="jobHeadBlock">
-                    <div class="jobSpecBlock">
-                        <div class="jobTitleBlock">
-                            <p th:text="${course.courseTitle}">Poste</p>
-                        </div>
+        <section class="experienceSection">
+            <div><h3>ÉTUDES ET FORMATIONS</h3></div>
+            <div class="experiencesContainerForDesktop" th:each="course : ${courses} ">
+                <div class="timeBlock">
+                    <div class="dateBlock">
+                        <p th:text="|${#calendars.format(course.startDate,'yyyy')} – ${#calendars.format(course.endDate,'yyyy')}|">dates</p>
                     </div>
-                    <div class="jobCompanyBlock">
-                        <div class="jobCompanyNameBlock">
-                            <p th:text="${course.schoolName}">École/centre de formation</p>
-                        </div>
-                        <div class="jobCompanyLogoBlock">
-                            <img class="companyLogo"
-                                 th:src="${course.schoolLogoUrl}">
-                        </div>
-                        <div class="pinAndCityBlock">
-                            <!--
-                                                    TODO: add a location pin icon
-                            -->
-                            <p th:text="${course.city}">Ville</p></div>
+                    <div class="durationBlock">
+                        <p th:text="${course.duration}">durée</p>
                     </div>
                 </div>
-                <div class="jobDescriptionBlock">
-                    <p th:text="${course.description}">Description</p>
-                </div>
-                <div class="jobSkillBlock">
-                    <!-- TODO: connect skills here-->
+                <div class="jobBlock">
+                    <div class="jobHeadBlock">
+                        <div class="jobSpecBlock">
+                            <div class="jobTitleBlock">
+                                <p th:text="${course.courseTitle}">Poste</p>
+                            </div>
+                        </div>
+                        <div class="jobCompanyBlock">
+                            <div class="jobCompanyNameBlock">
+                                <p th:text="${course.schoolName}">École/centre de formation</p>
+                            </div>
+                            <div class="jobCompanyLogoBlock">
+                                <img class="companyLogo"
+                                     th:src="${course.schoolLogoUrl}">
+                            </div>
+                            <div class="pinAndCityBlock">
+                                <!--
+                                                        TODO: add a location pin icon
+                                -->
+                                <p th:text="${course.city}">Ville</p></div>
+                        </div>
+                    </div>
+                    <div class="jobDescriptionBlock">
+                        <p th:text="${course.description}">Description</p>
+                    </div>
+                    <div class="jobSkillBlock">
+                        <!-- TODO: connect skills here-->
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
-    </section>
+            </div>
+        </section>
 
     <!--
     <section class="skillsSection">
@@ -131,49 +131,12 @@
 
     </section>-->
 
-    <footer> <!--TODO: add real links and datas to this section-->
-        <div class="contactDiv">
-            <ul class="footerList">
-                <li><a href="mailto:aurelien.lonni@gmail.com">e-mail</a></li>
-    <!--
-                TODO: faire disparaître mon email du HTML pour me protéger de robots spammeurs
-    -->
-                <li>06 52 24 44 25</li>
-                <li>Skype : aurelien.lonni</li>
-            </ul>
-        </div>
-        <div class="proSocialNetworksDiv">
-            <ul>
-                <li><a href="https://www.linkedin.com/in/aurelien-lonni/">LinkedIn</a></li>
-            </ul>
-        </div>
-        <div class="devNetworksDiv">
-            <ul>
-                <li><a href="https://github.com/0reldev">Github</a></li>
-                <li><a href="https://www.codewars.com/users/0reldev">CodeWars</a></li>
-                <li><a href="https://www.codingame.com/profile/e3cadf5c13ec1bdc03ccc3a336338fef7190093">CodinGame</a></li>
-            </ul>
-        </div>
-        <div class="personalSocialNetworksDiv">
-            <ul>
-                <li><a href="https://www.facebook.com/0re.ln">Facebook</a></li>
-                <li><a href="https://www.instagram.com/0reln/">Instagram</a></li>
-                <li><a href="https://www.youtube.com/user/Kiwikyle8"YouTube</a></li>
-                <li><a href="https://twitter.com/aure_ln">Twitter</a></li>
-                <li><a href="https://www.senscritique.com/Finema">SensCritique</a></li>
-            </ul>
-        </div>
-        <div class="personalSocialNetworksDiv">
-            <a href="https://drive.google.com/file/d/1lZMGLrPKj-QNsWrxRxV1WYd2oUATFHWS/view?usp=sharing">Télécharger mon CV</a>
-    <!--        <img>--> <!--TODO: add a download logo-->
-        </div>
-    </footer>
-
+        <footer th:replace="footer.html :: footer">
+        </footer>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
-
             document.addEventListener('DOMContentLoaded', function() {
                 M.AutoInit();
             });

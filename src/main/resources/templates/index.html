@@ -19,49 +19,12 @@
 
         <h1>Page d'accueil</h1>
 
-    <footer> <!--TODO: add real links and datas to this section-->
-        <div class="contactDiv">
-            <ul class="footerList">
-                <li><a href="mailto:aurelien.lonni@gmail.com">e-mail</a></li>
-    <!--
-                TODO: faire disparaître mon email du HTML pour me protéger de robots spammeurs
-    -->
-                <li>06 52 24 44 25</li>
-                <li>Skype : aurelien.lonni</li>
-            </ul>
-        </div>
-        <div class="proSocialNetworksDiv">
-            <ul>
-                <li><a href="https://www.linkedin.com/in/aurelien-lonni/">LinkedIn</a></li>
-            </ul>
-        </div>
-        <div class="devNetworksDiv">
-            <ul>
-                <li><a href="https://github.com/0reldev">Github</a></li>
-                <li><a href="https://www.codewars.com/users/0reldev">CodeWars</a></li>
-                <li><a href="https://www.codingame.com/profile/e3cadf5c13ec1bdc03ccc3a336338fef7190093">CodinGame</a></li>
-            </ul>
-        </div>
-        <div class="personalSocialNetworksDiv">
-            <ul>
-                <li><a href="https://www.facebook.com/0re.ln">Facebook</a></li>
-                <li><a href="https://www.instagram.com/0reln/">Instagram</a></li>
-                <li><a href="https://www.youtube.com/user/Kiwikyle8"YouTube</a></li>
-                <li><a href="https://twitter.com/aure_ln">Twitter</a></li>
-                <li><a href="https://www.senscritique.com/Finema">SensCritique</a></li>
-            </ul>
-        </div>
-        <div class="personalSocialNetworksDiv">
-            <a href="https://drive.google.com/file/d/1lZMGLrPKj-QNsWrxRxV1WYd2oUATFHWS/view?usp=sharing">Télécharger mon CV</a>
-    <!--        <img>--> <!--TODO: add a download logo-->
-        </div>
-    </footer>
-
+        <footer th:replace="footer.html :: footer">
+        </footer>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
-
             document.addEventListener('DOMContentLoaded', function() {
                 M.AutoInit();
             });
