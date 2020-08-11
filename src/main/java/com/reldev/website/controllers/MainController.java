@@ -38,6 +38,7 @@ public class MainController {
     @GetMapping("/")
     public String getIndex(Model out) {
 
+        out.addAttribute("homePage", true);
         out.addAttribute("aboutPage", false);
         out.addAttribute("cvPage", false);
         out.addAttribute("musicPage", false);
@@ -67,6 +68,7 @@ public class MainController {
     @GetMapping("/about")
     public String getAbout(Model out) {
 
+        out.addAttribute("homePage", false);
         out.addAttribute("aboutPage", true);
         out.addAttribute("cvPage", false);
         out.addAttribute("musicPage", false);
@@ -78,6 +80,7 @@ public class MainController {
     @GetMapping("/cv")
     public String getCV(Model out) {
 
+        out.addAttribute("homePage", false);
         out.addAttribute("aboutPage", false);
         out.addAttribute("cvPage", true);
         out.addAttribute("musicPage", false);
@@ -91,6 +94,7 @@ public class MainController {
     @GetMapping("/music")
     public String getMusic(Model out) {
 
+        out.addAttribute("homePage", false);
         out.addAttribute("aboutPage", false);
         out.addAttribute("cvPage", false);
         out.addAttribute("musicPage", true);
@@ -102,6 +106,7 @@ public class MainController {
     @GetMapping("/contact")
     public String getContact(Model out) {
 
+        out.addAttribute("homePage", false);
         out.addAttribute("aboutPage", false);
         out.addAttribute("cvPage", false);
         out.addAttribute("musicPage", false);
