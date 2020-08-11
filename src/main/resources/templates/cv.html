@@ -16,7 +16,7 @@
     </head>
     <body>
         <div th:replace="navbar.html :: navbar"></div>
-        <section class="experienceSection">
+        <section class="experienceSection" id="experienceSection">
             <div><h3>EXPÉRIENCE</h3></div>
             <div class="experiencesContainerForDesktop" th:each="experience : ${experiences} ">
                 <div class="timeBlock">
@@ -65,8 +65,7 @@
                 </div>
             </div>
         </section>
-
-        <section class="experienceSection">
+        <section class="experienceSection" id="educationSection">
             <div><h3>ÉTUDES ET FORMATIONS</h3></div>
             <div class="experiencesContainerForDesktop" th:each="course : ${courses} ">
                 <div class="timeBlock">
@@ -111,7 +110,7 @@
         </section>
 
     <!--
-    <section class="skillsSection">
+    <section class="skillsSection" id="skillsSection">
         <div><h3>COMPÉTENCES</h3></div>
         <div class="skillContainer">
             <div class="skillCategoryContainer">
@@ -126,7 +125,7 @@
     <!--TODO: complete the achievement section-->
     <!--</section>
 
-    <section class="achievementsSection">
+    <section class="achievementsSection" id="achievementsSection">
         <h3>RÉALISATIONS</h3>
 
     </section>-->

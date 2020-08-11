@@ -68,6 +68,7 @@ public class MainController {
     @GetMapping("/cv")
     public String getCV(Model out) {
 
+        out.addAttribute("cvPage", true);
         out.addAttribute("experiences", experienceRepository.findAll());
         out.addAttribute("courses", courseRepository.findAll());
         return "/cv";
