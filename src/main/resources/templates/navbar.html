@@ -26,27 +26,52 @@
                             <i class="material-icons">menu</i>
                         </a>
                         <ul class="right hide-on-med-and-down">
-                            <li>
+                            <li th:if="${aboutPage}" class="active">
                                 <a href="/about">
                                     À PROPOS
                                 </a>
                             </li>
-                            <li>
+                            <li th:if="${not aboutPage}">
+                                <a href="/about">
+                                    À PROPOS
+                                </a>
+                            </li>
+                            <li th:if="${cvPage}" class="active">
                                 <a href="/cv">
                                     CV
                                 </a>
                             </li>
-                            <li>
+                            <li th:if="${not cvPage}">
+                                <a href="/cv">
+                                    CV
+                                </a>
+                            </li>
+                            <li th:if="${musicPage}" class="active">
                                 <a href="/music">
                                     MUSIQUE
                                 </a>
                             </li>
-                            <li>
+                            <li th:if="${not musicPage}">
+                            <a href="/music">
+                                MUSIQUE
+                            </a>
+                            </li>
+                            <li th:if="${contactPage}" class="active">
                                 <a href="/contact">
                                     CONTACT
                                 </a>
                             </li>
-                            <li>
+                            <li th:if="${not contactPage}">
+                                <a href="/contact">
+                                    CONTACT
+                                </a>
+                            </li>
+                            <li th:if="${adminPage}" class="active">
+                                <a href="/admin">
+                                    ADMINISTRATION
+                                </a>
+                            </li>
+                            <li th:if="${not adminPage}">
                                 <a href="/admin">
                                     ADMINISTRATION
                                 </a>
@@ -78,6 +103,25 @@
                         </ul>
                     </div>
                     <!-- TODO: jouter les filtres par tags dans une barre fixe-->
+                    <div th:if="${musicPage}" class="nav-content">
+                        <ul class="tabs tabs-transparent">
+                            <li class="tab">
+                                <a href="#repertorySection">
+                                    Répertoire
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#scoresSection">
+                                    Partitions
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#gigsSection">
+                                    Concerts
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>

@@ -36,8 +36,13 @@ public class MainController {
 
 
     @GetMapping("/")
-    public String getIndex() {
+    public String getIndex(Model out) {
 
+        out.addAttribute("aboutPage", false);
+        out.addAttribute("cvPage", false);
+        out.addAttribute("musicPage", false);
+        out.addAttribute("contactPage", false);
+        out.addAttribute("adminPage", false);
         return "/index";
     }
 
@@ -60,29 +65,48 @@ public class MainController {
     }
 
     @GetMapping("/about")
-    public String getAbout() {
+    public String getAbout(Model out) {
 
+        out.addAttribute("aboutPage", true);
+        out.addAttribute("cvPage", false);
+        out.addAttribute("musicPage", false);
+        out.addAttribute("contactPage", false);
+        out.addAttribute("adminPage", false);
         return "/about";
     }
 
     @GetMapping("/cv")
     public String getCV(Model out) {
 
+        out.addAttribute("aboutPage", false);
         out.addAttribute("cvPage", true);
+        out.addAttribute("musicPage", false);
+        out.addAttribute("contactPage", false);
+        out.addAttribute("adminPage", false);
         out.addAttribute("experiences", experienceRepository.findAll());
         out.addAttribute("courses", courseRepository.findAll());
         return "/cv";
     }
 
     @GetMapping("/music")
-    public String getMusic() {
+    public String getMusic(Model out) {
 
+        out.addAttribute("aboutPage", false);
+        out.addAttribute("cvPage", false);
+        out.addAttribute("musicPage", true);
+        out.addAttribute("contactPage", false);
+        out.addAttribute("adminPage", false);
         return "/music";
     }
 
     @GetMapping("/contact")
-    public String getContact() {
+    public String getContact(Model out) {
 
+        out.addAttribute("aboutPage", false);
+        out.addAttribute("cvPage", false);
+        out.addAttribute("musicPage", false);
+        out.addAttribute("contactPage", true);
+        out.addAttribute("adminPage", false);
         return "/contact";
     }
 

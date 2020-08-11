@@ -15,18 +15,14 @@ header {
     align-content: stretch;
 }
 
-#orangeLine {
-    height: 10px;
-}
-
 #profilePic {
     padding: 2em;
 }
 
 
-h1, h2, h3, nav, footer {
+/*h1, h2, h3, nav, footer {
     font-family: 'Quicksand', sans-serif;
-}
+}*/
 
 nav ul, footer ul {
     list-type: none;
