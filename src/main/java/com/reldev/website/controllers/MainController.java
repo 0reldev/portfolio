@@ -61,6 +61,30 @@ public class MainController {
         return "/login";
     }
 
+    @GetMapping("/about")
+    public String getAbout() {
+
+        return "/about";
+    }
+
+    @GetMapping("/cv")
+    public String getCV() {
+
+        return "/cv";
+    }
+
+    @GetMapping("/music")
+    public String getMusic() {
+
+        return "/music";
+    }
+
+    @GetMapping("/contact")
+    public String getContact() {
+
+        return "/contact";
+    }
+
     @GetMapping("/init")
     @ResponseBody
     public String getInit() {
