@@ -16,7 +16,7 @@
     </head>
     <body th:fragment="navbar">
         <div class="navbar-fixed">
-            <nav class="nav-extended orange darken-1">
+            <nav th:if="${not musicPage}" class="nav-extended orange darken-1">
                 <div class="container">
                     <div class="nav-wrapper">
                         <a href="/" class="brand-logo">
@@ -104,7 +104,72 @@
                         </ul>
                     </div>
                     <!-- TODO: jouter les filtres par tags dans une barre fixe-->
-                    <div th:if="${musicPage}" class="nav-content">
+                </div>
+            </nav>
+
+            <nav th:if="${musicPage}" class="nav-extended cyan darken-2">
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a href="/" class="brand-logo">
+                            Aurélien Lonni
+                        </a>
+                        <a href="#" data-target="menu-responsive" class="sidenav-trigger">
+                            <i class="material-icons">menu</i>
+                        </a>
+                        <ul class="right hide-on-med-and-down">
+                            <li th:if="${aboutPage}" class="active">
+                                <a href="/about">
+                                    À PROPOS
+                                </a>
+                            </li>
+                            <li th:if="${not aboutPage}">
+                                <a href="/about">
+                                    À PROPOS
+                                </a>
+                            </li>
+                            <li th:if="${cvPage}" class="active">
+                                <a href="/cv">
+                                    CV
+                                </a>
+                            </li>
+                            <li th:if="${not cvPage}">
+                                <a href="/cv">
+                                    CV
+                                </a>
+                            </li>
+                            <li th:if="${musicPage}" class="active">
+                                <a href="/music">
+                                    MUSIQUE
+                                </a>
+                            </li>
+                            <li th:if="${not musicPage}">
+                                <a href="/music">
+                                    MUSIQUE
+                                </a>
+                            </li>
+                            <li th:if="${contactPage}" class="active">
+                                <a href="/contact">
+                                    CONTACT
+                                </a>
+                            </li>
+                            <li th:if="${not contactPage}">
+                                <a href="/contact">
+                                    CONTACT
+                                </a>
+                            </li>
+                            <li th:if="${adminPage}" class="active">
+                                <a href="/admin">
+                                    ADMINISTRATION
+                                </a>
+                            </li>
+                            <li th:if="${not adminPage}">
+                                <a href="/admin">
+                                    ADMINISTRATION
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-content">
                         <ul class="tabs tabs-transparent">
                             <li class="tab">
                                 <a href="#repertorySection">
@@ -125,6 +190,10 @@
                     </div>
                 </div>
             </nav>
+
+
+
+
         </div>
         <ul class="sidenav" id="menu-responsive">
             <img src="/pictures/profile-picture.jpg" alt="" class="circle responsive-img" id="profilePic">
