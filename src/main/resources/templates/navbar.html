@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Musique</title>
+        <link rel="stylesheet" href="/css/style.css">
+
+        <!-- Google icons and fonts importation -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body th:fragment="navbar">
+        <div class="navbar-fixed">
+            <nav class="nav-extended orange darken-1">
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a href="#" class="brand-logo">
+                            Aurélien Lonni
+                        </a>
+                        <a href="#" data-target="menu-responsive" class="sidenav-trigger">
+                            <i class="material-icons">menu</i>
+                        </a>
+                        <ul class="right hide-on-med-and-down">
+                            <li>
+                                <a href="#">
+                                    À PROPOS
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    CV
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    MUSIQUE
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    CONTACT
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin">
+                                    ADMINISTRATION
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-content"> <!--TODO: ne rendre visible que sur la page CV-->
+                        <ul class="tabs tabs-transparent">
+                            <li class="tab">
+                                <a href="#">
+                                    Expérience
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a class="active" href="#">
+                                    Formation
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#">
+                                    Compétences
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#">
+                                    Réalisations
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- TODO: jouter les filtres par tags dans une barre fixe-->
+                </div>
+            </nav>
+        </div>
+        <ul class="sidenav" id="menu-responsive">
+            <img src="/pictures/profile-picture.jpg" alt="" class="circle responsive-img" id="profilePic">
+            <li>
+                <a href="#">
+                    À PROPOS
+                    <i class="material-icons">person</i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    CV
+                    <i class="material-icons">work</i>
+                </a>
+            </li>
+            <li>
+                <a href="#">MUSIQUE
+                    <i class="material-icons">audiotrack</i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    CONTACT
+                    <i class="material-icons">email</i>
+                </a>
+            </li>
+            <li>
+                <a href="/admin">
+                    ADMINISTRATION
+                    <i class="material-icons">admin_panel_settings</i>
+                </a>
+            </li>
+            <br>
+            <li>
+                <a class="sidenav-close" href="#!">
+                    fermer
+                    <i class="material-icons">close</i>
+                </a>
+            </li>
+        </ul>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                M.AutoInit();
+            });
+        </script>
+    </body>
+</html>

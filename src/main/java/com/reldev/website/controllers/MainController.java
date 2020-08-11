@@ -36,10 +36,8 @@ public class MainController {
 
 
     @GetMapping("/")
-    public String getIndex(Model out) {
+    public String getIndex() {
 
-        out.addAttribute("experiences", experienceRepository.findAll());
-        out.addAttribute("courses", courseRepository.findAll());
         return "/index";
     }
 
@@ -68,8 +66,10 @@ public class MainController {
     }
 
     @GetMapping("/cv")
-    public String getCV() {
+    public String getCV(Model out) {
 
+        out.addAttribute("experiences", experienceRepository.findAll());
+        out.addAttribute("courses", courseRepository.findAll());
         return "/cv";
     }
 
