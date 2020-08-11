@@ -15,7 +15,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     </head>
     <body>
+    <header>
         <div th:replace="navbar.html :: navbar"></div>
+    </header>
         <section class="experienceSection" id="experienceSection">
             <div><h3>EXPÉRIENCE</h3></div>
             <div class="experiencesContainerForDesktop" th:each="experience : ${experiences} ">
@@ -108,9 +110,9 @@
             </div>
             </div>
         </section>
-
+        <div id="skillsSection"></div>
     <!--
-    <section class="skillsSection" id="skillsSection">
+    <section class="skillsSection">
         <div><h3>COMPÉTENCES</h3></div>
         <div class="skillContainer">
             <div class="skillCategoryContainer">
@@ -120,12 +122,12 @@
             </div>
         </div>
     -->
-
+        <div id="achievementsSection"></div>
 
     <!--TODO: complete the achievement section-->
     <!--</section>
 
-    <section class="achievementsSection" id="achievementsSection">
+    <section class="achievementsSection">
         <h3>RÉALISATIONS</h3>
 
     </section>-->

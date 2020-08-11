@@ -3,18 +3,6 @@
     padding: 0;
 }
 
-header {
-    background-image: url("../pictures/header-background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.photoAndTitles {
-    display: flex;
-    flex-direction: row;
-    align-content: stretch;
-}
-
 #profilePic {
     padding: 2em;
 }
@@ -23,20 +11,6 @@ header {
 /*h1, h2, h3, nav, footer {
     font-family: 'Quicksand', sans-serif;
 }*/
-
-nav ul, footer ul {
-    list-type: none;
-}
-
-footer li, footer a {
-    color: orangered;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: gold;
-}
-
 
 body {
     background-image: url("../pictures/background.png");
@@ -49,12 +23,13 @@ section {
     padding: 2em;
 }
 
-p {
+/*p {
     font-family: 'Lora', serif;
     line-height: 200%;
-}
+}*/
 
 .experienceSection {
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
 
