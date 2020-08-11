@@ -7,17 +7,6 @@ header {
     background-image: url("../pictures/header-background.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 10rem;
-}
-
-footer {
-    background-color: rgba(1,1,1,0.1);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 10rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
 }
 
 .photoAndTitles {
@@ -26,38 +15,17 @@ footer {
     align-content: stretch;
 }
 
-.orangeLine {
-    background-color: orange;
+#orangeLine {
     height: 10px;
 }
 
-.logInButton {
-    float: right;
-}
-
-.profilePicDiv {
-    background-image: url("../pictures/profile-picture.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 150px;
-    height: 150px;
-    border: 10px solid orange;
-    border-radius: 50%;
-    margin: 0 2em;
+#profilePic {
+    padding: 2em;
 }
 
 
 h1, h2, h3, nav, footer {
     font-family: 'Quicksand', sans-serif;
-    text-align: center;
-}
-
-h3 {
-    padding: 5% 0;
-}
-
-.myNameTitle, .websiteTitle {
-    text-align: center;
 }
 
 nav ul, footer ul {
@@ -73,11 +41,6 @@ footer a:hover {
     color: gold;
 }
 
-
-li {
-    display:block;
-    line-height: 200%;
-}
 
 body {
     background-image: url("../pictures/background.png");
