@@ -9,39 +9,18 @@ header {
     background-size: cover;
 }
 
-footer {
-    background-color: rgba(1,1,1,0.1);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 10rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
 .photoAndTitles {
     display: flex;
     flex-direction: row;
     align-content: stretch;
 }
 
-.orangeLine {
+#orangeLine {
     height: 10px;
 }
 
-.logInButton {
-    float: right;
-}
-
-.profilePicDiv {
-    background-image: url("../pictures/profile-picture.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 150px;
-    height: 150px;
-    border: 10px solid orange;
-    border-radius: 50%;
-    margin: 0 2em;
+#profilePic {
+    padding: 2em;
 }
 
 

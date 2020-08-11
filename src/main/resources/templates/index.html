@@ -1,243 +1,288 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="/css/style.css">
 
-    <!-- Google icons and fonts importation -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+        <!-- Google icons and fonts importation -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
-
-<body>
-<div class="navbar-fixed">
-    <nav class="orange darken-1">
-        <div class="container">
-            <div class="nav-wrapped">
-                <a href="#" class="brand-logo">Aurélien Lonni</a>
-                <a href="#" data-target="menu-responsive" class="sidenav-trigger">
-                    <i class="material-icons">menu</i>
-                </a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#">CV</a></li>
-                    <li><a href="#">MUSIQUE</a></li>
-                    <li><a href="#">À PROPOS</a></li>
-                    <li><a href="#">CONTACT</a></li>
-                    <li>
-                        <a href="/admin">
-                            ADMINISTRATION
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
-
-<ul class="sidenav" id="menu-responsive">
-    <li><a href="#">CV</a></li>
-    <li><a href="#">MUSIQUE</a></li>
-    <li><a href="#">À PROPOS</a></li>
-    <li><a href="#">CONTACT</a></li>
-    <li>
-        <a href="/admin">
-            ADMINISTRATION
-            <i class="material-icons">admin_panel_settings</i>
-        </a>
-    </li>
-    <li><a class="sidenav-close" href="#!">fermer</a></li>
-</ul>
-
-
-<header>
-    <div class="photoAndTitles">
-        <div class="profilePicDiv">
-
-        </div>
-        <div class="websiteTitleAndNavDiv">
-            <div class="websiteTitleDiv">
-                <h2 class="websiteTitle">Portfolio</h2>
-            </div>
-            <div class="navDiv">
-                <nav class="filterNav">
-                    <ul>
-                        <li>Développeur web</li>
-<!--
-                        <li>Acousticien</li> &lt;!&ndash; TODO: create content for acoustics&ndash;&gt;
-                        <li>Musicien</li> &lt;!&ndash; TODO: create content for music &ndash;&gt;
--->
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+    <div class="navbar-fixed">
+        <nav class="nav-extended orange darken-1">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">
+                        Aurélien Lonni
+                    </a>
+                    <a href="#" data-target="menu-responsive" class="sidenav-trigger">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="#">
+                                À PROPOS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                CV
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                MUSIQUE
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                CONTACT
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin">
+                                ADMINISTRATION
+                            </a>
+                        </li>
                     </ul>
-                </nav>
+                </div>
+                <div class="nav-content"> <!--TODO: ne rendre visible que sur la page CV-->
+                    <ul class="tabs tabs-transparent">
+                        <li class="tab">
+                            <a href="#">
+                                Expérience
+                            </a>
+                        </li>
+                        <li class="tab">
+                            <a class="active" href="#">
+                                Formation
+                            </a>
+                        </li>
+                        <li class="tab">
+                            <a href="#">
+                                Compétences
+                            </a>
+                        </li>
+                        <li class="tab">
+                            <a href="#">
+                                Réalisations
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- TODO: jouter les filtres par tags dans une barre fixe-->
             </div>
-        </div>
+        </nav>
     </div>
-</header>
-<div class="orangeLine orange darken-1">
-</div>
-<section class="experienceSection">
-    <div><h3>EXPÉRIENCE</h3></div>
-    <div class="experiencesContainerForDesktop" th:each="experience : ${experiences} ">
-        <div class="timeBlock">
-            <div class="dateBlock">
-                <p th:text="|${#calendars.format(experience.startDate,'yyyy')} – ${#calendars.format(experience.endDate,'yyyy')}|">dates</p>
+    <ul class="sidenav" id="menu-responsive">
+        <img src="/pictures/profile-picture.jpg" alt="" class="circle responsive-img" id="profilePic">
+        <li>
+            <a href="#">
+                À PROPOS
+                <i class="material-icons">person</i>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                CV
+                <i class="material-icons">work</i>
+            </a>
+        </li>
+        <li>
+            <a href="#">MUSIQUE
+                <i class="material-icons">audiotrack</i>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                CONTACT
+                <i class="material-icons">email</i>
+            </a>
+        </li>
+        <li>
+            <a href="/admin">
+                ADMINISTRATION
+                <i class="material-icons">admin_panel_settings</i>
+            </a>
+        </li>
+        <br>
+        <li>
+            <a class="sidenav-close" href="#!">
+                fermer
+                <i class="material-icons">close</i>
+            </a>
+        </li>
+    </ul>
+    <div class="orange darken-1" id="orangeLine">
+    </div>
+    <section class="experienceSection">
+        <div><h3>EXPÉRIENCE</h3></div>
+        <div class="experiencesContainerForDesktop" th:each="experience : ${experiences} ">
+            <div class="timeBlock">
+                <div class="dateBlock">
+                    <p th:text="|${#calendars.format(experience.startDate,'yyyy')} – ${#calendars.format(experience.endDate,'yyyy')}|">dates</p>
+                </div>
+                <div class="durationBlock">
+                    <p th:text="${experience.duration}">durée</p>
+                </div>
             </div>
-            <div class="durationBlock">
-                <p th:text="${experience.duration}">durée</p>
-            </div>
-        </div>
-        <div class="jobBlock">
-            <div class="jobHeadBlock">
-                <div class="jobSpecBlock">
-                    <div class="jobTitleBlock">
-                        <p th:text="${experience.jobTitle}">Poste</p>
+<!--
+            TODO: disposer les expérience dans des larges images cards de Materialize, ça fera plus propre.
+-->
+            <div class="jobBlock">
+                <div class="jobHeadBlock">
+                    <div class="jobSpecBlock">
+                        <div class="jobTitleBlock">
+                            <p th:text="${experience.jobTitle}">Poste</p>
+                        </div>
+                        <div class="jobContractBlock">
+                            <p th:text="${experience.contractType}">type de contrat</p>
+                        </div>
                     </div>
-                    <div class="jobContractBlock">
-                        <p th:text="${experience.contractType}">type de contrat</p>
+                    <div class="jobCompanyBlock">
+                        <div class="jobCompanyNameBlock">
+                            <p th:text="${experience.companyName}">Entreprise</p>
+                        </div>
+                        <div class="jobCompanyLogoBlock">
+                            <img class="companyLogo"
+                                 th:src="${experience.companyLogoUrl}">
+                        </div>
+                        <div class="pinAndCityBlock">
+    <!--
+                            TODO: add a location pin icon
+    -->
+                                <p th:text="${experience.city}">Ville</p></div>
+                        </div>
+                    </div>
+                    <div class="jobDescriptionBlock">
+                        <p th:text="${experience.description}">Description</p>
+                    </div>
+                    <div class="jobSkillBlock">
+                        <!-- TODO: connect skills here-->
                     </div>
                 </div>
-                <div class="jobCompanyBlock">
-                    <div class="jobCompanyNameBlock">
-                        <p th:text="${experience.companyName}">Entreprise</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="experienceSection">
+        <div><h3>ÉTUDES ET FORMATIONS</h3></div>
+        <div class="experiencesContainerForDesktop" th:each="course : ${courses} ">
+            <div class="timeBlock">
+                <div class="dateBlock">
+                    <p th:text="|${#calendars.format(course.startDate,'yyyy')} – ${#calendars.format(course.endDate,'yyyy')}|">dates</p>
+                </div>
+                <div class="durationBlock">
+                    <p th:text="${course.duration}">durée</p>
+                </div>
+            </div>
+            <div class="jobBlock">
+                <div class="jobHeadBlock">
+                    <div class="jobSpecBlock">
+                        <div class="jobTitleBlock">
+                            <p th:text="${course.courseTitle}">Poste</p>
+                        </div>
                     </div>
-                    <div class="jobCompanyLogoBlock">
-                        <img class="companyLogo"
-                             th:src="${experience.companyLogoUrl}">
-                    </div>
-                    <div class="pinAndCityBlock">
-<!--
-                        TODO: add a location pin icon
--->
-                            <p th:text="${experience.city}">Ville</p></div>
+                    <div class="jobCompanyBlock">
+                        <div class="jobCompanyNameBlock">
+                            <p th:text="${course.schoolName}">École/centre de formation</p>
+                        </div>
+                        <div class="jobCompanyLogoBlock">
+                            <img class="companyLogo"
+                                 th:src="${course.schoolLogoUrl}">
+                        </div>
+                        <div class="pinAndCityBlock">
+                            <!--
+                                                    TODO: add a location pin icon
+                            -->
+                            <p th:text="${course.city}">Ville</p></div>
                     </div>
                 </div>
                 <div class="jobDescriptionBlock">
-                    <p th:text="${experience.description}">Description</p>
+                    <p th:text="${course.description}">Description</p>
                 </div>
                 <div class="jobSkillBlock">
                     <!-- TODO: connect skills here-->
                 </div>
             </div>
         </div>
-    </div>
-</section>
+        </div>
+    </section>
 
-<section class="experienceSection">
-    <div><h3>ÉTUDES ET FORMATIONS</h3></div>
-    <div class="experiencesContainerForDesktop" th:each="course : ${courses} ">
-        <div class="timeBlock">
-            <div class="dateBlock">
-                <p th:text="|${#calendars.format(course.startDate,'yyyy')} – ${#calendars.format(course.endDate,'yyyy')}|">dates</p>
-            </div>
-            <div class="durationBlock">
-                <p th:text="${course.duration}">durée</p>
+    <!--
+    <section class="skillsSection">
+        <div><h3>COMPÉTENCES</h3></div>
+        <div class="skillContainer">
+            <div class="skillCategoryContainer">
+    &lt;!&ndash;                TODO: create a Category entity for skills,
+                            and add a ManyToMany relation for showing
+                            each skill for each category&ndash;&gt;
             </div>
         </div>
-        <div class="jobBlock">
-            <div class="jobHeadBlock">
-                <div class="jobSpecBlock">
-                    <div class="jobTitleBlock">
-                        <p th:text="${course.courseTitle}">Poste</p>
-                    </div>
-                </div>
-                <div class="jobCompanyBlock">
-                    <div class="jobCompanyNameBlock">
-                        <p th:text="${course.schoolName}">École/centre de formation</p>
-                    </div>
-                    <div class="jobCompanyLogoBlock">
-                        <img class="companyLogo"
-                             th:src="${course.schoolLogoUrl}">
-                    </div>
-                    <div class="pinAndCityBlock">
-                        <!--
-                                                TODO: add a location pin icon
-                        -->
-                        <p th:text="${course.city}">Ville</p></div>
-                </div>
-            </div>
-            <div class="jobDescriptionBlock">
-                <p th:text="${course.description}">Description</p>
-            </div>
-            <div class="jobSkillBlock">
-                <!-- TODO: connect skills here-->
-            </div>
+    -->
+
+
+    <!--TODO: complete the achievement section-->
+    <!--</section>
+
+    <section class="achievementsSection">
+        <h3>RÉALISATIONS</h3>
+
+    </section>-->
+
+    <footer> <!--TODO: add real links and datas to this section-->
+        <div class="contactDiv">
+            <ul class="footerList">
+                <li><a href="mailto:aurelien.lonni@gmail.com">e-mail</a></li>
+    <!--
+                TODO: faire disparaître mon email du HTML pour me protéger de robots spammeurs
+    -->
+                <li>06 52 24 44 25</li>
+                <li>Skype : aurelien.lonni</li>
+            </ul>
         </div>
-    </div>
-    </div>
-</section>
-
-<!--
-<section class="skillsSection">
-    <div><h3>COMPÉTENCES</h3></div>
-    <div class="skillContainer">
-        <div class="skillCategoryContainer">
-&lt;!&ndash;                TODO: create a Category entity for skills,
-                        and add a ManyToMany relation for showing
-                        each skill for each category&ndash;&gt;
+        <div class="proSocialNetworksDiv">
+            <ul>
+                <li><a href="https://www.linkedin.com/in/aurelien-lonni/">LinkedIn</a></li>
+            </ul>
         </div>
-    </div>
--->
+        <div class="devNetworksDiv">
+            <ul>
+                <li><a href="https://github.com/0reldev">Github</a></li>
+                <li><a href="https://www.codewars.com/users/0reldev">CodeWars</a></li>
+                <li><a href="https://www.codingame.com/profile/e3cadf5c13ec1bdc03ccc3a336338fef7190093">CodinGame</a></li>
+            </ul>
+        </div>
+        <div class="personalSocialNetworksDiv">
+            <ul>
+                <li><a href="https://www.facebook.com/0re.ln">Facebook</a></li>
+                <li><a href="https://www.instagram.com/0reln/">Instagram</a></li>
+                <li><a href="https://www.youtube.com/user/Kiwikyle8"YouTube</a></li>
+                <li><a href="https://twitter.com/aure_ln">Twitter</a></li>
+                <li><a href="https://www.senscritique.com/Finema">SensCritique</a></li>
+            </ul>
+        </div>
+        <div class="personalSocialNetworksDiv">
+            <a href="https://drive.google.com/file/d/1lZMGLrPKj-QNsWrxRxV1WYd2oUATFHWS/view?usp=sharing">Télécharger mon CV</a>
+    <!--        <img>--> <!--TODO: add a download logo-->
+        </div>
+    </footer>
 
 
-<!--TODO: complete the achievement section-->
-<!--</section>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
 
-<section class="achievementsSection">
-    <h3>RÉALISATIONS</h3>
-
-</section>-->
-
-<footer> <!--TODO: add real links and datas to this section-->
-    <div class="contactDiv">
-        <ul class="footerList">
-            <li><a href="mailto:aurelien.lonni@gmail.com">e-mail</a></li>
-<!--
-            TODO: faire disparaître mon email du HTML pour me protéger de robots spammeurs
--->
-            <li>06 52 24 44 25</li>
-            <li>Skype : aurelien.lonni</li>
-        </ul>
-    </div>
-    <div class="proSocialNetworksDiv">
-        <ul>
-            <li><a href="https://www.linkedin.com/in/aurelien-lonni/">LinkedIn</a></li>
-        </ul>
-    </div>
-    <div class="devNetworksDiv">
-        <ul>
-            <li><a href="https://github.com/0reldev">Github</a></li>
-            <li><a href="https://www.codewars.com/users/0reldev">CodeWars</a></li>
-            <li><a href="https://www.codingame.com/profile/e3cadf5c13ec1bdc03ccc3a336338fef7190093">CodinGame</a></li>
-        </ul>
-    </div>
-    <div class="personalSocialNetworksDiv">
-        <ul>
-            <li><a href="https://www.facebook.com/0re.ln">Facebook</a></li>
-            <li><a href="https://www.instagram.com/0reln/">Instagram</a></li>
-            <li><a href="https://www.youtube.com/user/Kiwikyle8"YouTube</a></li>
-            <li><a href="https://twitter.com/aure_ln">Twitter</a></li>
-            <li><a href="https://www.senscritique.com/Finema">SensCritique</a></li>
-        </ul>
-    </div>
-    <div class="personalSocialNetworksDiv">
-        <a href="https://drive.google.com/file/d/1lZMGLrPKj-QNsWrxRxV1WYd2oUATFHWS/view?usp=sharing">Télécharger mon CV</a>
-<!--        <img>--> <!--TODO: add a download logo-->
-    </div>
-</footer>
-
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-
-        document.addEventListener('DOMContentLoaded', function() {
-            M.AutoInit();
-        });
-    </script>
-</body>
+            document.addEventListener('DOMContentLoaded', function() {
+                M.AutoInit();
+            });
+        </script>
+    </body>
 </html>
