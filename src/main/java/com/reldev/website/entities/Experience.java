@@ -30,6 +30,9 @@ public class Experience {
     @Lob
     private String description;
 
+    @Lob
+    private String mainMission;
+
     @Column
     private String sector;
 
@@ -181,5 +184,13 @@ public class Experience {
 
     public void setExperienceIllustrationUrl(String experienceIllustrationUrl) {
         this.experienceIllustrationUrl = experienceIllustrationUrl;
+    }
+
+    public String getMainMission() {
+        return mainMission;
+    }
+
+    public void setMainMission(String mainMission) {
+        this.mainMission = mainMission;
     }
 }
