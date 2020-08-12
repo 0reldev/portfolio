@@ -45,6 +45,9 @@ public class Experience {
     @Column(name = "company_logo_url")
     private String companyLogoUrl;
 
+    @Column(name = "experience_illustration_url")
+    private String experienceIllustrationUrl;
+
     @Column(name = "filter_tag")
     private String filterTag;
 
@@ -170,5 +173,13 @@ public class Experience {
 
     public void setSkillList(String skillList) {
         this.skillList = skillList;
+    }
+
+    public String getExperienceIllustrationUrl() {
+        return experienceIllustrationUrl;
+    }
+
+    public void setExperienceIllustrationUrl(String experienceIllustrationUrl) {
+        this.experienceIllustrationUrl = experienceIllustrationUrl;
     }
 }
