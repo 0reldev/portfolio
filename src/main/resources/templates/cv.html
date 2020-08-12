@@ -31,9 +31,6 @@
                         <div class="card">
                             <div class="card-image">
                                 <img th:src="${experience.experienceIllustrationUrl}">
-<!--
-                                <span class="card-title" th:text="|${experience.jobTitle} chez ${experience.companyName}|">
--->
                                 <span class="card-title">
                                     <p th:text="${experience.jobTitle}"></p>
                                     <h6 th:text="|chez ${experience.companyName}|"></h6>
@@ -46,7 +43,51 @@
                                 </a>
                             </div>
                             <div class="card-content">
-                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+
+                                <div class="row">
+                                    <div class="col s1">
+                                        <i class="tiny material-icons">
+                                            date_range
+                                        </i>
+                                    </div>
+                                    <div class="col s5">
+                                        <p th:text="|${#calendars.format(experience.startDate,'yyyy')} – ${#calendars.format(experience.endDate,'yyyy')}|">
+                                            dates
+                                        </p>
+                                    </div>
+                                    <div class="col s1">
+                                        <i class="tiny material-icons">
+                                            description
+                                        </i>
+                                    </div>
+                                    <div class="col s5">
+                                        <p th:text="${experience.contractType}">
+                                            type de contrat
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s1">
+                                        <i class="tiny material-icons">
+                                            watch_later
+                                        </i>
+                                    </div>
+                                    <div class="col s5">
+                                        <p th:text="${experience.duration}">
+                                            durée
+                                        </p>
+                                    </div>
+                                    <div class="col s1">
+                                        <i class="tiny material-icons">
+                                            location_on
+                                        </i>
+                                    </div>
+                                    <div class="col s5">
+                                        <p th:text="${experience.city}">
+                                            Ville
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-reveal">
                                 <span class="card-title grey-text text-darken-4">
