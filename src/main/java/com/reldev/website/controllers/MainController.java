@@ -86,7 +86,7 @@ public class MainController {
         out.addAttribute("musicPage", false);
         out.addAttribute("contactPage", false);
         out.addAttribute("adminPage", false);
-        out.addAttribute("experiences", experienceRepository.findAll());
+        out.addAttribute("experiences", experienceRepository.findAllOrderedByDate());
         out.addAttribute("courses", courseRepository.findAll());
         return "/cv";
     }
