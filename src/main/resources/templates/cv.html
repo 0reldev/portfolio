@@ -31,7 +31,14 @@
                         <div class="card">
                             <div class="card-image">
                                 <img th:src="${experience.experienceIllustrationUrl}">
-                                <span class="card-title" th:text="|${experience.jobTitle} chez ${experience.companyName}|">Poste</span>
+<!--
+                                <span class="card-title" th:text="|${experience.jobTitle} chez ${experience.companyName}|">
+-->
+                                <span class="card-title">
+                                    <p th:text="${experience.jobTitle}"></p>
+                                    <h6 th:text="|chez ${experience.companyName}|"></h6>
+                                </span>
+
                                 <a class="btn-floating halfway-fab activator waves-effect waves-light red">
                                     <i class="material-icons">
                                         expand_more
