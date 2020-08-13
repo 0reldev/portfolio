@@ -7,6 +7,9 @@
     padding: 2em;
 }
 
+#cvNavbar {
+    height: 9rem;
+}
 
 /*h1, h2, h3, nav, footer {
     font-family: 'Quicksand', sans-serif;
@@ -94,12 +97,12 @@ section {
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
 
-    footer {
-        flex-direction: column;
-        height: auto;
+    #cvNavbar {
+        height: 8rem;
     }
+
 
     .jobCompanyLogoBlock {
         display: none;
