@@ -106,48 +106,99 @@
 
         <div id="educationSection"></div>
         <section class="experienceSection">
-            <div><h3>ÉTUDES ET FORMATIONS</h3></div>
-            <div class="experiencesContainerForDesktop" th:each="course : ${courses} ">
-                <div class="timeBlock">
-                    <div class="dateBlock">
-                        <p th:text="|${#calendars.format(course.startDate,'yyyy')} – ${#calendars.format(course.endDate,'yyyy')}|">dates</p>
-                    </div>
-                    <div class="durationBlock">
-                        <p th:text="${course.duration}">durée</p>
-                    </div>
-                </div>
-                <div class="jobBlock">
-                    <div class="jobHeadBlock">
-                        <div class="jobSpecBlock">
-                            <div class="jobTitleBlock">
-                                <p th:text="${course.courseTitle}">Poste</p>
-                            </div>
-                        </div>
-                        <div class="jobCompanyBlock">
-                            <div class="jobCompanyNameBlock">
-                                <p th:text="${course.schoolName}">École/centre de formation</p>
-                            </div>
-                            <div class="jobCompanyLogoBlock">
-                                <img class="companyLogo"
-                                     th:src="${course.schoolLogoUrl}">
-                            </div>
-                            <div class="pinAndCityBlock">
-                                <!--
-                                                        TODO: add a location pin icon
-                                -->
-                                <p th:text="${course.city}">Ville</p></div>
-                        </div>
-                    </div>
-                    <div class="jobDescriptionBlock">
-                        <p th:text="${course.description}">Description</p>
-                    </div>
-                    <div class="jobSkillBlock">
-                        <!-- TODO: connect skills here-->
-                    </div>
-                </div>
+            <div>
+                <h3 class="center-align">
+                    ÉTUDES ET FORMATIONS
+                </h3>
             </div>
+
+            <div class="row">
+                <div th:each="course : ${courses}" class="col s12 m4"> <!--TODO: adapter le responsive ici-->
+
+                        <div class="small card">
+<!--                            <div class="card-image">
+&lt;!&ndash;
+                            TODO: mettre une ligne de couleur bleu ou violette ici pour dire quel type de formation c'est
+&ndash;&gt;
+                            </div>-->
+                                <div class="card-content">
+                                    <a class="btn-floating activator right waves-effect waves-light orange darken-2">
+                                        <i class="material-icons">
+                                            expand_more
+                                        </i>
+                                    </a>
+                                    <span class="card-title">
+                                        <p th:text="${course.courseTitle}"></p>
+                                        <h6 th:text="|par ${course.schoolName}|"></h6>
+
+                                    </span>
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col s1">
+                                            <i class="tiny material-icons">
+                                                date_range
+                                            </i>
+                                        </div>
+                                        <div class="col s5">
+                                            <p th:text="|${#calendars.format(course.startDate,'yyyy')} – ${#calendars.format(course.endDate,'yyyy')}|">
+                                                dates
+                                            </p>
+                                        </div>
+                                        <div class="col s1">
+<!--                                            <i class="tiny material-icons">
+                                                description
+                                            </i>-->
+                                        </div>
+                                        <div class="col s5">
+<!--                                            <p th:text="${experience.contractType}">
+                                                type de contrat
+                                            </p>-->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s1">
+                                            <i class="tiny material-icons">
+                                                watch_later
+                                            </i>
+                                        </div>
+                                        <div class="col s5">
+                                            <p th:text="${course.duration}">
+                                                durée
+                                            </p>
+                                        </div>
+                                        <div class="col s1">
+                                            <i class="tiny material-icons">
+                                                location_on
+                                            </i>
+                                        </div>
+                                        <div class="col s5">
+                                            <p th:text="${course.city}">
+                                                Ville
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-action">
+<!--
+                                    TODO: mettre des icônes de compétences ici
+-->
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">
+                                        <i class="material-icons right">close</i>
+                                        <h6>Contexte</h6>
+                                    </span>
+                                    <p th:text="${course.description}">Description</p><br>
+                                </div>
+                        </div>
+                </div>
             </div>
         </section>
+
+
+
+
         <div id="skillsSection"></div>
     <!--
     <section class="skillsSection">
