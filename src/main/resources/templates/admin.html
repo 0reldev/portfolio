@@ -56,8 +56,8 @@
             <td th:text="${course.courseTitle}">Intitulé de la formation</td>
             <td th:text="${course.schoolName}">Entreprise</td>
             <td th:text="${course.city}">Ville</td>
-            <td><a th:href="@{/experience(id=${course.id})}">Modifier</a></td>
-            <td><a th:href="@{/experience/delete(id=${course.id})}">Supprimer</a></td>
+            <td><a th:href="@{/course(id=${course.id})}">Modifier</a></td>
+            <td><a th:href="@{/course/delete(id=${course.id})}">Supprimer</a></td>
         </tr>
         </tbody>
     </table>
