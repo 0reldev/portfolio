@@ -6,14 +6,14 @@
 </head>
 <body>
 
-<form method="post" th:action="@{/achievement}" th:object="${achievement}">
+<form method="post" th:action="@{/admin/achievement}" th:object="${achievement}">
     <input name="id" th:field="*{id}" type="hidden">
     <label for="achievement-title">Nom de la réalisation :</label>
     <input id="achievement-title" name="achievement-title" placeholder="Nom du projet" required th:field="*{title}" type="text">
     <br><br>
     <label for="achievement-category-id">Catégorie :</label>
-    <select id="achievement-category-id" th:field="*{achievementCategories}" required>
-        <option value="0" disabled selected>Sélectionner une catégorie</option>
+    <select id="achievement-category-id" th:field="${achievementCategories}" required>
+        <option value="" disabled selected>Sélectionner une catégorie</option>
         <option th:each="achievementCategory : ${achievementCategories}" th:value="${achievementCategory.id}" th:text="${achievementCategory.name}">Catégorie</option>
     </select>
     <br><br>
