@@ -2,6 +2,7 @@ package com.reldev.website.controllers;
 
 import com.reldev.website.entities.Achievement;
 import com.reldev.website.entities.User;
+import com.reldev.website.repositories.AchievementCategoryRepository;
 import com.reldev.website.repositories.AchievementRepository;
 import com.reldev.website.repositories.SkillRepository;
 import com.reldev.website.service.UserService;
@@ -27,6 +28,9 @@ public class AchievementController {
     @Autowired
     private SkillRepository skillRepository;
 
+    @Autowired
+    private AchievementCategoryRepository achievementCategoryRepository;
+
     @GetMapping("/admin/achievement")
     public String getAchievement(Model out,
                                 @RequestParam(required = false) Long id) {
@@ -43,6 +47,7 @@ public class AchievementController {
         }
         out.addAttribute("user", user);
         out.addAttribute("achievement", achievement);
+        out.addAttribute("achievementCategories", achievementCategoryRepository.findAllOrderedByName());
         out.addAttribute("skillList", skillRepository.findAll());
         return "/admin/achievement";
     }

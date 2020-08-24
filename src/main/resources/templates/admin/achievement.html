@@ -11,6 +11,13 @@
     <label for="achievement-title">Nom de la réalisation :</label>
     <input id="achievement-title" name="achievement-title" placeholder="Nom du projet" required th:field="*{title}" type="text">
     <br><br>
+    <label for="achievement-category-id">Catégorie :</label>
+    <select id="achievement-category-id" th:field="*{achievementCategories}" required>
+        <option value="0" disabled selected>Sélectionner une catégorie</option>
+        <option th:each="achievementCategory : ${achievementCategories}" th:value="${achievementCategory.id}" th:text="${achievementCategory.name}">Catégorie</option>
+    </select>
+    <br><br>
+
     <label for="achievement-company">Entreprise :</label>
     <input id="achievement-company" name="achievement-company" placeholder="Wild Code School" required th:field="*{organism}" type="text">
     <br><br>
