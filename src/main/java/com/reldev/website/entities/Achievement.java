@@ -29,6 +29,9 @@ public class Achievement {
     @Column
     private String url;
 
+    @Column(name = "achievement_category")
+    private String achievementCategory;
+
     @Column
     private String organism;
 
@@ -139,6 +142,14 @@ public class Achievement {
 
     public void setSkillList(String skillList) {
         this.skillList = skillList;
+    }
+
+    public String getAchievementCategory() {
+        return achievementCategory;
+    }
+
+    public void setAchievementCategory(String achievementCategory) {
+        this.achievementCategory = achievementCategory;
     }
 }
 
