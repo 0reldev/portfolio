@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form method="post" th:action="@{/course}" th:object="${course}">
+<form method="post" th:action="@{/admin/course}" th:object="${course}">
     <input name="id" th:field="*{id}" type="hidden">
     <label for="course-title">Intitulé de la formation :</label>
     <input id="course-title" name="course-title" placeholder="Développeur web" required th:field="*{courseTitle}" type="text">

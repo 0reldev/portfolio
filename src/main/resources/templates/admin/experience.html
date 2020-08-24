@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form method="post" th:action="@{/experience}" th:object="${experience}">
+<form method="post" th:action="@{/admin/experience}" th:object="${experience}">
     <input name="id" th:field="*{id}" type="hidden">
     <label for="experience-job-title">Intitulé du poste :</label>
     <input id="experience-job-title" name="job-title" placeholder="Développeur" required th:field="*{jobTitle}" type="text">

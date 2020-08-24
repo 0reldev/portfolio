@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form method="post" th:action="@{/skill}" th:object="${skill}">
+<form method="post" th:action="@{/admin/skill}" th:object="${skill}">
     <input name="id" th:field="*{id}" type="hidden">
     <label for="skill-name">Compétence :</label>
     <input id="skill-name" name="skill-name" placeholder="Anglais" required th:field="*{name}" type="text">

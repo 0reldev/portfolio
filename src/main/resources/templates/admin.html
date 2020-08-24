@@ -10,7 +10,7 @@
 </header>
 <section>
     <h3>Gestion des expériences</h3>
-    <a href="/experience">Ajouter une expérience</a>
+    <a href="/admin/experience">Ajouter une expérience</a>
     <br><br>
     <table>
         <thead>
@@ -29,15 +29,15 @@
             <td th:text="${experience.jobTitle}">Intitulé du poste</td>
             <td th:text="${experience.companyName}">Entreprise</td>
             <td th:text="${experience.city}">Ville</td>
-            <td><a th:href="@{/experience(id=${experience.id})}">Modifier</a></td>
-            <td><a th:href="@{/experience/delete(id=${experience.id})}">Supprimer</a></td>
+            <td><a th:href="@{/admin/experience(id=${experience.id})}">Modifier</a></td>
+            <td><a th:href="@{/admin/experience/delete(id=${experience.id})}">Supprimer</a></td>
         </tr>
         </tbody>
     </table>
 </section>
 <section>
     <h3>Gestion des formations</h3>
-    <a href="/course">Ajouter une formation</a>
+    <a href="/admin/course">Ajouter une formation</a>
     <br><br>
     <table>
         <thead>
@@ -56,15 +56,15 @@
             <td th:text="${course.courseTitle}">Intitulé de la formation</td>
             <td th:text="${course.schoolName}">Entreprise</td>
             <td th:text="${course.city}">Ville</td>
-            <td><a th:href="@{/course(id=${course.id})}">Modifier</a></td>
-            <td><a th:href="@{/course/delete(id=${course.id})}">Supprimer</a></td>
+            <td><a th:href="@{/admin/course(id=${course.id})}">Modifier</a></td>
+            <td><a th:href="@{/admin/course/delete(id=${course.id})}">Supprimer</a></td>
         </tr>
         </tbody>
     </table>
 </section>
 <section>
     <h3>Gestion des compétences</h3>
-    <a href="/skill">Ajouter une compétence</a>
+    <a href="/admin/skill">Ajouter une compétence</a>
     <br><br>
     <table>
         <thead>
@@ -83,15 +83,15 @@
             <td th:text="${skill.name}">Compétence</td>
             <td th:text="${skill.category}">Catégorie</td>
             <td th:text="${skill.expertiseLevel}">Ville</td>
-            <td><a th:href="@{/skill(id=${skill.id})}">Modifier</a></td>
-            <td><a th:href="@{/skill/delete(id=${skill.id})}">Supprimer</a></td>
+            <td><a th:href="@{/admin/skill(id=${skill.id})}">Modifier</a></td>
+            <td><a th:href="@{/admin/skill/delete(id=${skill.id})}">Supprimer</a></td>
         </tr>
         </tbody>
     </table>
 </section>
 <section>
     <h3>Gestion des réalisations</h3>
-    <a href="/achievement">Ajouter une réalisation</a>
+    <a href="/admin/achievement">Ajouter une réalisation</a>
     <br><br>
     <table>
     <thead>
@@ -108,15 +108,15 @@
         <td th:text="${achievement.id}">id</td>
         <td th:text="${achievement.title}">Compétence</td>
         <td th:text="${achievement.customer}">Client</td>
-        <td><a th:href="@{/achivement(id=${achievement.id})}">Modifier</a></td>
-        <td><a th:href="@{/achievement/delete(id=${achievement.id})}">Supprimer</a></td>
+        <td><a th:href="@{/admin/achievement(id=${achievement.id})}">Modifier</a></td>
+        <td><a th:href="@{/admin/achievement/delete(id=${achievement.id})}">Supprimer</a></td>
     </tr>
     </tbody>
     </table>
 </section>
 <section>
     <h3>Gestion des catégories de réalisations</h3>
-    <a href="/achievement">Ajouter une catégorie de réalisation</a>
+    <a href="/admin/achievement-category">Ajouter une catégorie de réalisation</a>
     <br><br>
     <table>
         <thead>
@@ -131,8 +131,8 @@
         <tr th:each="achievementCategory : ${achievementCategories}">
             <td th:text="${achievementCategory.id}">id</td>
             <td th:text="${achievementCategory.name}">Nom</td>
-            <td><a th:href="@{/achievement-category(id=${achievementCategory.id})}">Modifier</a></td>
-            <td><a th:href="@{/achievement-category/delete(id=${achievementCategory.id})}">Supprimer</a></td>
+            <td><a th:href="@{/admin/achievement-category(id=${achievementCategory.id})}">Modifier</a></td>
+            <td><a th:href="@{/admin/achievement-category/delete(id=${achievementCategory.id})}">Supprimer</a></td>
         </tr>
         </tbody>
     </table>
