@@ -215,10 +215,7 @@
 
 
         <div id="achievementsSection"></div>
-<!--
-        TODO : create a achivement category entity
--->
-<!--
+
         <section class="experienceSection">
             <div>
                 <h3 class="center-align">
@@ -226,14 +223,23 @@
                 </h3>
             </div>
 
+            <div th:each="achievementCategory : ${achievementCategories}">
+                <h4 class="left-align" th:text="${achievementCategory.name}">
+                </h4>
+            </div>
+
+
+
+           <!--
+
             <div class="row">
-                <div th:each="achievement_category : ${achievement.achivement_category}" class="col s12 m4"> &lt;!&ndash;TODO: adapter le responsive ici&ndash;&gt;
+                <div th:each="achievement_category : ${achievement.achievement_category}" class="col s12 m4"> &lt;!&ndash;TODO: adapter le responsive ici&ndash;&gt;
 
                     <div class="small card">
-                        &lt;!&ndash;                            <div class="card-image">
-                        &lt;!&ndash;
+&lt;!&ndash;                                                    <div class="card-image">
+
                                                     TODO: mettre une ligne de couleur bleu ou violette ici pour dire quel type de formation c'est
-                        &ndash;&gt;
+
                                                     </div>&ndash;&gt;
                         <div class="card-content">
                             <a class="btn-floating activator right waves-effect waves-light orange darken-2">
@@ -307,9 +313,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </section>
--->
+
 
 
 
