@@ -23,7 +23,7 @@ public class AchievementCategoryController {
     @Autowired
     private AchievementCategoryRepository repository;
 
-    @GetMapping("/achievement-category")
+    @GetMapping("/admin/achievement-category")
     public String getAchievementCategory(Model out,
                                 @RequestParam(required = false) Long id) {
 
@@ -39,17 +39,17 @@ public class AchievementCategoryController {
         }
         out.addAttribute("user", user);
         out.addAttribute("achievement-category", achievementCategory);
-        return "/achievement-category";
+        return "/admin/achievement-category";
     }
 
-    @PostMapping("/achievement-category")
+    @PostMapping("/admin/achievement-category")
     public String postAchievementCategory(@ModelAttribute AchievementCategory achievementCategory) {
 
         repository.save(achievementCategory);
         return "redirect:/admin";
     }
 
-    @GetMapping("/achievement-category/delete")
+    @GetMapping("/admin/achievement-category/delete")
     public String deleteAchievementCategory(@RequestParam Long id) {
 
         repository.deleteById(id);

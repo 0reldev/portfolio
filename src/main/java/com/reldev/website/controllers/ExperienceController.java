@@ -1,7 +1,6 @@
 package com.reldev.website.controllers;
 
 import com.reldev.website.entities.Experience;
-import com.reldev.website.entities.Skill;
 import com.reldev.website.entities.User;
 import com.reldev.website.repositories.ExperienceRepository;
 import com.reldev.website.repositories.SkillRepository;
@@ -28,7 +27,7 @@ public class ExperienceController {
     @Autowired
     private SkillRepository skillRepository;
 
-    @GetMapping("/experience")
+    @GetMapping("/admin/experience")
     public String getExperience(Model out,
                                 @RequestParam(required = false) Long id) {
 
@@ -45,17 +44,17 @@ public class ExperienceController {
         out.addAttribute("user", user);
         out.addAttribute("experience", experience);
         out.addAttribute("skillList", skillRepository.findAll());
-        return "/experience";
+        return "/admin/experience";
     }
 
-    @PostMapping("/experience")
+    @PostMapping("/admin/experience")
     public String postExperience(@ModelAttribute Experience experience) {
 
         repository.save(experience);
         return "redirect:/admin";
     }
 
-    @GetMapping("/experience/delete")
+    @GetMapping("/admin/experience/delete")
     public String deleteExperience(@RequestParam Long id) {
 
         repository.deleteById(id);

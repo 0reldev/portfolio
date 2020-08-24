@@ -27,7 +27,7 @@ public class CourseController {
     @Autowired
     private SkillRepository skillRepository;
 
-    @GetMapping("/course")
+    @GetMapping("/admin/course")
     public String getCourse(Model out,
                                 @RequestParam(required = false) Long id) {
 
@@ -44,17 +44,17 @@ public class CourseController {
         out.addAttribute("user", user);
         out.addAttribute("course", course);
         out.addAttribute("skillList", skillRepository.findAll());
-        return "/course";
+        return "/admin/course";
     }
 
-    @PostMapping("/course")
+    @PostMapping("/admin/course")
     public String postCourse(@ModelAttribute Course course) {
 
         repository.save(course);
         return "redirect:/admin";
     }
 
-    @GetMapping("/course/delete")
+    @GetMapping("/admin/course/delete")
     public String deleteCourse(@RequestParam Long id) {
 
         repository.deleteById(id);

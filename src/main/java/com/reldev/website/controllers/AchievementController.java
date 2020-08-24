@@ -1,11 +1,8 @@
 package com.reldev.website.controllers;
 
 import com.reldev.website.entities.Achievement;
-import com.reldev.website.entities.Course;
-import com.reldev.website.entities.Skill;
 import com.reldev.website.entities.User;
 import com.reldev.website.repositories.AchievementRepository;
-import com.reldev.website.repositories.CourseRepository;
 import com.reldev.website.repositories.SkillRepository;
 import com.reldev.website.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +27,7 @@ public class AchievementController {
     @Autowired
     private SkillRepository skillRepository;
 
-    @GetMapping("/achievement")
+    @GetMapping("/admin/achievement")
     public String getAchievement(Model out,
                                 @RequestParam(required = false) Long id) {
 
@@ -47,17 +44,17 @@ public class AchievementController {
         out.addAttribute("user", user);
         out.addAttribute("achievement", achievement);
         out.addAttribute("skillList", skillRepository.findAll());
-        return "/achievement";
+        return "/admin/achievement";
     }
 
-    @PostMapping("/achievement")
+    @PostMapping("/admin/achievement")
     public String postAchievement(@ModelAttribute Achievement achievement) {
 
         repository.save(achievement);
         return "redirect:/admin";
     }
 
-    @GetMapping("/achievement/delete")
+    @GetMapping("/admin/achievement/delete")
     public String deleteAchievement(@RequestParam Long id) {
 
         repository.deleteById(id);

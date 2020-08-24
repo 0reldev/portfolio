@@ -1,6 +1,5 @@
 package com.reldev.website.controllers;
 
-import com.reldev.website.entities.Course;
 import com.reldev.website.entities.Skill;
 import com.reldev.website.entities.User;
 import com.reldev.website.repositories.SkillRepository;
@@ -24,7 +23,7 @@ public class SkillController {
     @Autowired
     private SkillRepository repository;
 
-    @GetMapping("/skill")
+    @GetMapping("/admin/skill")
     public String getSkill(Model out,
                                 @RequestParam(required = false) Long id) {
 
@@ -40,17 +39,17 @@ public class SkillController {
         }
         out.addAttribute("user", user);
         out.addAttribute("skill", skill);
-        return "/skill";
+        return "/admin/skill";
     }
 
-    @PostMapping("/skill")
+    @PostMapping("/admin/skill")
     public String postSkill(@ModelAttribute Skill skill) {
 
         repository.save(skill);
         return "redirect:/admin";
     }
 
-    @GetMapping("/skill/delete")
+    @GetMapping("/admin/skill/delete")
     public String deleteSkill(@RequestParam Long id) {
 
         repository.deleteById(id);
