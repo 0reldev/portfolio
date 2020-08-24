@@ -12,6 +12,6 @@ import java.util.List;
 public interface AchievementCategoryRepository extends JpaRepository<AchievementCategory, Long> {
 
     @Query("SELECT c FROM AchievementCategory c ORDER BY c.name ASC")
-    public List<AchievementCategory> findAllOrderedByDate();
+    public List<AchievementCategory> findAllOrderedByName();
 }
 

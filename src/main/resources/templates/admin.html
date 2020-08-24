@@ -114,6 +114,29 @@
     </tbody>
     </table>
 </section>
+<section>
+    <h3>Gestion des catégories de réalisations</h3>
+    <a href="/achievement">Ajouter une catégorie de réalisation</a>
+    <br><br>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="achievementCategory : ${achievementCategories}">
+            <td th:text="${achievementCategory.id}">id</td>
+            <td th:text="${achievementCategory.name}">Nom</td>
+            <td><a th:href="@{/achievement-category(id=${achievementCategory.id})}">Modifier</a></td>
+            <td><a th:href="@{/achievement-category/delete(id=${achievementCategory.id})}">Supprimer</a></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
 <br>
 <a href="/">Retour sur la partie publique</a>
 </body>

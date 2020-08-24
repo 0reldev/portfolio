@@ -32,6 +32,9 @@ public class MainController {
     private AchievementRepository achievementRepository;
 
     @Autowired
+    private AchievementCategoryRepository achievementCategoryRepository;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
 
@@ -56,6 +59,7 @@ public class MainController {
         out.addAttribute("courses", courseRepository.findAll());
         out.addAttribute("skills", skillRepository.findAll());
         out.addAttribute("achievements", achievementRepository.findAll());
+        out.addAttribute("achievementCategories", achievementCategoryRepository.findAllOrderedByName());
         return "/admin";
     }
 
