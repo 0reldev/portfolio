@@ -226,12 +226,20 @@
 
                 <div class="row">
                     <div th:each="achievement : ${achievements}" class="col s12 m6">
-<!--                        <div class="card">
+                        <div class="card">
+                            <!--
+                                    TODO: n'afficher que si la catégorie est la bonne
+-->
                             <div class="card-image">
+<!--
                                 <img th:src="${experience.experienceIllustrationUrl}">
+-->
                                 <span class="card-title">
-                                <p th:text="${experience.jobTitle}"></p>
+                                <p th:text="${achievement.title}"></p>
+
+<!--
                                 <h6 th:text="|chez ${experience.companyName}|"></h6>
+-->
                             </span>
                                 <a class="btn-floating halfway-fab activator waves-effect waves-light orange darken-2">
                                     <i class="material-icons">
@@ -247,9 +255,12 @@
                                         </i>
                                     </div>
                                     <div class="col s5">
+<!--
                                         <p th:text="|${#calendars.format(experience.startDate,'yyyy')} – ${#calendars.format(experience.endDate,'yyyy')}|">
+
                                             dates
                                         </p>
+                                        -->
                                     </div>
                                     <div class="col s1">
                                         <i class="tiny material-icons">
@@ -257,9 +268,9 @@
                                         </i>
                                     </div>
                                     <div class="col s5">
-                                        <p th:text="${experience.contractType}">
+<!--                                        <p th:text="${experience.contractType}">
                                             type de contrat
-                                        </p>
+                                        </p>-->
                                     </div>
                                 </div>
                                 <div class="row">
@@ -269,9 +280,9 @@
                                         </i>
                                     </div>
                                     <div class="col s5">
-                                        <p th:text="${experience.duration}">
+<!--                                        <p th:text="${experience.duration}">
                                             durée
-                                        </p>
+                                        </p>-->
                                     </div>
                                     <div class="col s1">
                                         <i class="tiny material-icons">
@@ -279,9 +290,9 @@
                                         </i>
                                     </div>
                                     <div class="col s5">
-                                        <p th:text="${experience.city}">
+<!--                                        <p th:text="${experience.city}">
                                             Ville
-                                        </p>
+                                        </p>-->
                                     </div>
                                 </div>
                             </div>
@@ -290,11 +301,11 @@
                                  <i class="material-icons right">close</i>
                                 <h6>Contexte</h6>
                             </span>
-                                <p th:text="${experience.description}">Description</p><br>
+<!--                                <p th:text="${experience.description}">Description</p><br>-->
                                 <h6>Missions principales</h6>
-                                <p th:text="${experience.mainMission}">Missions principales</p>
+<!--                                <p th:text="${experience.mainMission}">Missions principales</p>-->
                             </div>
-                        </div>-->
+                        </div>
                     </div>
                 </div>
             </div>

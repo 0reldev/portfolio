@@ -50,7 +50,7 @@ public class Achievement {
             inverseJoinColumns = @JoinColumn(name = "skill_id"))
     private List<Skill> skills = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "achievements")
+    @ManyToMany(mappedBy = "achievements") //TODO: convertir en relation ManyToOne et OneToMany
     private List<AchievementCategory> achievementCategories = new ArrayList<>();
 
     public Achievement() {
