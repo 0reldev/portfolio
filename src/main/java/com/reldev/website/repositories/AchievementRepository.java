@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface AchievementRepository extends JpaRepository<Achievement, Long> {
 
-    @Query("SELECT a FROM Achievement a ORDER BY a.date DESC")
+    @Query("SELECT a FROM Achievement a ORDER BY a.achievementCategory ASC, a.date DESC")
     public List<Achievement> findAllOrderedByDate();
 
 }
