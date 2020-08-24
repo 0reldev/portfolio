@@ -210,16 +210,114 @@
                             each skill for each category&ndash;&gt;
             </div>
         </div>
+    </section>
     -->
+
+
         <div id="achievementsSection"></div>
+<!--
+        TODO : create a achivement category entity
+-->
+<!--
+        <section class="experienceSection">
+            <div>
+                <h3 class="center-align">
+                    RÉALISATIONS
+                </h3>
+            </div>
 
-    <!--TODO: complete the achievement section-->
-    <!--</section>
+            <div class="row">
+                <div th:each="achievement_category : ${achievement.achivement_category}" class="col s12 m4"> &lt;!&ndash;TODO: adapter le responsive ici&ndash;&gt;
 
-    <section class="achievementsSection">
-        <h3>RÉALISATIONS</h3>
+                    <div class="small card">
+                        &lt;!&ndash;                            <div class="card-image">
+                        &lt;!&ndash;
+                                                    TODO: mettre une ligne de couleur bleu ou violette ici pour dire quel type de formation c'est
+                        &ndash;&gt;
+                                                    </div>&ndash;&gt;
+                        <div class="card-content">
+                            <a class="btn-floating activator right waves-effect waves-light orange darken-2">
+                                <i class="material-icons">
+                                    expand_more
+                                </i>
+                            </a>
+                            <span class="card-title">
+                                        <p th:text="${course.courseTitle}"></p>
+                                        <h6 th:text="|par ${course.schoolName}|"></h6>
 
-    </section>-->
+                                    </span>
+                            <br/>
+                            <div class="row">
+                                <div class="col s1">
+                                    <i class="tiny material-icons">
+                                        date_range
+                                    </i>
+                                </div>
+                                <div class="col s5">
+                                    <p th:text="|${#calendars.format(course.startDate,'yyyy')} – ${#calendars.format(course.endDate,'yyyy')}|">
+                                        dates
+                                    </p>
+                                </div>
+                                <div class="col s1">
+                                    &lt;!&ndash;                                            <i class="tiny material-icons">
+                                                                                    description
+                                                                                </i>&ndash;&gt;
+                                </div>
+                                <div class="col s5">
+                                    &lt;!&ndash;                                            <p th:text="${experience.contractType}">
+                                                                                    type de contrat
+                                                                                </p>&ndash;&gt;
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s1">
+                                    <i class="tiny material-icons">
+                                        watch_later
+                                    </i>
+                                </div>
+                                <div class="col s5">
+                                    <p th:text="${course.duration}">
+                                        durée
+                                    </p>
+                                </div>
+                                <div class="col s1">
+                                    <i class="tiny material-icons">
+                                        location_on
+                                    </i>
+                                </div>
+                                <div class="col s5">
+                                    <p th:text="${course.city}">
+                                        Ville
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-action">
+                            &lt;!&ndash;
+                                                                TODO: mettre des icônes de compétences ici
+                            &ndash;&gt;
+                        </div>
+                        <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">
+                                        <i class="material-icons right">close</i>
+                                        <h6>Contexte</h6>
+                                    </span>
+                            <p th:text="${course.description}">Description</p><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+-->
+
+
+
+
+
+
+
+
 
         <footer th:replace="footer.html :: footer">
         </footer>

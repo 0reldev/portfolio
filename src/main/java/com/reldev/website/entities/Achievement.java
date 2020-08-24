@@ -29,9 +29,6 @@ public class Achievement {
     @Column
     private String url;
 
-    @Column(name = "achievement_category")
-    private String achievementCategory;
-
     @Column
     private String organism;
 
@@ -52,6 +49,9 @@ public class Achievement {
             joinColumns = @JoinColumn(name ="achievement_id"),
             inverseJoinColumns = @JoinColumn(name = "skill_id"))
     private List<Skill> skills = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "achievements")
+    private List<AchievementCategory> achievementCategories = new ArrayList<>();
 
     public Achievement() {
     }
@@ -144,12 +144,12 @@ public class Achievement {
         this.skillList = skillList;
     }
 
-    public String getAchievementCategory() {
-        return achievementCategory;
+    public List<AchievementCategory> getAchievementCategories() {
+        return achievementCategories;
     }
 
-    public void setAchievementCategory(String achievementCategory) {
-        this.achievementCategory = achievementCategory;
+    public void setAchievementCategories(List<AchievementCategory> achievementCategories) {
+        this.achievementCategories = achievementCategories;
     }
 }
 

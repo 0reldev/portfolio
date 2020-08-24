@@ -88,6 +88,7 @@ public class MainController {
         out.addAttribute("adminPage", false);
         out.addAttribute("experiences", experienceRepository.findAllOrderedByDate());
         out.addAttribute("courses", courseRepository.findAllOrderedByDate());
+        out.addAttribute("courses", achievementRepository.findAllOrderedByCategoryAndDate());
         return "/cv";
     }
 
