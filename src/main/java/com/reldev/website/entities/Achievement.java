@@ -50,8 +50,10 @@ public class Achievement {
             inverseJoinColumns = @JoinColumn(name = "skill_id"))
     private List<Skill> skills = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "achievements") //TODO: convertir en relation ManyToOne et OneToMany
-    private List<AchievementCategory> achievementCategories = new ArrayList<>();
+    @ManyToOne (fetch = FetchType.EAGER)
+    @JoinColumn(name = "achievementCategory_id")
+    private AchievementCategory achievementCategory;
+
 
     public Achievement() {
     }
@@ -144,12 +146,20 @@ public class Achievement {
         this.skillList = skillList;
     }
 
-    public List<AchievementCategory> getAchievementCategories() {
+/*    public List<AchievementCategory> getAchievementCategories() {
         return achievementCategories;
     }
 
     public void setAchievementCategories(List<AchievementCategory> achievementCategories) {
         this.achievementCategories = achievementCategories;
+    }*/
+
+    public AchievementCategory getAchievementCategory() {
+        return achievementCategory;
+    }
+
+    public void setAchievementCategory(AchievementCategory achievementCategory) {
+        this.achievementCategory = achievementCategory;
     }
 }
 

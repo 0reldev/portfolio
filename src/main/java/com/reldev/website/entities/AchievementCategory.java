@@ -19,11 +19,8 @@ public class AchievementCategory {
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany
-    @JoinTable(name = "achievement_category_achievement",
-            joinColumns = @JoinColumn(name = "achievement_category_id"),
-            inverseJoinColumns = @JoinColumn(name = "achievement_id"))
-    private List<Achievement> achievements = new ArrayList<>();
+    @OneToMany(mappedBy = "achievementCategory", cascade = CascadeType.ALL)
+    private List<Achievement> achievements;
 
     public AchievementCategory() {
     }
