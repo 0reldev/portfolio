@@ -146,14 +146,6 @@ public class Achievement {
         this.skillList = skillList;
     }
 
-/*    public List<AchievementCategory> getAchievementCategories() {
-        return achievementCategories;
-    }
-
-    public void setAchievementCategories(List<AchievementCategory> achievementCategories) {
-        this.achievementCategories = achievementCategories;
-    }*/
-
     public AchievementCategory getAchievementCategory() {
         return achievementCategory;
     }
