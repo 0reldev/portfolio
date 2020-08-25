@@ -14,10 +14,6 @@
     <label for="achievementCategory-id">Catégorie :</label>
     <select id="achievementCategory-id" th:field="*{achievementCategory.id}" required>
         <option value="0" disabled selected>Sélectionner une catégorie</option>
-        <option th:if="${achievement.getAchievementCategory() != null}"
-                th:value="${achievement.achievementCategory.id}"
-                th:text="${achievement.achievementCategory.name}"
-                selected>Option en vigueur</option>
         <option th:each="achievementCategory : ${achievementCategories}"
                 th:value="${achievementCategory.id}"
                 th:text="${achievementCategory.name}">Catégorie</option>
