@@ -226,8 +226,10 @@
                 </h4>
 
                 <div class="row">
-                    <div th:each="achievement : ${achievements}" class="col s12 m6 l4 xl3">
-                        <div class="small card horizontal" th:if="${achievement.getAchievementCategory() == achievementCategory}">
+                    <div th:each="achievement : ${achievements}"
+                         class="col s12 m6 l4 xl3"
+                         th:if="${achievement.getAchievementCategory() == achievementCategory}">
+                        <div class="small card horizontal">
 <!--                            <div class="card-image waves-effet waves-block waves-light">
                                 <img th:if="${achievementCategory.getId() == 1}" src="/pictures/icons/apps-black-48dp.svg">
                                 <img th:if="${achievementCategory.getId() == 2}" src="/pictures/icons/receipt_long-black-48dp.svg">
