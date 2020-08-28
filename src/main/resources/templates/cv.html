@@ -231,73 +231,64 @@
                                 <img th:if="${achievementCategory.getId() == 1}" src="/pictures/icons/apps-black-48dp.svg">
                                 <img th:if="${achievementCategory.getId() == 2}" src="/pictures/icons/receipt_long-black-48dp.svg">
                             </div>-->
-                            <div class="card-content">
-                                <div class="row">
-                                    <div class="col s4">
-                                        <i th:if="${achievementCategory.getId() == 1}"
-                                           class="medium material-icons">
-                                            apps
-                                        </i>
-                                        <i th:if="${achievementCategory.getId() == 2}"
-                                           class="medium material-icons">
-                                            receipt_long
-                                        </i>
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <div class="row">
+                                        <div class="col s4 center-align">
+                                            <i th:if="${achievementCategory.getId() == 1}"
+                                               class="medium material-icons">
+                                                apps
+                                            </i>
+                                            <i th:if="${achievementCategory.getId() == 2}"
+                                               class="medium material-icons">
+                                                receipt_long
+                                            </i>
+                                        </div>
+                                        <div class="col s8">
+                                            <span class="card-title">
+                                                <p th:text="${achievement.title}">
+                                                    Titre
+                                                </p>
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="col s8">
-                                        <span class="card-title">
-                                            <p th:text="${achievement.title}">
-                                                Titre
+                                    <a class="btn-floating halfway-fab activator waves-effect waves-light orange darken-2">
+                                        <i class="material-icons">
+                                            expand_more
+                                        </i>
+                                    </a>
+                                    <div class="row">
+                                        <div class="col s1">
+                                            <i class="tiny material-icons">
+                                                date_range
+                                            </i>
+                                        </div>
+                                        <div class="col s5">
+                                            <p th:text="|${#calendars.format(achievement.date,'yyyy/MM')}|">
+                                                année
                                             </p>
-                                        </span>
+                                        </div>
+                                        <div class="col s1">
+                                            <i class="tiny material-icons">
+                                                description
+                                            </i>
+                                        </div>
+                                        <div class="col s5">
+    <!--                                        <p th:text="${experience.contractType}">
+                                                type de contrat
+                                            </p>-->
+                                        </div>
                                     </div>
-                                </div>
-                                <a class="btn-floating halfway-fab activator waves-effect waves-light orange darken-2">
-                                    <i class="material-icons">
-                                        expand_more
-                                    </i>
-                                </a>
-                                <div class="row">
-                                    <div class="col s1">
-                                        <i class="tiny material-icons">
-                                            date_range
-                                        </i>
-                                    </div>
-                                    <div class="col s5">
-                                        <p th:text="|${#calendars.format(achievement.date,'yyyy/MM')}|">
-                                            année
-                                        </p>
-                                    </div>
-                                    <div class="col s1">
-                                        <i class="tiny material-icons">
-                                            description
-                                        </i>
-                                    </div>
-                                    <div class="col s5">
-<!--                                        <p th:text="${experience.contractType}">
-                                            type de contrat
-                                        </p>-->
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s1">
-                                        <i class="tiny material-icons">
-                                            watch_later
-                                        </i>
-                                    </div>
-                                    <div class="col s5">
-<!--                                        <p th:text="${experience.duration}">
-                                            durée
-                                        </p>-->
-                                    </div>
-                                    <div class="col s1">
-                                        <i class="tiny material-icons">
-                                            location_on
-                                        </i>
-                                    </div>
-                                    <div class="col s5">
-<!--                                        <p th:text="${experience.city}">
-                                            Ville
-                                        </p>-->
+                                    <div class="row">
+                                        <div th:if="${!achievement.getUrl().isEmpty()}"
+                                                class="col s12">
+                                            <a class="btn waves-effect waves-light"
+                                               th:href="${achievement.url}"
+                                               target="_blank">
+                                                Consulter
+                                                <i class="material-icons right">remove_red_eye</i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
