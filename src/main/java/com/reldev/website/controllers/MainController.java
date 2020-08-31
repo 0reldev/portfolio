@@ -29,6 +29,9 @@ public class MainController {
     private SkillRepository skillRepository;
 
     @Autowired
+    private SkillCategoryRepository skillCategoryRepository;
+
+    @Autowired
     private AchievementRepository achievementRepository;
 
     @Autowired
@@ -36,7 +39,6 @@ public class MainController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
 
     @GetMapping("/")
     public String getIndex(Model out) {
@@ -58,6 +60,7 @@ public class MainController {
         out.addAttribute("experiences", experienceRepository.findAll());
         out.addAttribute("courses", courseRepository.findAll());
         out.addAttribute("skills", skillRepository.findAll());
+        out.addAttribute("skillCategories", skillCategoryRepository.findAllOrderedByName());
         out.addAttribute("achievements", achievementRepository.findAll());
         out.addAttribute("achievementCategories", achievementCategoryRepository.findAllOrderedByName());
         return "/admin";
