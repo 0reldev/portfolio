@@ -1,12 +1,13 @@
 package com.reldev.website.entities;
 
 import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "achievement_category")
-public class AchievementCategory {
+@Table(name = "skill_category")
+public class SkillCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,10 +17,10 @@ public class AchievementCategory {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "achievementCategory", cascade = CascadeType.ALL)
-    private List<Achievement> achievements;
+    @OneToMany(mappedBy = "skillCategory", cascade = CascadeType.ALL)
+    private List<Skill> skills;
 
-    public AchievementCategory() {
+    public SkillCategory() {
     }
 
     public Long getId() {
@@ -38,11 +39,11 @@ public class AchievementCategory {
         this.name = name;
     }
 
-    public List<Achievement> getAchievements() {
-        return achievements;
+    public List<Skill> getSkills() {
+        return skills;
     }
 
-    public void setAchievements(List<Achievement> achievements) {
-        this.achievements = achievements;
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
     }
 }
