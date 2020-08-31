@@ -11,8 +11,14 @@
     <label for="skill-name">Compétence :</label>
     <input id="skill-name" name="skill-name" placeholder="Anglais" required th:field="*{name}" type="text">
     <br><br>
-    <label for="skill-category">Catégorie :</label>
-    <input id="skill-category" name="category" placeholder="Langues" th:field="*{category}" type="text">
+
+    <label for="skillCategory-id">Catégorie :</label>
+    <select id="skillCategory-id" th:field="*{skillCategory.id}" required>
+        <option value="0" disabled selected>Sélectionner une catégorie</option>
+        <option th:each="skillCategory : ${skillCategories}"
+                th:value="${skillCategory.id}"
+                th:text="${skillCategory.name}">Catégorie</option>
+    </select>
     <br><br>
     <label for="skill-certification">Certification :</label>
     <input id="skill-certification" name="certification" placeholder="BEC Vantage"  th:field="*{certification}" type="text">

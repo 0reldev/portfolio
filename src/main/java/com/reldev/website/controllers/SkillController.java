@@ -2,6 +2,7 @@ package com.reldev.website.controllers;
 
 import com.reldev.website.entities.Skill;
 import com.reldev.website.entities.User;
+import com.reldev.website.repositories.SkillCategoryRepository;
 import com.reldev.website.repositories.SkillRepository;
 import com.reldev.website.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class SkillController {
     @Autowired
     private SkillRepository repository;
 
+    @Autowired
+    private SkillCategoryRepository skillCategoryRepository;
+
     @GetMapping("/admin/skill")
     public String getSkill(Model out,
                                 @RequestParam(required = false) Long id) {
@@ -39,6 +43,8 @@ public class SkillController {
         }
         out.addAttribute("user", user);
         out.addAttribute("skill", skill);
+        out.addAttribute("skillCategories", skillCategoryRepository.findAllOrderedByName());
+
         return "/admin/skill";
     }
 

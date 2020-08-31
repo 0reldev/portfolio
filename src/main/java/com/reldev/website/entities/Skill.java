@@ -18,9 +18,6 @@ public class Skill {
     @Column(nullable = false)
     private String name;
 
-    @Column
-    private String category;
-
     @Column(name = "icon_url")
     private String iconURL;
 
@@ -67,14 +64,6 @@ public class Skill {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public String getIconURL() {
