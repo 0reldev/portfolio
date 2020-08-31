@@ -42,6 +42,10 @@ public class Skill {
     @ManyToMany(mappedBy = "skills")
     private List<Achievement> achievements = new ArrayList<>();
 
+    @ManyToOne (fetch = FetchType.EAGER)
+    @JoinColumn(name = "skillCategory_id")
+    private SkillCategory skillCategory;
+
     public Skill() {
     }
 
@@ -127,5 +131,13 @@ public class Skill {
 
     public void setAchievements(List<Achievement> achievements) {
         this.achievements = achievements;
+    }
+
+    public SkillCategory getSkillCategory() {
+        return skillCategory;
+    }
+
+    public void setSkillCategory(SkillCategory skillCategory) {
+        this.skillCategory = skillCategory;
     }
 }
