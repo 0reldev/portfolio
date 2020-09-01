@@ -205,11 +205,63 @@
                 </h3>
             </div>
             <div th:each="skillCategory : ${skillCategories}">
-                <h4 class="left-align" th:text="${skillCategory.name}">
+                <h4 class="left-align"
+                    th:text="${skillCategory.name}">
                 </h4>
-
+                <div class="row">
+                    <div th:each="skill : ${skills}"
+                         class="col s6 m4 l2"
+                         th:if="${skill.getSkillCategory() == skillCategory}">
+                        <div class = "card">
+                             <div class="card-content">
+                                 <span class="card-title"
+                                       th:text="${skill.name}">
+                                         Compétence
+                                 </span>
+                                 <div class="row">
+                                     <div class="col s4">
+                                         <i class="small material-icons"
+                                            th:if="${skill.getExpertiseLevel() >= 1}"> star </i>
+                                     </div>
+                                     <div class="col s4">
+                                         <i class="small material-icons"
+                                            th:if="${skill.getExpertiseLevel() >= 2}">
+                                             star
+                                         </i>
+                                         <i class="small material-icons"
+                                            th:if="${skill.getExpertiseLevel() <= 1}">
+                                             star_border
+                                         </i>
+                                     </div>
+                                     <div class="col s4">
+                                         <i class="small material-icons"
+                                            th:if="${skill.getExpertiseLevel() >= 3}">
+                                             star
+                                         </i>
+                                         <i class="small material-icons"
+                                            th:if="${skill.getExpertiseLevel() <= 2}">
+                                             star_border
+                                         </i>
+                                     </div>
+                                 </div>
+                                 <div class="row"
+                                    th:if="${!skill.getCertification().isEmpty()}">
+                                     <div class="col s3">
+                                         <i class="small material-icons">
+                                             check_circle
+                                         </i>
+                                     </div>
+                                     <div class="col s9">
+                                         <p th:text="${skill.certification}">
+                                             Certification
+                                         </p>
+                                     </div>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </section>
 
 

@@ -22,7 +22,7 @@ public class Skill {
     private String iconURL;
 
     @Column(name = "expertise_level")
-    private String expertiseLevel;
+    private Integer expertiseLevel;
 
     @Column
     private String certification;
@@ -74,11 +74,11 @@ public class Skill {
         this.iconURL = iconURL;
     }
 
-    public String getExpertiseLevel() {
+    public Integer getExpertiseLevel() {
         return expertiseLevel;
     }
 
-    public void setExpertiseLevel(String expertiseLevel) {
+    public void setExpertiseLevel(Integer expertiseLevel) {
         this.expertiseLevel = expertiseLevel;
     }
 
