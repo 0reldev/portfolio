@@ -210,9 +210,9 @@
                 </h4>
                 <div class="row">
                     <div th:each="skill : ${skillsByExpertiseLevelAndName}"
-                         class="col s6 m4 l2"
+                         class="col s12 m4 l2"
                          th:if="${skill.getSkillCategory() == skillCategory}">
-                        <div class = "card">
+                        <div class = "card" id="skillCard">
                              <div class="card-content">
                                  <span class="card-title"
                                        th:text="${skill.name}">
