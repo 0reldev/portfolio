@@ -198,29 +198,28 @@
 
 
         <div id="skillsSection"></div>
-    <!--
-    <section class="skillsSection">
-        <div><h3>COMPÉTENCES</h3></div>
-        <div class="skillContainer">
-            <div class="skillCategoryContainer">
-    &lt;!&ndash;                TODO: create a Category entity for skills,
-                            and add a ManyToMany relation for showing
-                            each skill for each category&ndash;&gt;
+        <section class="skillsSection">
+            <div>
+                <h3 class="center-align">
+                    COMPÉTENCES
+                </h3>
             </div>
-        </div>
-    </section>
-    -->
+            <div th:each="skillCategory : ${skillCategories}">
+                <h4 class="left-align" th:text="${skillCategory.name}">
+                </h4>
+
+            </div>
+
+        </section>
 
 
         <div id="achievementsSection"></div>
-
         <section class="experienceSection">
             <div>
                 <h3 class="center-align">
                     RÉALISATIONS
                 </h3>
             </div>
-
             <div th:each="achievementCategory : ${achievementCategories}">
                 <h4 class="left-align" th:text="${achievementCategory.name}">
                 </h4>
