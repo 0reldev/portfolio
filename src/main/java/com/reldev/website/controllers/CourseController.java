@@ -43,7 +43,7 @@ public class CourseController {
         }
         out.addAttribute("user", user);
         out.addAttribute("course", course);
-        out.addAttribute("skillList", skillRepository.findAll());
+        out.addAttribute("skillListForSelection", skillRepository.findAllOrderedByCategoryAndName());
         return "/admin/course";
     }
 

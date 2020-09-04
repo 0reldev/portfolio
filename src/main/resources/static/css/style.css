@@ -15,13 +15,13 @@
     height: 200px;
 }
 
-#skillsToDisplay {
+.skillsToDisplay {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-#skillElement {
+.skillElement {
     margin: .2em;
 
 }

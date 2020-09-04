@@ -54,11 +54,17 @@ public class Experience {
     @Column(name = "filter_tag")
     private String filterTag;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+/*    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "experience_skill",
             joinColumns = @JoinColumn(name ="experience_id"),
             inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    private List<Skill> skills = new ArrayList<>();*/
+
+    @ManyToMany(mappedBy = "experiences")
     private List<Skill> skills = new ArrayList<>();
+
+    @Transient
+    private List<Skill> skillList;
 
     public Experience() {
     }
@@ -181,5 +187,13 @@ public class Experience {
 
     public void setMainMission(String mainMission) {
         this.mainMission = mainMission;
+    }
+
+    public List<Skill> getSkillList() {
+        return skillList;
+    }
+
+    public void setSkillList(List<Skill> skillList) {
+        this.skillList = skillList;
     }
 }

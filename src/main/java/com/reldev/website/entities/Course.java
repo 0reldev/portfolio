@@ -50,11 +50,15 @@ public class Course {
     @Transient
     private String skillList;
 
-    @ManyToMany
-    @JoinTable(name = "course_skill",
+/*    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name = "skill_course",
             joinColumns = @JoinColumn(name ="course_id"),
             inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    private List<Skill> skills = new ArrayList<>();*/
+
+    @ManyToMany(mappedBy = "courses")
     private List<Skill> skills = new ArrayList<>();
+
 
     public Course() {
     }
