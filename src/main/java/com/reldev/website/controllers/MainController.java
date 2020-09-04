@@ -97,6 +97,7 @@ public class MainController {
         out.addAttribute("courses", courseRepository.findAllOrderedByDate());
         out.addAttribute("skillsByExpertiseLevelAndName", skillRepository.findAllOrderedByExpertiseLevelAndName());
         out.addAttribute("skillsByName", skillRepository.findAllOrderedByName());
+        out.addAttribute("skillsByCategoryAndName", skillRepository.findAllOrderedByCategoryAndName());
         out.addAttribute("skillCategories", skillCategoryRepository.findAllOrderedByName());
         out.addAttribute("achievements", achievementRepository.findAllOrderedByDate());
         out.addAttribute("achievementCategories", achievementCategoryRepository.findAllOrderedByName());

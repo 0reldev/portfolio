@@ -43,7 +43,7 @@ public class ExperienceController {
         }
         out.addAttribute("user", user);
         out.addAttribute("experience", experience);
-        out.addAttribute("skillList", skillRepository.findAll());
+        out.addAttribute("skillListForSelection", skillRepository.findAllOrderedByCategoryAndName());
         return "/admin/experience";
     }
 

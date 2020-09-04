@@ -15,4 +15,7 @@ public interface SkillRepository extends JpaRepository<Skill, Long> {
 
     @Query("SELECT s FROM Skill s ORDER BY s.name ASC")
     public List<Skill> findAllOrderedByName();
+
+    @Query("SELECT s FROM Skill s ORDER BY s.skillCategory.name ASC, s.name ASC")
+    public List<Skill> findAllOrderedByCategoryAndName();
 }

@@ -54,10 +54,7 @@ public class Experience {
     @Column(name = "filter_tag")
     private String filterTag;
 
-    @Transient
-    private String skillList;
-
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "experience_skill",
             joinColumns = @JoinColumn(name ="experience_id"),
             inverseJoinColumns = @JoinColumn(name = "skill_id"))
@@ -168,14 +165,6 @@ public class Experience {
 
     public void setSkills(List<Skill> skills) {
         this.skills = skills;
-    }
-
-    public String getSkillList() {
-        return skillList;
-    }
-
-    public void setSkillList(String skillList) {
-        this.skillList = skillList;
     }
 
     public String getExperienceIllustrationUrl() {

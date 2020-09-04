@@ -95,6 +95,22 @@
                             <h6>Missions principales</h6>
                             <p th:text="${experience.mainMission}">Missions principales</p>
                         </div>
+                        <div class="card-action">
+                            <span> Compétences utilisées :</span>
+                            <div id="skillsToDisplay">
+                                <div id="skillElement"
+                                     th:each="skill : ${experience.skills}">
+                                    <span class="btn-small disabled grey lighten-1"
+                                          th:text="${skill.name}">
+                                        Compétence
+                                    </span>
+<!--
+                                    TODO: alterner une couleur sur deux.
+-->
+                                    <!--TODO: mettre en place une requête de filtrage quand on clique sur une compétence-->
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -213,7 +229,7 @@
                          class="col s12 m4 l2"
                          th:if="${skill.getSkillCategory() == skillCategory}">
                         <div class = "card" id="skillCard">
-                             <div class="card-content">
+                            <div class="card-content">
                                  <span class="card-title"
                                        th:text="${skill.name}">
                                          Compétence

@@ -47,7 +47,12 @@
     <label for="experience-filter-tag">Libellés :</label>
     <input id="experience-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
     <br><br>
-<!--    TODO : add the skills-->
+    <div class="form-field">
+        <select multiple th:field="*{skills}">
+            <option value="" disabled selected>Sélectionner des compétences : </option>
+            <option th:each="skill : ${skillListForSelection}" th:value="${skill.name}" th:text="${skill.name}"></option>
+        </select>
+    </div>
     <input type="submit" value="Valider">
 </form>
 
