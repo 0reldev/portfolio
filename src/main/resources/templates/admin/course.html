@@ -54,7 +54,9 @@
                 <select id="course-skills" multiple th:field="*{skills}">
                     <optgroup th:each="skillCategory : ${skillCategoryList}"
                               th:label="${skillCategory.name}">
-                        <option th:each="skill : ${skillListForSelection}" th:value="${skill.id}" th:utext="${skill.name}"></option>
+                        <option th:each="skill : ${skillListForSelection}"
+                                th:value="${skill.id}" th:utext="${skill.name}"
+                                th:if="${skill.skillCategory.getId() == skillCategory.getId()}"></option>
                     </optgroup>
         <!--            <option value="" disabled selected>Sélectionner des compétences : </option>-->
 
