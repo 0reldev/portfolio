@@ -17,7 +17,7 @@
 
     </head>
     <body>
-        <form method="post" th:action="@{/admin/course}" th:object="${course}">
+        <form th:action="@{/admin/course}" method="post" th:object="${course}">
             <input name="id" th:field="*{id}" type="hidden">
             <label for="course-title">Intitulé de la formation :</label>
             <input id="course-title" name="course-title" placeholder="Développeur web" required th:field="*{courseTitle}" type="text">
@@ -49,22 +49,41 @@
             <label for="course-filter-tag">Libellés :</label>
             <input id="course-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
             <br><br>
-            <div class="input-field">
-                <label for="course-skills">Compétences : </label>
-                <select id="course-skills" multiple th:field="*{skills}">
+            <div class="form-field">
+                <label for="course-courseSkills">Compétences : </label>
+                <select id="course-courseSkills" multiple th:field="*{courseSkills}">
                     <optgroup th:each="skillCategory : ${skillCategoryList}"
                               th:label="${skillCategory.name}">
                         <option th:each="skill : ${skillListForSelection}"
                                 th:value="${skill.id}"
-                                th:utext="${skill.name}"
-                                th:if="${skill.skillCategory.getId() == skillCategory.getId()}"></option>
+                                th:text="${skill.name}"
+                                th:if="${skill.skillCategory.getId() == skillCategory.getId()}">compétence
+                        </option>
                     </optgroup>
         <!--            <option value="" disabled selected>Sélectionner des compétences : </option>-->
-
                 </select>
             </div>
+
             <input type="submit" value="Valider">
         </form>
+
+        <h3>TEST</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="skill : ${course.courseSkills}">
+                <td th:text="${skill.id}">id</td>
+                <td th:text="${skill.name}">name</td>
+            </tr>
+            </tbody>
+        </table>
+
+
 
         <br>
         <a href="/admin">Retour</a>
@@ -77,6 +96,11 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 M.AutoInit();
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('select').formSelect();
             });
         </script>
     </body>

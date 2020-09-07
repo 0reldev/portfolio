@@ -47,18 +47,18 @@ public class Course {
     @Column(name = "filter_tag")
     private String filterTag;
 
-    @Transient
-    private String skillList;
+/*    @Transient
+    private String skillList;*/
 
-/*    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name = "skill_course",
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "skill_course",   //course_skill
             joinColumns = @JoinColumn(name ="course_id"),
             inverseJoinColumns = @JoinColumn(name = "skill_id"))
-    private List<Skill> skills = new ArrayList<>();*/
+    private List<Skill> courseSkills = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "courses")
+ /*   @ManyToMany(mappedBy = "courses")
     private List<Skill> skills = new ArrayList<>();
-
+*/
 
     public Course() {
     }
@@ -143,12 +143,12 @@ public class Course {
         this.filterTag = filterTag;
     }
 
-    public List<Skill> getSkills() {
-        return skills;
+    public List<Skill> getCourseSkills() {
+        return courseSkills;
     }
 
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
+    public void setCourseSkills(List<Skill> courseSkills) {
+        this.courseSkills = courseSkills;
     }
 
     public String getDiploma() {
@@ -159,11 +159,11 @@ public class Course {
         this.diploma = diploma;
     }
 
-    public String getSkillList() {
+/*    public String getSkillList() {
         return skillList;
     }
 
     public void setSkillList(String skillList) {
         this.skillList = skillList;
-    }
+    }*/
 }

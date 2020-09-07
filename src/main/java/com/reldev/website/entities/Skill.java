@@ -30,10 +30,10 @@ public class Skill {
     @Column(name = "filter_tag")
     private String filterTag;
 
- /*   @ManyToMany(mappedBy = "skills")
+    @ManyToMany(mappedBy = "courseSkills")
     private List<Course> courses = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "skills")
+   /* @ManyToMany(mappedBy = "skills")
     private List<Experience> experiences = new ArrayList<>();
 
     @ManyToMany(mappedBy = "skills")
@@ -45,11 +45,11 @@ public class Skill {
         inverseJoinColumns = @JoinColumn(name = "experience_id"))
     private List<Experience> experiences = new ArrayList<>();
 
-    @ManyToMany(cascade = CascadeType.ALL)
+/*    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "course_skill",
             joinColumns = @JoinColumn(name = "skill_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id"))
-    private List<Course> courses = new ArrayList<>();
+    private List<Course> courses = new ArrayList<>();*/
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "achievement_skill",

@@ -1,6 +1,7 @@
 package com.reldev.website.controllers;
 
 import com.reldev.website.entities.Course;
+import com.reldev.website.entities.Skill;
 import com.reldev.website.entities.User;
 import com.reldev.website.repositories.CourseRepository;
 import com.reldev.website.repositories.SkillCategoryRepository;
@@ -14,6 +15,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -49,6 +54,22 @@ public class CourseController {
         out.addAttribute("course", course);
         out.addAttribute("skillListForSelection", skillRepository.findAllOrderedByCategoryAndName());
         out.addAttribute("skillCategoryList", skillCategoryRepository.findAllOrderedByName());
+
+
+        List<Skill> skills = new ArrayList<>();
+        Method method = getMethod(course, "getCourseSkills",
+                new Class[]{});
+        if (method != null) {
+
+            try {
+
+                skills = (List<Skill>) method.invoke(course);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+
+                e.printStackTrace();
+            }
+        }
+        out.addAttribute("courseSkills", skills);
         return "/admin/course";
     }
 
@@ -65,5 +86,17 @@ public class CourseController {
         repository.deleteById(id);
         return "redirect:/admin";
     }
+
+    public Method getMethod(Object obj, String methodName, Class[] args) {
+        Method method;
+        try {
+            method = obj.getClass().getDeclaredMethod(methodName, args);
+            return method;
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 }
