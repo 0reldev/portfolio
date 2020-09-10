@@ -73,12 +73,46 @@ public class CourseController {
         return "/admin/course";
     }
 
-    @PostMapping("/admin/course")
+/*    @PostMapping("/admin/course")
     public String postCourse(@ModelAttribute Course course) {
 
         repository.save(course);
         return "redirect:/admin";
+    }*/
+
+
+    @PostMapping("/admin/course")
+    public String postCourse(@RequestParam Long idCourse,
+                             @RequestParam Long idSkill) {
+
+        Optional<Course> optionalCourse = repository.findById(idCourse);
+        if (optionalCourse.isPresent()) {
+            Course course = optionalCourse.get();
+
+            Optional<Skill> optionalSkill = skillRepository.findById(idSkill);
+            if (optionalSkill.isPresent()) {
+                Skill skill = optionalSkill.get();
+
+                // call the method getSkills in Course
+                List<Skill> skills;
+                Method method = getMethod(course, "getCourseSkills",
+                        new Class[]{});
+                if (method != null) {
+                    try {
+                        skills = (List<Skill>) method.invoke(course);
+                        skills.add(skill);
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }
+                repository.save(course);
+            }
+        }
+        return "redirect:/admin";
     }
+
+
+
 
     @GetMapping("/admin/course/delete")
     public String deleteCourse(@RequestParam Long id) {

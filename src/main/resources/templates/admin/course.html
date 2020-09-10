@@ -18,7 +18,7 @@
     </head>
     <body>
         <form th:action="@{/admin/course}" method="post" th:object="${course}">
-            <input name="id" th:field="*{id}" type="hidden">
+            <input name="idCourse" th:value="*{id}" type="hidden">
             <label for="course-title">Intitulé de la formation :</label>
             <input id="course-title" name="course-title" placeholder="Développeur web" required th:field="*{courseTitle}" type="text">
             <br><br>
@@ -51,11 +51,11 @@
             <br><br>
             <div class="form-field">
                 <label for="course-courseSkills">Compétences : </label>
-                <select id="course-courseSkills" multiple th:field="*{courseSkills}">
+                <select id="course-courseSkills" name="idSkill" multiple th:field="*{courseSkills}">
                     <optgroup th:each="skillCategory : ${skillCategoryList}"
                               th:label="${skillCategory.name}">
                         <option th:each="skill : ${skillListForSelection}"
-                                th:value="${skill}"
+                                th:value="${skill.id}"
                                 th:text="${skill.name}"
                                 th:if="${skill.skillCategory.getId() == skillCategory.getId()}">compétence
                         </option>
@@ -63,6 +63,18 @@
         <!--            <option value="" disabled selected>Sélectionner des compétences : </option>-->
                 </select>
             </div>
+
+            <div class="form-field">
+                <label for="skill">Register a course:</label>
+                <select id="skill" name="idSkill">
+                    <option th:each="skill : ${skillListForSelection}"
+                            th:text="${skill.name}"
+                            th:value="${skill.id}">wizard name
+                    </option>
+                </select>
+            </div>
+
+
 
             <input type="submit" value="Valider">
         </form>
