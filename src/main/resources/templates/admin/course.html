@@ -55,7 +55,7 @@
                     <optgroup th:each="skillCategory : ${skillCategoryList}"
                               th:label="${skillCategory.name}">
                         <option th:each="skill : ${skillListForSelection}"
-                                th:value="${skill.id}"
+                                th:value="${skill}"
                                 th:text="${skill.name}"
                                 th:if="${skill.skillCategory.getId() == skillCategory.getId()}">compétence
                         </option>
