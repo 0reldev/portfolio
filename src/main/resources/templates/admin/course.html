@@ -67,10 +67,14 @@
             <div class="form-field">
                 <label for="skill">Register a course:</label>
                 <select id="skill" name="idSkill">
-                    <option th:each="skill : ${skillListForSelection}"
-                            th:text="${skill.name}"
-                            th:value="${skill.id}">wizard name
-                    </option>
+                    <optgroup th:each="skillCategory : ${skillCategoryList}"
+                              th:label="${skillCategory.name}">
+                        <option th:each="skill : ${skillListForSelection}"
+                                th:text="${skill.name}"
+                                th:value="${skill.id}"
+                                th:if="${skill.skillCategory.getId() == skillCategory.getId()}">wizard name
+                        </option>
+                    </optgroup>
                 </select>
             </div>
 
