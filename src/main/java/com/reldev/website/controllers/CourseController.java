@@ -74,17 +74,18 @@ public class CourseController {
     }
 
 
-/*    @PostMapping("/admin/course")
+/*
+    @PostMapping("/admin/course")
     public String postCourse(@ModelAttribute Course course) {
 
         repository.save(course);
         return "redirect:/admin";
-    }*/
-
+    }
+*/
 
     @PostMapping("/admin/course")
     public String postCourse(@RequestParam Long idCourse,
-                             @RequestParam Long[] skillIds) {
+                             @RequestParam(required = false) Long[] skillIds) {
 
         Optional<Course> optionalCourse = repository.findById(idCourse);
         if (optionalCourse.isPresent()) {
@@ -114,6 +115,7 @@ public class CourseController {
         }
         return "redirect:/admin";
     }
+
 
 
 

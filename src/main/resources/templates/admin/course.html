@@ -49,21 +49,37 @@
             <label for="course-filter-tag">Libellés :</label>
             <input id="course-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
             <br><br>
-           <!-- <div class="form-field">
-                <label for="course-courseSkills">Compétences : </label>
-                <select id="course-courseSkills" name="idSkill" multiple th:field="*{courseSkills}">
+          <!--  <div class="form-field">-->
+               <!-- <label for="skillTEST">Compétences : </label>-->
+
+                   <!-- TODO : sauvegarde du travail-->
+<!--                <select id="skillTEST" multiple name="selectedSkills" th:field="*{courseSkills}"> &lt;!&ndash;Mettre th:field pour que les valeurs soient préselectionnées&ndash;&gt;
                     <optgroup th:each="skillCategory : ${skillCategoryList}"
                               th:label="${skillCategory.name}">
                         <option th:each="skill : ${skillListForSelection}"
-                                th:value="${skill.id}"
+                                th:value="${skill}"
                                 th:text="${skill.name}"
                                 th:if="${skill.skillCategory.getId() == skillCategory.getId()}">compétence
-                        </option>
+                        </option> &lt;!&ndash; Mette ${skill} pour que les compétences de courseSkills soient reconnues et présélectionnées&ndash;&gt;
                     </optgroup>
-        &lt;!&ndash;            <option value="" disabled selected>Sélectionner des compétences : </option>&ndash;&gt;
+  &lt;!&ndash;               <option value="" disabled selected>Sélectionner des compétences : </option>&ndash;&gt;
+                </select>-->
+
+                <!-- TODO : je peux modifier ça-->
+<!--                <select id="skillTEST" multiple name="selectedSkills" th:field="*{courseSkills}"> &lt;!&ndash;Mettre th:field pour que les valeurs soient préselectionnées&ndash;&gt;
+                    <optgroup th:each="skillCategory : ${skillCategoryList}"
+                              th:label="${skillCategory.name}">
+                        <option th:each="skill : ${skillListForSelection}"
+                                th:value="${skill}"
+                                th:text="${skill.name}"
+                                th:if="${skill.skillCategory.getId() == skillCategory.getId()}">compétence
+                        </option> &lt;!&ndash; Mette ${skill} pour que les compétences de courseSkills soient reconnues et présélectionnées&ndash;&gt;
+                    </optgroup>
+                    &lt;!&ndash;               <option value="" disabled selected>Sélectionner des compétences : </option>&ndash;&gt;
                 </select>
             </div>-->
 
+            <!-- TODO : ça c'est fonctionnel-->
             <div class="form-field">
                 <label for="skill">Compétences :</label>
                 <select id="skill" multiple name="skillIds">
