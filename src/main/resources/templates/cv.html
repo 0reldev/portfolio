@@ -95,6 +95,22 @@
                             <h6>Missions principales</h6>
                             <p th:text="${experience.mainMission}">Missions principales</p>
                         </div>
+                        <div class="card-action">
+                            <span> Compétences utilisées :</span>
+                            <div class="skillsToDisplay">
+                                <div class="skillElement"
+                                     th:each="skill : ${experience.skills}">
+                                    <span class="btn-small disabled grey lighten-1"
+                                          th:text="${skill.name}">
+                                        Compétence
+                                    </span>
+<!--
+                                    TODO: alterner une couleur sur deux.
+-->
+                                    <!--TODO: mettre en place une requête de filtrage quand on clique sur une compétence-->
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -108,11 +124,10 @@
                     ÉTUDES ET FORMATIONS
                 </h3>
             </div>
-
             <div class="row">
                 <div th:each="course : ${courses}" class="col s12 m4"> <!--TODO: adapter le responsive ici-->
 
-                        <div class="small card">
+                        <div class="card">
 <!--                            <div class="card-image">
 &lt;!&ndash;
                             TODO: mettre une ligne de couleur bleu ou violette ici pour dire quel type de formation c'est
@@ -128,7 +143,6 @@
                                     <span class="card-title">
                                         <p th:text="${course.courseTitle}"></p>
                                         <h6 th:text="|par ${course.schoolName}|"></h6>
-
                                     </span>
                                     <br/>
                                     <div class="row">
@@ -176,11 +190,21 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="card-action">
-<!--
-                                    TODO: mettre des icônes de compétences ici
--->
+                                    <span> Compétences utilisées :</span>
+                                    <div class="skillsToDisplay">
+                                        <div class="skillElement"
+                                             th:each="skill : ${course.courseSkills}">
+                                    <span class="btn-small disabled grey lighten-1"
+                                          th:text="${skill.name}">
+                                        Compétence
+                                    </span>
+                                            <!--
+                                             TODO: alterner une couleur sur deux.
+                                            -->
+                                            <!--TODO: mettre en place une requête de filtrage quand on clique sur une compétence-->
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-reveal">
                                     <span class="card-title grey-text text-darken-4">
@@ -198,29 +222,80 @@
 
 
         <div id="skillsSection"></div>
-    <!--
-    <section class="skillsSection">
-        <div><h3>COMPÉTENCES</h3></div>
-        <div class="skillContainer">
-            <div class="skillCategoryContainer">
-    &lt;!&ndash;                TODO: create a Category entity for skills,
-                            and add a ManyToMany relation for showing
-                            each skill for each category&ndash;&gt;
+        <section class="skillsSection">
+            <div>
+                <h3 class="center-align">
+                    COMPÉTENCES
+                </h3>
             </div>
-        </div>
-    </section>
-    -->
+            <div th:each="skillCategory : ${skillCategories}">
+                <h4 class="left-align"
+                    th:text="${skillCategory.name}">
+                </h4>
+                <div class="row">
+                    <div th:each="skill : ${skillsByExpertiseLevelAndName}"
+                         class="col s12 m4 l2"
+                         th:if="${skill.getSkillCategory() == skillCategory}">
+                        <div class = "card" id="skillCard">
+                            <div class="card-content">
+                                 <span class="card-title"
+                                       th:text="${skill.name}">
+                                         Compétence
+                                 </span>
+                                 <div class="row">
+                                     <div class="col s4">
+                                         <i class="small material-icons"
+                                            th:if="${skill.getExpertiseLevel() >= 1}"> star </i>
+                                     </div>
+                                     <div class="col s4">
+                                         <i class="small material-icons"
+                                            th:if="${skill.getExpertiseLevel() >= 2}">
+                                             star
+                                         </i>
+                                         <i class="small material-icons"
+                                            th:if="${skill.getExpertiseLevel() <= 1}">
+                                             star_border
+                                         </i>
+                                     </div>
+                                     <div class="col s4">
+                                         <i class="small material-icons"
+                                            th:if="${skill.getExpertiseLevel() >= 3}">
+                                             star
+                                         </i>
+                                         <i class="small material-icons"
+                                            th:if="${skill.getExpertiseLevel() <= 2}">
+                                             star_border
+                                         </i>
+                                     </div>
+                                 </div>
+                                 <div class="row"
+                                    th:if="${!skill.getCertification().isEmpty()}">
+                                     <div class="col s3">
+                                         <i class="small material-icons">
+                                             check_circle
+                                         </i>
+                                     </div>
+                                     <div class="col s9">
+                                         <p th:text="${skill.certification}">
+                                             Certification
+                                         </p>
+                                     </div>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
         <div id="achievementsSection"></div>
-
         <section class="experienceSection">
             <div>
                 <h3 class="center-align">
                     RÉALISATIONS
                 </h3>
             </div>
-
             <div th:each="achievementCategory : ${achievementCategories}">
                 <h4 class="left-align" th:text="${achievementCategory.name}">
                 </h4>

@@ -11,20 +11,26 @@
     <label for="skill-name">Compétence :</label>
     <input id="skill-name" name="skill-name" placeholder="Anglais" required th:field="*{name}" type="text">
     <br><br>
-    <label for="skill-category">Catégorie :</label>
-    <input id="skill-category" name="category" placeholder="Langues" th:field="*{category}" type="text">
+
+    <label for="skillCategory-id">Catégorie :</label>
+    <select id="skillCategory-id" th:field="*{skillCategory.id}" required>
+        <option value="0" disabled selected>Sélectionner une catégorie</option>
+        <option th:each="skillCategory : ${skillCategories}"
+                th:value="${skillCategory.id}"
+                th:text="${skillCategory.name}">Catégorie</option>
+    </select>
     <br><br>
     <label for="skill-certification">Certification :</label>
-    <input id="skill-certification" name="certification" placeholder="BEC Vantage"  th:field="*{certification}" type="text">
+    <input id="skill-certification" name="certification" placeholder="BEC Vantage" th:field="*{certification}" type="text">
     <br><br>
     <label for="skill-expertise-level">Niveau de maitrise :</label>
-    <input id="skill-expertise-level" name="expertise-level" placeholder="Bon" required th:field="*{expertiseLevel}" type="text">
+    <input id="skill-expertise-level" name="expertise-level" placeholder="1, 2 ou 3" th:field="*{expertiseLevel}" type="text">
     <br><br>
     <label for="skill-icon-logo">URL de l'icône :</label>
     <input id="skill-icon-logo" name="icon-logo" placeholder="URL de l'icône" th:field="*{iconURL}" type="text">
     <br><br>
     <label for="course-filter-tag">Libellés :</label>
-    <input id="course-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
+    <input id="course-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" th:field="*{filterTag}" type="text">
     <br><br>
     <input type="submit" value="Valider">
 </form>

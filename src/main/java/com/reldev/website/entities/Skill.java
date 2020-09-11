@@ -18,14 +18,11 @@ public class Skill {
     @Column(nullable = false)
     private String name;
 
-    @Column
-    private String category;
-
     @Column(name = "icon_url")
     private String iconURL;
 
     @Column(name = "expertise_level")
-    private String expertiseLevel;
+    private Integer expertiseLevel;
 
     @Column
     private String certification;
@@ -33,20 +30,41 @@ public class Skill {
     @Column(name = "filter_tag")
     private String filterTag;
 
-    @ManyToMany(mappedBy = "skills")
+    @ManyToMany(mappedBy = "courseSkills")
     private List<Course> courses = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "skills")
+   /* @ManyToMany(mappedBy = "skills")
     private List<Experience> experiences = new ArrayList<>();
 
     @ManyToMany(mappedBy = "skills")
+    private List<Achievement> achievements = new ArrayList<>();*/
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "experience_skill",
+        joinColumns = @JoinColumn(name = "skill_id"),
+        inverseJoinColumns = @JoinColumn(name = "experience_id"))
+    private List<Experience> experiences = new ArrayList<>();
+
+/*    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "course_skill",
+            joinColumns = @JoinColumn(name = "skill_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private List<Course> courses = new ArrayList<>();*/
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "achievement_skill",
+            joinColumns = @JoinColumn(name = "skill_id"),
+            inverseJoinColumns = @JoinColumn(name = "achievement_id"))
     private List<Achievement> achievements = new ArrayList<>();
 
-    public Skill() {
-    }
 
-    public Skill(String name) {
-        this.name = name;
+
+
+    @ManyToOne (fetch = FetchType.EAGER)
+    @JoinColumn(name = "skillCategory_id")
+    private SkillCategory skillCategory;
+
+    public Skill() {
     }
 
     public Long getId() {
@@ -65,14 +83,6 @@ public class Skill {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public String getIconURL() {
         return iconURL;
     }
@@ -81,11 +91,11 @@ public class Skill {
         this.iconURL = iconURL;
     }
 
-    public String getExpertiseLevel() {
+    public Integer getExpertiseLevel() {
         return expertiseLevel;
     }
 
-    public void setExpertiseLevel(String expertiseLevel) {
+    public void setExpertiseLevel(Integer expertiseLevel) {
         this.expertiseLevel = expertiseLevel;
     }
 
@@ -127,5 +137,13 @@ public class Skill {
 
     public void setAchievements(List<Achievement> achievements) {
         this.achievements = achievements;
+    }
+
+    public SkillCategory getSkillCategory() {
+        return skillCategory;
+    }
+
+    public void setSkillCategory(SkillCategory skillCategory) {
+        this.skillCategory = skillCategory;
     }
 }

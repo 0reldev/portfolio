@@ -47,14 +47,12 @@ public class Course {
     @Column(name = "filter_tag")
     private String filterTag;
 
-    @Transient
-    private String skillList;
-
-    @ManyToMany
-    @JoinTable(name = "course_skill",
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "skill_course",   //course_skill
             joinColumns = @JoinColumn(name ="course_id"),
-            inverseJoinColumns = @JoinColumn(name = "skill_id"))
-    private List<Skill> skills = new ArrayList<>();
+            inverseJoinColumns = @JoinColumn(name = "skill_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"course_id", "skill_id"}))
+    private List<Skill> courseSkills = new ArrayList<>();
 
     public Course() {
     }
@@ -107,6 +105,14 @@ public class Course {
         this.description = description;
     }
 
+    public String getDiploma() {
+        return diploma;
+    }
+
+    public void setDiploma(String diploma) {
+        this.diploma = diploma;
+    }
+
     public String getSchoolName() {
         return schoolName;
     }
@@ -139,27 +145,11 @@ public class Course {
         this.filterTag = filterTag;
     }
 
-    public List<Skill> getSkills() {
-        return skills;
+    public List<Skill> getCourseSkills() {
+        return courseSkills;
     }
 
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
-    }
-
-    public String getDiploma() {
-        return diploma;
-    }
-
-    public void setDiploma(String diploma) {
-        this.diploma = diploma;
-    }
-
-    public String getSkillList() {
-        return skillList;
-    }
-
-    public void setSkillList(String skillList) {
-        this.skillList = skillList;
+    public void setCourseSkills(List<Skill> courseSkills) {
+        this.courseSkills = courseSkills;
     }
 }

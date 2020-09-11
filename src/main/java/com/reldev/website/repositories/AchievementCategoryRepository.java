@@ -1,6 +1,5 @@
 package com.reldev.website.repositories;
 
-import com.reldev.website.entities.Achievement;
 import com.reldev.website.entities.AchievementCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

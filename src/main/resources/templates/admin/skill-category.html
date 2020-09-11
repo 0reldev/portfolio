@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${skillCategory.id} ? 'Modification d\'une catégorie de compétence' : 'Création d\'une catégorie de compétence'">Catégories de compétences</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/admin/skill-category}" th:object="${skillCategory}">
+    <input name="id" th:field="*{id}" type="hidden">
+    <label for="skill-category-name">Nom de la catégorie de compétence :</label>
+    <input id="skill-category-name" name="skill-category-name" placeholder="Nom de la catégorie" required th:field="*{name}" type="text">
+    <br><br>
+
+    <input type="submit" value="Valider">
+</form>
+
+<br>
+<a href="/admin">Retour</a>
+
+</body>
+</html>

@@ -4,140 +4,162 @@
     <meta charset="UTF-8">
     <title>Page d'administration</title>
 </head>
-<body>
-<header>
-    <h2>Page d'administration</h2>
-</header>
-<section>
-    <h3>Gestion des expériences</h3>
-    <a href="/admin/experience">Ajouter une expérience</a>
-    <br><br>
-    <table>
+    <body>
+    <header>
+        <h2>Page d'administration</h2>
+    </header>
+    <section>
+        <h3>Gestion des expériences</h3>
+        <a href="/admin/experience">Ajouter une expérience</a>
+        <br><br>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Poste</th>
+                <th>Entreprise</th>
+                <th>Ville</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="experience : ${experiences}">
+                <td th:text="${experience.id}">id</td>
+                <td th:text="${experience.jobTitle}">Intitulé du poste</td>
+                <td th:text="${experience.companyName}">Entreprise</td>
+                <td th:text="${experience.city}">Ville</td>
+                <td><a th:href="@{/admin/experience(id=${experience.id})}">Modifier</a></td>
+                <td><a th:href="@{/admin/experience/delete(id=${experience.id})}">Supprimer</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h3>Gestion des formations</h3>
+        <a href="/admin/course">Ajouter une formation</a>
+        <br><br>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Intitulé</th>
+                <th>École/organisme</th>
+                <th>Ville</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="course : ${courses}">
+                <td th:text="${course.id}">id</td>
+                <td th:text="${course.courseTitle}">Intitulé de la formation</td>
+                <td th:text="${course.schoolName}">Entreprise</td>
+                <td th:text="${course.city}">Ville</td>
+                <td><a th:href="@{/admin/course(id=${course.id})}">Modifier</a></td>
+                <td><a th:href="@{/admin/course/delete(id=${course.id})}">Supprimer</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h3>Gestion des compétences</h3>
+        <a href="/admin/skill">Ajouter une compétence</a>
+        <br><br>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Compétence</th>
+<!--                <th>Catégorie</th>-->
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="skill : ${skillsByName}">
+                <td th:text="${skill.id}">id</td>
+                <td th:text="${skill.name}">Compétence</td>
+
+<!--                <td th:text="${skill.skillCategory.name}">Catégorie</td>-->
+                <td><a th:href="@{/admin/skill(id=${skill.id})}">Modifier</a></td>
+                <td><a th:href="@{/admin/skill/delete(id=${skill.id})}">Supprimer</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h3>Gestion des réalisations</h3>
+        <a href="/admin/achievement">Ajouter une réalisation</a>
+        <br><br>
+        <table>
         <thead>
         <tr>
             <th>Id</th>
-            <th>Poste</th>
-            <th>Entreprise</th>
-            <th>Ville</th>
+            <th>Titre</th>
+            <th>Client</th>
             <th></th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="experience : ${experiences}">
-            <td th:text="${experience.id}">id</td>
-            <td th:text="${experience.jobTitle}">Intitulé du poste</td>
-            <td th:text="${experience.companyName}">Entreprise</td>
-            <td th:text="${experience.city}">Ville</td>
-            <td><a th:href="@{/admin/experience(id=${experience.id})}">Modifier</a></td>
-            <td><a th:href="@{/admin/experience/delete(id=${experience.id})}">Supprimer</a></td>
+        <tr th:each="achievement : ${achievements}">
+            <td th:text="${achievement.id}">id</td>
+            <td th:text="${achievement.title}">Compétence</td>
+            <td th:text="${achievement.customer}">Client</td>
+            <td><a th:href="@{/admin/achievement(id=${achievement.id})}">Modifier</a></td>
+            <td><a th:href="@{/admin/achievement/delete(id=${achievement.id})}">Supprimer</a></td>
         </tr>
         </tbody>
-    </table>
-</section>
-<section>
-    <h3>Gestion des formations</h3>
-    <a href="/admin/course">Ajouter une formation</a>
-    <br><br>
-    <table>
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Intitulé</th>
-            <th>École/organisme</th>
-            <th>Ville</th>
-            <th></th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="course : ${courses}">
-            <td th:text="${course.id}">id</td>
-            <td th:text="${course.courseTitle}">Intitulé de la formation</td>
-            <td th:text="${course.schoolName}">Entreprise</td>
-            <td th:text="${course.city}">Ville</td>
-            <td><a th:href="@{/admin/course(id=${course.id})}">Modifier</a></td>
-            <td><a th:href="@{/admin/course/delete(id=${course.id})}">Supprimer</a></td>
-        </tr>
-        </tbody>
-    </table>
-</section>
-<section>
-    <h3>Gestion des compétences</h3>
-    <a href="/admin/skill">Ajouter une compétence</a>
-    <br><br>
-    <table>
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Compétence</th>
-            <th>Catégorie</th>
-            <th>Niveau</th>
-            <th></th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="skill : ${skills}">
-            <td th:text="${skill.id}">id</td>
-            <td th:text="${skill.name}">Compétence</td>
-            <td th:text="${skill.category}">Catégorie</td>
-            <td th:text="${skill.expertiseLevel}">Ville</td>
-            <td><a th:href="@{/admin/skill(id=${skill.id})}">Modifier</a></td>
-            <td><a th:href="@{/admin/skill/delete(id=${skill.id})}">Supprimer</a></td>
-        </tr>
-        </tbody>
-    </table>
-</section>
-<section>
-    <h3>Gestion des réalisations</h3>
-    <a href="/admin/achievement">Ajouter une réalisation</a>
-    <br><br>
-    <table>
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Titre</th>
-        <th>Client</th>
-        <th></th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="achievement : ${achievements}">
-        <td th:text="${achievement.id}">id</td>
-        <td th:text="${achievement.title}">Compétence</td>
-        <td th:text="${achievement.customer}">Client</td>
-        <td><a th:href="@{/admin/achievement(id=${achievement.id})}">Modifier</a></td>
-        <td><a th:href="@{/admin/achievement/delete(id=${achievement.id})}">Supprimer</a></td>
-    </tr>
-    </tbody>
-    </table>
-</section>
-<section>
-    <h3>Gestion des catégories de réalisations</h3>
-    <a href="/admin/achievement-category">Ajouter une catégorie de réalisation</a>
-    <br><br>
-    <table>
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th></th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="achievementCategory : ${achievementCategories}">
-            <td th:text="${achievementCategory.id}">id</td>
-            <td th:text="${achievementCategory.name}">Nom</td>
-            <td><a th:href="@{/admin/achievement-category(id=${achievementCategory.id})}">Modifier</a></td>
-            <td><a th:href="@{/admin/achievement-category/delete(id=${achievementCategory.id})}">Supprimer</a></td>
-        </tr>
-        </tbody>
-    </table>
-</section>
-<br>
-<a href="/">Retour sur la partie publique</a>
-</body>
+        </table>
+    </section>
+    <section>
+        <h3>Gestion des catégories de réalisations</h3>
+        <a href="/admin/achievement-category">Ajouter une catégorie de réalisation</a>
+        <br><br>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="achievementCategory : ${achievementCategories}">
+                <td th:text="${achievementCategory.id}">id</td>
+                <td th:text="${achievementCategory.name}">Nom</td>
+                <td><a th:href="@{/admin/achievement-category(id=${achievementCategory.id})}">Modifier</a></td>
+                <td><a th:href="@{/admin/achievement-category/delete(id=${achievementCategory.id})}">Supprimer</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h3>Gestion des catégories de compétences</h3>
+        <a href="/admin/skill-category">Ajouter une catégorie de compétence</a>
+        <br><br>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="skillCategory : ${skillCategories}">
+                <td th:text="${skillCategory.id}">id</td>
+                <td th:text="${skillCategory.name}">Nom</td>
+                <td><a th:href="@{/admin/skill-category(id=${skillCategory.id})}">Modifier</a></td>
+                <td><a th:href="@{/admin/skill-category/delete(id=${skillCategory.id})}">Supprimer</a></td> <!--TODO : disassocier la compétence partout où elle est associée, puis la supprimer-->
+            </tr>
+            </tbody>
+        </table>
+
+    <br>
+    <a href="/">Retour sur la partie publique</a>
+    </body>
 </html>

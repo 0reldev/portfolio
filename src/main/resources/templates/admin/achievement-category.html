@@ -9,7 +9,7 @@
 <form method="post" th:action="@{/admin/achievement-category}" th:object="${achievementCategory}">
     <input name="id" th:field="*{id}" type="hidden">
     <label for="achievement-title">Nom de la catégorie de réalisation :</label>
-    <input id="achievement-title" name="achievement-title" placeholder="Nom du projet" required th:field="*{name}" type="text">
+    <input id="achievement-title" name="achievement-title" placeholder="Nom de la catégorie" required th:field="*{name}" type="text">
     <br><br>
 
     <input type="submit" value="Valider">

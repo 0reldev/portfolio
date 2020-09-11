@@ -29,6 +29,9 @@ public class MainController {
     private SkillRepository skillRepository;
 
     @Autowired
+    private SkillCategoryRepository skillCategoryRepository;
+
+    @Autowired
     private AchievementRepository achievementRepository;
 
     @Autowired
@@ -36,7 +39,6 @@ public class MainController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
 
     @GetMapping("/")
     public String getIndex(Model out) {
@@ -57,7 +59,8 @@ public class MainController {
         out.addAttribute("user", user);
         out.addAttribute("experiences", experienceRepository.findAll());
         out.addAttribute("courses", courseRepository.findAll());
-        out.addAttribute("skills", skillRepository.findAll());
+        out.addAttribute("skillsByName", skillRepository.findAllOrderedByName());
+        out.addAttribute("skillCategories", skillCategoryRepository.findAllOrderedByName());
         out.addAttribute("achievements", achievementRepository.findAll());
         out.addAttribute("achievementCategories", achievementCategoryRepository.findAllOrderedByName());
         return "/admin";
@@ -92,6 +95,10 @@ public class MainController {
         out.addAttribute("adminPage", false);
         out.addAttribute("experiences", experienceRepository.findAllOrderedByDate());
         out.addAttribute("courses", courseRepository.findAllOrderedByDate());
+        out.addAttribute("skillsByExpertiseLevelAndName", skillRepository.findAllOrderedByExpertiseLevelAndName());
+        out.addAttribute("skillsByName", skillRepository.findAllOrderedByName());
+        out.addAttribute("skillsByCategoryAndName", skillRepository.findAllOrderedByCategoryAndName());
+        out.addAttribute("skillCategories", skillCategoryRepository.findAllOrderedByName());
         out.addAttribute("achievements", achievementRepository.findAllOrderedByDate());
         out.addAttribute("achievementCategories", achievementCategoryRepository.findAllOrderedByName());
         return "/cv";

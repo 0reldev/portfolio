@@ -1,49 +1,124 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${course.id} ? 'Modification d\'une formation' : 'Création d\'une formation'">Formations</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title th:text="${course.id} ? 'Modification d\'une formation' : 'Création d\'une formation'">Formations</title>
 
-<form method="post" th:action="@{/admin/course}" th:object="${course}">
-    <input name="id" th:field="*{id}" type="hidden">
-    <label for="course-title">Intitulé de la formation :</label>
-    <input id="course-title" name="course-title" placeholder="Développeur web" required th:field="*{courseTitle}" type="text">
-    <br><br>
-    <label for="course-school-name">École/organisme de formation :</label>
-    <input id="course-school-name" name="school-name" placeholder="Wild Code School" required th:field="*{schoolName}" type="text">
-    <br><br>
-    <label for="course-description">Description :</label>
-    <input id="course-description" name="description" placeholder="Description du cursus." th:field="*{description}" type="text">
-    <br><br>
-    <label for="course-start-date">Date d'entrée en formation :</label>
-    <input id="course-start-date" name="start-date" class="datepicker" value="01/01/2021" required th:field="*{startDate}" type="date">
-    <br><br>
-    <label for="course-end-date">Date de fin de formation :</label>
-    <input id="course-end-date" name="end-date" value="01/01/2021" required th:field="*{endDate}" type="date">
-    <br><br>
-    <label for="course-duration">Durée :</label>
-    <input id="course-duration" name="duration" placeholder="6 mois" th:field="*{duration}" type="text">
-    <br><br>
-    <label for="course-diploma">Diplôme/certification :</label>
-    <input id="course-diploma" name="diploma" placeholder="Diplôme d'ingénieur"  th:field="*{diploma}" type="text">
-    <br><br>
-    <label for="course-city">Ville :</label>
-    <input id="course-city" name="city" placeholder="Nantes" required th:field="*{city}" type="text">
-    <br><br>
-    <label for="course-school-logo">URL du logo de l'entreprise :</label>
-    <input id="course-school-logo" name="school-logo" placeholder="URL de l'image" th:field="*{schoolLogoUrl}" type="text">
-    <br><br>
-    <label for="course-filter-tag">Libellés :</label>
-    <input id="course-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
-    <br><br>
- <!--   TODO: add the skills-->
-    <input type="submit" value="Valider">
-</form>
+        <link rel="stylesheet" href="/css/style.css">
 
-<br>
-<a href="/admin">Retour</a>
+        <!-- Google icons and fonts importation -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
 
-</body>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    </head>
+    <body>
+        <form th:action="@{/admin/course}" method="post" th:object="${course}">
+            <input name="idCourse" th:value="*{id}" type="hidden">
+            <label for="course-title">Intitulé de la formation :</label>
+            <input id="course-title" name="course-title" placeholder="Développeur web" required th:field="*{courseTitle}" type="text">
+            <br><br>
+            <label for="course-school-name">École/organisme de formation :</label>
+            <input id="course-school-name" name="school-name" placeholder="Wild Code School" required th:field="*{schoolName}" type="text">
+            <br><br>
+            <label for="course-description">Description :</label>
+            <input id="course-description" name="description" placeholder="Description du cursus." th:field="*{description}" type="text">
+            <br><br>
+            <label for="course-start-date">Date d'entrée en formation :</label>
+            <input id="course-start-date" name="start-date" class="datepicker" value="01/01/2021" required th:field="*{startDate}" type="date">
+            <br><br>
+            <label for="course-end-date">Date de fin de formation :</label>
+            <input id="course-end-date" name="end-date" value="01/01/2021" required th:field="*{endDate}" type="date">
+            <br><br>
+            <label for="course-duration">Durée :</label>
+            <input id="course-duration" name="duration" placeholder="6 mois" th:field="*{duration}" type="text">
+            <br><br>
+            <label for="course-diploma">Diplôme/certification :</label>
+            <input id="course-diploma" name="diploma" placeholder="Diplôme d'ingénieur"  th:field="*{diploma}" type="text">
+            <br><br>
+            <label for="course-city">Ville :</label>
+            <input id="course-city" name="city" placeholder="Nantes" required th:field="*{city}" type="text">
+            <br><br>
+            <label for="course-school-logo">URL du logo de l'entreprise :</label>
+            <input id="course-school-logo" name="school-logo" placeholder="URL de l'image" th:field="*{schoolLogoUrl}" type="text">
+            <br><br>
+            <label for="course-filter-tag">Libellés :</label>
+            <input id="course-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
+            <br><br>
+          <!--  <div class="form-field">-->
+               <!-- <label for="skillTEST">Compétences : </label>-->
+
+                   <!-- TODO : comprendre pourquoi ceci ne veut pas fonctionner-->
+<!--                <select id="skillTEST" multiple name="selectedSkills" th:field="*{courseSkills}"> &lt;!&ndash;Mettre th:field pour que les valeurs soient préselectionnées&ndash;&gt;
+                    <optgroup th:each="skillCategory : ${skillCategoryList}"
+                              th:label="${skillCategory.name}">
+                        <option th:each="skill : ${skillListForSelection}"
+                                th:value="${skill}"
+                                th:text="${skill.name}"
+                                th:if="${skill.skillCategory.getId() == skillCategory.getId()}">compétence
+                        </option> &lt;!&ndash; Mette ${skill} pour que les compétences de courseSkills soient reconnues et présélectionnées&ndash;&gt;
+                    </optgroup>
+  &lt;!&ndash;               <option value="" disabled selected>Sélectionner des compétences : </option>&ndash;&gt;
+                </select>-->
+
+            <div class="form-field">
+                <label for="skill">Associer des compétences :</label>
+                <select id="skill" multiple name="skillIds">
+                    <optgroup th:each="skillCategory : ${skillCategoryList}"
+                              th:label="${skillCategory.name}">
+                        <option th:each="skill : ${skillListForSelection}"
+                                th:text="${skill.name}"
+                                th:value="${skill.id}"
+                                th:if="${(skill.skillCategory.getId() == skillCategory.getId())
+                                && !course.getCourseSkills().contains(skill)}">Compétence
+                        </option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <input type="submit" value="Valider">
+        </form>
+
+        <h4>Compétences associées :</h4> <!--TODO  trier les compétences à afficher par catégories puis par ordre alphabétique-->
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th></th> <!--TODO : ajouter un chemin vers l'édition de la compétence pour la modifier-->
+                <th></th> <!--TODO : ajouter un chemin pour dissocier la compétence de la formation-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="skill : ${course.courseSkills}">
+                <td th:text="${skill.id}">id</td>
+                <td th:text="${skill.name}">name</td>
+                <td>modifier</td>
+                <td>dissocier</td>
+            </tr>
+            </tbody>
+        </table>
+        <br>
+        <a href="/admin">Retour</a>
+
+        <footer th:replace="footer.html :: footer">
+        </footer>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                M.AutoInit();
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('select').formSelect();
+            });
+        </script>
+    </body>
 </html>
