@@ -154,7 +154,7 @@
                 <td th:text="${skillCategory.id}">id</td>
                 <td th:text="${skillCategory.name}">Nom</td>
                 <td><a th:href="@{/admin/skill-category(id=${skillCategory.id})}">Modifier</a></td>
-                <td><a th:href="@{/admin/skill-category/delete(id=${skillCategory.id})}">Supprimer</a></td>
+                <td><a th:href="@{/admin/skill-category/delete(id=${skillCategory.id})}">Supprimer</a></td> <!--TODO : disassocier la compétence partout où elle est associée, puis la supprimer-->
             </tr>
             </tbody>
         </table>

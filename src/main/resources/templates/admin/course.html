@@ -52,7 +52,7 @@
           <!--  <div class="form-field">-->
                <!-- <label for="skillTEST">Compétences : </label>-->
 
-                   <!-- TODO : sauvegarde du travail-->
+                   <!-- TODO : comprendre pourquoi ceci ne veut pas fonctionner-->
 <!--                <select id="skillTEST" multiple name="selectedSkills" th:field="*{courseSkills}"> &lt;!&ndash;Mettre th:field pour que les valeurs soient préselectionnées&ndash;&gt;
                     <optgroup th:each="skillCategory : ${skillCategoryList}"
                               th:label="${skillCategory.name}">
@@ -65,23 +65,8 @@
   &lt;!&ndash;               <option value="" disabled selected>Sélectionner des compétences : </option>&ndash;&gt;
                 </select>-->
 
-                <!-- TODO : je peux modifier ça-->
-<!--                <select id="skillTEST" multiple name="selectedSkills" th:field="*{courseSkills}"> &lt;!&ndash;Mettre th:field pour que les valeurs soient préselectionnées&ndash;&gt;
-                    <optgroup th:each="skillCategory : ${skillCategoryList}"
-                              th:label="${skillCategory.name}">
-                        <option th:each="skill : ${skillListForSelection}"
-                                th:value="${skill}"
-                                th:text="${skill.name}"
-                                th:if="${skill.skillCategory.getId() == skillCategory.getId()}">compétence
-                        </option> &lt;!&ndash; Mette ${skill} pour que les compétences de courseSkills soient reconnues et présélectionnées&ndash;&gt;
-                    </optgroup>
-                    &lt;!&ndash;               <option value="" disabled selected>Sélectionner des compétences : </option>&ndash;&gt;
-                </select>
-            </div>-->
-
-            <!-- TODO : ça c'est fonctionnel-->
             <div class="form-field">
-                <label for="skill">Compétences :</label>
+                <label for="skill">Associer des compétences :</label>
                 <select id="skill" multiple name="skillIds">
                     <optgroup th:each="skillCategory : ${skillCategoryList}"
                               th:label="${skillCategory.name}">
@@ -98,18 +83,22 @@
             <input type="submit" value="Valider">
         </form>
 
-        <h4>Compétences associées :</h4>
+        <h4>Compétences associées :</h4> <!--TODO  trier les compétences à afficher par catégories puis par ordre alphabétique-->
         <table>
             <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th></th> <!--TODO : ajouter un chemin vers l'édition de la compétence pour la modifier-->
+                <th></th> <!--TODO : ajouter un chemin pour dissocier la compétence de la formation-->
             </tr>
             </thead>
             <tbody>
             <tr th:each="skill : ${course.courseSkills}">
                 <td th:text="${skill.id}">id</td>
                 <td th:text="${skill.name}">name</td>
+                <td>modifier</td>
+                <td>dissocier</td>
             </tr>
             </tbody>
         </table>
