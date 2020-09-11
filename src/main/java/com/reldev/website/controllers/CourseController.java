@@ -73,6 +73,7 @@ public class CourseController {
         return "/admin/course";
     }
 
+
 /*    @PostMapping("/admin/course")
     public String postCourse(@ModelAttribute Course course) {
 
@@ -83,29 +84,32 @@ public class CourseController {
 
     @PostMapping("/admin/course")
     public String postCourse(@RequestParam Long idCourse,
-                             @RequestParam Long idSkill) {
+                             @RequestParam Long[] skillIds) {
 
         Optional<Course> optionalCourse = repository.findById(idCourse);
         if (optionalCourse.isPresent()) {
             Course course = optionalCourse.get();
 
-            Optional<Skill> optionalSkill = skillRepository.findById(idSkill);
-            if (optionalSkill.isPresent()) {
-                Skill skill = optionalSkill.get();
+            for (Long idSkill : skillIds) {
 
-                // call the method getSkills in Course
-                List<Skill> skills;
-                Method method = getMethod(course, "getCourseSkills",
-                        new Class[]{});
-                if (method != null) {
-                    try {
-                        skills = (List<Skill>) method.invoke(course);
-                        skills.add(skill);
-                    } catch (IllegalAccessException | InvocationTargetException e) {
-                        e.printStackTrace();
+                Optional<Skill> optionalSkill = skillRepository.findById(idSkill);
+                if (optionalSkill.isPresent()) {
+                    Skill skill = optionalSkill.get();
+
+                    // call the method getSkills in Course
+                    List<Skill> skills;
+                    Method method = getMethod(course, "getCourseSkills",
+                            new Class[]{});
+                    if (method != null) {
+                        try {
+                            skills = (List<Skill>) method.invoke(course);
+                            skills.add(skill);
+                        } catch (IllegalAccessException | InvocationTargetException e) {
+                            e.printStackTrace();
+                        }
                     }
+                    repository.save(course);
                 }
-                repository.save(course);
             }
         }
         return "redirect:/admin";
