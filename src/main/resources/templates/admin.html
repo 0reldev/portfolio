@@ -18,7 +18,11 @@
         <section id="experiencesSection">
             <div class="container">
                 <br><br>
-                <a href="/admin/experience">Ajouter une expérience</a>
+                <a class="waves-effect waves-light btn green accent-2"
+                   href="/admin/experience">
+                    <i class="material-icons left">add_circle</i>
+                    Ajouter une expérience
+                </a>
                 <br><br>
                 <table>
                     <thead>
@@ -37,8 +41,8 @@
                             <td th:text="${experience.jobTitle}">Intitulé du poste</td>
                             <td th:text="${experience.companyName}">Entreprise</td>
                             <td th:text="${experience.city}">Ville</td>
-                            <td><a th:href="@{/admin/experience(id=${experience.id})}">Modifier</a></td>
-                            <td><a th:href="@{/admin/experience/delete(id=${experience.id})}">Supprimer</a></td>
+                            <td><a th:href="@{/admin/experience(id=${experience.id})}"><i class="material-icons">create</i></a></td>
+                            <td><a th:href="@{/admin/experience/delete(id=${experience.id})}"><i class="material-icons">delete</i></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -47,7 +51,11 @@
         <section id="coursesSection">
             <div class="container">
                 <br><br>
-                <a href="/admin/course">Ajouter une formation</a>
+                <a class="waves-effect waves-light btn green accent-2"
+                   href="/admin/course">
+                    <i class="material-icons left">add_circle</i>
+                    Ajouter une formation
+                </a>
                 <br><br>
                 <table>
                     <thead>
@@ -66,8 +74,8 @@
                             <td th:text="${course.courseTitle}">Intitulé de la formation</td>
                             <td th:text="${course.schoolName}">Entreprise</td>
                             <td th:text="${course.city}">Ville</td>
-                            <td><a th:href="@{/admin/course(id=${course.id})}">Modifier</a></td>
-                            <td><a th:href="@{/admin/course/delete(id=${course.id})}">Supprimer</a></td>
+                            <td><a th:href="@{/admin/course(id=${course.id})}"><i class="material-icons">create</i></a></td>
+                            <td><a th:href="@{/admin/course/delete(id=${course.id})}"><i class="material-icons">delete</i></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -76,7 +84,11 @@
         <section id="skillsSection">
             <div class="container">
                 <br><br>
-                <a href="/admin/skill">Ajouter une compétence</a>
+                <a class="waves-effect waves-light btn green accent-2"
+                   href="/admin/skill">
+                    <i class="material-icons left">add_circle</i>
+                    Ajouter une compétence
+                </a>
                 <br><br>
                 <table>
                     <thead>
@@ -94,8 +106,8 @@
                             <td th:text="${skill.name}">Compétence</td>
 
             <!--                <td th:text="${skill.skillCategory.name}">Catégorie</td>-->
-                            <td><a th:href="@{/admin/skill(id=${skill.id})}">Modifier</a></td>
-                            <td><a th:href="@{/admin/skill/delete(id=${skill.id})}">Supprimer</a></td>
+                            <td><a th:href="@{/admin/skill(id=${skill.id})}"><i class="material-icons">create</i></a></td>
+                            <td><a th:href="@{/admin/skill/delete(id=${skill.id})}"><i class="material-icons">delete</i></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -104,7 +116,11 @@
         <section id="achievementsSection">
             <div class="container">
                 <br><br>
-                <a href="/admin/achievement">Ajouter une réalisation</a>
+                <a class="waves-effect waves-light btn green accent-2"
+                   href="/admin/achievement">
+                    <i class="material-icons left">add_circle</i>
+                    Ajouter une réalisation
+                </a>
                 <br><br>
                 <table>
                     <thead>
@@ -121,8 +137,8 @@
                             <td th:text="${achievement.id}">id</td>
                             <td th:text="${achievement.title}">Compétence</td>
                             <td th:text="${achievement.customer}">Client</td>
-                            <td><a th:href="@{/admin/achievement(id=${achievement.id})}">Modifier</a></td>
-                            <td><a th:href="@{/admin/achievement/delete(id=${achievement.id})}">Supprimer</a></td>
+                            <td><a th:href="@{/admin/achievement(id=${achievement.id})}"><i class="material-icons">create</i></a></td>
+                            <td><a th:href="@{/admin/achievement/delete(id=${achievement.id})}"><i class="material-icons">delete</i></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -131,7 +147,11 @@
         <section id="achievementCategoriesSection">
             <div class="container">
                 <br><br>
-                <a href="/admin/achievement-category">Ajouter une catégorie de réalisation</a>
+                <a class="waves-effect waves-light btn green accent-2"
+                   href="/admin/achievement-category">
+                    <i class="material-icons left">add_circle</i>
+                    Ajouter une catégorie de réalisation
+                </a>
                 <br><br>
                 <table>
                     <thead>
@@ -146,8 +166,8 @@
                         <tr th:each="achievementCategory : ${achievementCategories}">
                             <td th:text="${achievementCategory.id}">id</td>
                             <td th:text="${achievementCategory.name}">Nom</td>
-                            <td><a th:href="@{/admin/achievement-category(id=${achievementCategory.id})}">Modifier</a></td>
-                            <td><a th:href="@{/admin/achievement-category/delete(id=${achievementCategory.id})}">Supprimer</a></td>
+                            <td><a th:href="@{/admin/achievement-category(id=${achievementCategory.id})}"><i class="material-icons">create</i></a></td>
+                            <td><a th:href="@{/admin/achievement-category/delete(id=${achievementCategory.id})}"><i class="material-icons">delete</i></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -156,7 +176,11 @@
         <section id="skillCategoriesSection">
             <div class="container">
                 <br><br>
-                <a href="/admin/skill-category">Ajouter une catégorie de compétence</a>
+                <a class="waves-effect waves-light btn green accent-2"
+                   href="/admin/skill-category">
+                    <i class="material-icons left">add_circle</i>
+                    Ajouter une catégorie de compétence
+                </a>
                 <br><br>
                 <table>
                     <thead>
@@ -171,8 +195,8 @@
                         <tr th:each="skillCategory : ${skillCategories}">
                             <td th:text="${skillCategory.id}">id</td>
                             <td th:text="${skillCategory.name}">Nom</td>
-                            <td><a th:href="@{/admin/skill-category(id=${skillCategory.id})}">Modifier</a></td>
-                            <td><a th:href="@{/admin/skill-category/delete(id=${skillCategory.id})}">Supprimer</a></td> <!--TODO : disassocier la compétence partout où elle est associée, puis la supprimer-->
+                            <td><a th:href="@{/admin/skill-category(id=${skillCategory.id})}"><i class="material-icons">create</i></a></td>
+                            <td><a th:href="@{/admin/skill-category/delete(id=${skillCategory.id})}"><i class="material-icons">delete</i></a></td> <!--TODO : disassocier la compétence partout où elle est associée, puis la supprimer-->
                         </tr>
                     </tbody>
                 </table>
