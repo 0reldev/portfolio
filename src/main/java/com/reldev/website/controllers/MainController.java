@@ -62,6 +62,11 @@ public class MainController {
         out.addAttribute("skillCategories", skillCategoryRepository.findAllOrderedByName());
         out.addAttribute("achievements", achievementRepository.findAll());
         out.addAttribute("achievementCategories", achievementCategoryRepository.findAllOrderedByName());
+        out.addAttribute("homePage", false);
+        out.addAttribute("aboutPage", false);
+        out.addAttribute("cvPage", false);
+        out.addAttribute("contactPage", false);
+        out.addAttribute("adminPage", true);
         return "/admin";
     }
 
