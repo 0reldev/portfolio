@@ -65,5 +65,4 @@ public class AchievementController {
         repository.deleteById(id);
         return "redirect:/admin";
     }
-
 }

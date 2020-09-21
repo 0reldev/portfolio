@@ -44,11 +44,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/music">
-                                    MUSIQUE
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/contact">
                                     CONTACT
                                 </a>
@@ -90,11 +85,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/music">
-                                    MUSIQUE
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/contact">
                                     CONTACT
                                 </a>
@@ -133,11 +123,6 @@
                             <li class="active">
                                 <a href="/cv">
                                     CV
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/music">
-                                    MUSIQUE
                                 </a>
                             </li>
                             <li>
@@ -212,71 +197,6 @@
                     <!-- TODO: jouter les filtres par tags dans une barre fixe-->
                 </div>
             </nav>
-            <nav th:if="${musicPage}" class="nav-extended cyan darken-2">
-                <div class="container">
-                    <div class="nav-wrapper">
-                        <div class="hide-on-small-only">
-                            <a href="/" class="brand-logo">
-                                Aurélien Lonni
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/" class="brand-logo hide-on-med-and-up">
-                                A. Lonni
-                            </a>
-                        </div>
-                        <a href="#" data-target="menu-responsive" class="sidenav-trigger">
-                            <i class="material-icons">menu</i>
-                        </a>
-                        <ul class="right hide-on-med-and-down">
-                            <li>
-                                <a href="/about">
-                                    À PROPOS
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/cv">
-                                    CV
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a href="/music">
-                                    MUSIQUE
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/contact">
-                                    CONTACT
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/admin">
-                                    ADMINISTRATION
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="nav-content">
-                        <ul class="tabs tabs-transparent">
-                            <li class="tab">
-                                <a href="#repertorySection">
-                                    Répertoire
-                                </a>
-                            </li>
-                            <li class="tab">
-                                <a href="#scoresSection">
-                                    Partitions
-                                </a>
-                            </li>
-                            <li class="tab">
-                                <a href="#gigsSection">
-                                    Concerts
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
             <nav th:if="${contactPage}" class="nav-extended purple darken-1">
                 <div class="container">
                     <div class="nav-wrapper">
@@ -302,11 +222,6 @@
                             <li>
                                 <a href="/cv">
                                     CV
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/music">
-                                    MUSIQUE
                                 </a>
                             </li>
                             <li class="active">
@@ -351,11 +266,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/music">
-                                    MUSIQUE
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/contact">
                                     CONTACT
                                 </a>
@@ -385,11 +295,6 @@
                 </a>
             </li>
             <li>
-                <a href="/music">MUSIQUE
-                    <i class="material-icons">audiotrack</i>
-                </a>
-            </li>
-            <li>
                 <a href="/contact">
                     CONTACT
                     <i class="material-icons">email</i>
@@ -409,7 +314,6 @@
                 </a>
             </li>
         </ul>
-
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
