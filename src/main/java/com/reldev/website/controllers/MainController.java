@@ -101,17 +101,6 @@ public class MainController {
         return "/cv";
     }
 
-    @GetMapping("/music")
-    public String getMusic(Model out) {
-
-        out.addAttribute("homePage", false);
-        out.addAttribute("aboutPage", false);
-        out.addAttribute("cvPage", false);
-        out.addAttribute("contactPage", false);
-        out.addAttribute("adminPage", false);
-        return "/music";
-    }
-
     @GetMapping("/contact")
     public String getContact(Model out) {
 
