@@ -54,6 +54,8 @@ public class CourseController {
         out.addAttribute("course", course);
         out.addAttribute("skillListForSelection", skillRepository.findAllOrderedByCategoryAndName());
         out.addAttribute("skillCategoryList", skillCategoryRepository.findAllOrderedByName());
+        out.addAttribute("adminPage", true);
+        out.addAttribute("subAdminPage", true);
 
 
         List<Skill> skills = new ArrayList<>();

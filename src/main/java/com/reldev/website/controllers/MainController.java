@@ -48,6 +48,7 @@ public class MainController {
         out.addAttribute("cvPage", false);
         out.addAttribute("contactPage", false);
         out.addAttribute("adminPage", false);
+        out.addAttribute("subAdminPage", false);
         return "/index";
     }
 
@@ -67,6 +68,7 @@ public class MainController {
         out.addAttribute("cvPage", false);
         out.addAttribute("contactPage", false);
         out.addAttribute("adminPage", true);
+        out.addAttribute("subAdminPage", false);
         return "/admin";
     }
 
@@ -84,6 +86,7 @@ public class MainController {
         out.addAttribute("cvPage", false);
         out.addAttribute("contactPage", false);
         out.addAttribute("adminPage", false);
+        out.addAttribute("subAdminPage", false);
         return "/about";
     }
 
@@ -103,6 +106,7 @@ public class MainController {
         out.addAttribute("skillCategories", skillCategoryRepository.findAllOrderedByName());
         out.addAttribute("achievements", achievementRepository.findAllOrderedByDate());
         out.addAttribute("achievementCategories", achievementCategoryRepository.findAllOrderedByName());
+        out.addAttribute("subAdminPage", false);
         return "/cv";
     }
 
@@ -114,6 +118,7 @@ public class MainController {
         out.addAttribute("cvPage", false);
         out.addAttribute("contactPage", true);
         out.addAttribute("adminPage", false);
+        out.addAttribute("subAdminPage", false);
         return "/contact";
     }
 

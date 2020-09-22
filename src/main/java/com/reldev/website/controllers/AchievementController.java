@@ -49,6 +49,8 @@ public class AchievementController {
         out.addAttribute("achievement", achievement);
         out.addAttribute("achievementCategories", achievementCategoryRepository.findAllOrderedByName());
         out.addAttribute("skillList", skillRepository.findAll());
+        out.addAttribute("adminPage", true);
+        out.addAttribute("subAdminPage", true);
         return "/admin/achievement";
     }
 

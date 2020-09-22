@@ -44,6 +44,8 @@ public class SkillController {
         out.addAttribute("user", user);
         out.addAttribute("skill", skill);
         out.addAttribute("skillCategories", skillCategoryRepository.findAllOrderedByName());
+        out.addAttribute("adminPage", true);
+        out.addAttribute("subAdminPage", true);
 
         return "/admin/skill";
     }

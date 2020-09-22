@@ -40,6 +40,8 @@ public class SkillCategoryController {
         }
         out.addAttribute("user", user);
         out.addAttribute("skillCategory", skillCategory);
+        out.addAttribute("adminPage", true);
+        out.addAttribute("subAdminPage", true);
         return "/admin/skill-category";
     }
 

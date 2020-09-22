@@ -39,6 +39,8 @@ public class AchievementCategoryController {
         }
         out.addAttribute("user", user);
         out.addAttribute("achievementCategory", achievementCategory);
+        out.addAttribute("adminPage", true);
+        out.addAttribute("subAdminPage", true);
         return "/admin/achievement-category";
     }
 
