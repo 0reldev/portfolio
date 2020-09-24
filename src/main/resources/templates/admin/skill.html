@@ -21,29 +21,37 @@
                 <input name="id" th:field="*{id}" type="hidden">
 
                 <div class="row">
-                    <div class="col s12 l8">
+                    <div class="input-field col s12 l8">
+                        <i class="material-icons prefix">title</i>
                         <label for="skill-name">Nom de la compétence :</label>
-                        <input id="skill-name" name="skill-name" placeholder="Anglais" required th:field="*{name}" type="text">
+                        <input id="skill-name"
+                               name="skill-name"
+                               placeholder="Anglais"
+                               required
+                               th:field="*{name}"
+                               type="text">
                     </div>
-                    <div class="col s12 l4">
-                        <label for="skill-expertise-level">Niveau de maitrise :</label>
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">star_half</i>
                         <select id="skill-expertise-level" th:field="*{expertiseLevel}" required>
                             <option value="0" disabled selected>Sélectionner un niveau de maîtrise</option>
                             <option value="1">Notions</option>
                             <option value="2">Bon niveau</option>
                             <option value="3">Maîtrise professionnelle complète</option>
                         </select>
+                        <label for="skill-expertise-level">Niveau de maitrise :</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12 l6 xl8">
-                        <label for="skillCategory-id">Catégorie :</label>
+                    <div class="input-field col s12 l6 xl8">
+                        <i class="material-icons prefix">label_outline</i>
                         <select id="skillCategory-id" th:field="*{skillCategory.id}" required>
                             <option value="0" disabled selected>Sélectionner une catégorie</option>
                             <option th:each="skillCategory : ${skillCategories}"
                                     th:value="${skillCategory.id}"
                                     th:text="${skillCategory.name}">Catégorie</option>
                         </select>
+                        <label for="skillCategory-id">Catégorie :</label>
                     </div>
                     <div class="col s12 l6 xl4 center-align">
                         <a class="waves-effect waves-light btn green accent-2"
@@ -54,7 +62,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">school</i>
                         <label for="skill-certification">Certification :</label>
                         <input id="skill-certification" name="certification" placeholder="BEC Vantage" th:field="*{certification}" type="text">
                     </div>
