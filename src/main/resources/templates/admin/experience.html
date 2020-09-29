@@ -32,7 +32,7 @@
                                type="text">
                     </div>
                     <div class="input-field col s12 l6">
-                        <i class="material-icons prefix">location_city</i>
+                        <i class="material-icons prefix">domain</i>
                         <input id="experience-company-name"
                                name="company-name"
                                placeholder="Google"
@@ -68,17 +68,40 @@
                         <label for="experience-main-mission">Description des missions principales :</label>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">timer</i>
+                        <label for="experience-duration">Durée :</label>
+                        <input id="experience-duration"
+                               name="duration"
+                               placeholder="6 mois"
+                               th:field="*{duration}"
+                               type="text">
+                    </div>
+                    <div class="col s12 l4">
+                        <label for="experience-start-date">Date de prise de poste :</label>
+                        <input id="experience-start-date"
+                               name="start-date"
+                               class="datepicker"
+                               value="01/01/2021"
+                               required th:field="*{startDate}"
+                               type="text">
+                    </div>
+                    <div class="col s12 l4">
+                        <label for="experience-end-date">Date de fin du contrat :</label>
+                        <input id="experience-end-date"
+                               name="end-date"
+                               class="datepicker"
+                               value="01/01/2021"
+                               required
+                               th:field="*{endDate}"
+                               type="text">
+                    </div>
+                </div>
 
-
-                <label for="experience-start-date">Date de prise de poste :</label>
-                <input id="experience-start-date" name="start-date" class="datepicker" value="01/01/2021" required th:field="*{startDate}" type="date">
-                <br><br>
-                <label for="experience-end-date">Date de fin du contrat :</label>
-                <input id="experience-end-date" name="end-date" value="01/01/2021" required th:field="*{endDate}" type="date">
-                <br><br>
-                <label for="experience-duration">Durée :</label>
-                <input id="experience-duration" name="duration" placeholder="6 mois" th:field="*{duration}" type="text">
-                <br><br>
+<!--
+                TODO: clean the code form below
+-->
                 <label for="experience-sector">Secteur d'activité :</label>
                 <input id="experience-sector" name="sector" placeholder="Industrie automobile"  th:field="*{sector}" type="text">
                 <br><br>
@@ -88,14 +111,8 @@
                 <label for="experience-city">Ville :</label>
                 <input id="experience-city" name="city" placeholder="Nantes" required th:field="*{city}" type="text">
                 <br><br>
-                <label for="experience-company-logo">URL du logo de l'entreprise :</label>
-                <input id="experience-company-logo" name="company-logo" placeholder="URL de l'image" th:field="*{companyLogoUrl}" type="text">
-                <br><br>
                 <label for="experience-illustration">URL d'une illustration de l'expérience :</label>
                 <input id="experience-illustration" name="experience-illustration" placeholder="URL de l'image" th:field="*{experienceIllustrationUrl}" type="text">
-                <br><br>
-                <label for="experience-filter-tag">Libellés :</label>
-                <input id="experience-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
                 <br><br>
                 <div class="form-field">
                     <select multiple th:field="*{skills}">
@@ -112,6 +129,35 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 M.AutoInit();
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('select').formSelect();
+            });
+            $(document).ready(function () {
+                $('.datepicker').datepicker({
+                    autoClose: true,
+                    today: 'Today',
+                    clear: 'Réinitialiser',
+                    close: 'Close',
+                    firstDay: true,
+                    selectMonths: true,
+                    yearRange: [1980,2030],
+                    labelMonthNext: 'Mois suivant',
+                    labelMonthPrev: 'Mois précédent',
+                    labelMonthSelect: 'Sélectionner un mois',
+                    labelYearSelect: 'Sélectionner une année',
+                    format: 'dd/mm/yyyy',
+                    i18n: {
+                        months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                        monthsShort: ["Janv", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Aoû", "Sep", "Oct", "Nov", "Dec"],
+                        weekdays: ["Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+                        weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                        weekdaysAbbrev: ["D", "L", "M", "M", "J", "V", "S"],
+                        cancel:'Annuler'
+                    }
+                });
             });
         </script>
     </body>
