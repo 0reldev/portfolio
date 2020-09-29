@@ -1,63 +1,79 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${experience.id} ? 'Modification d\'une expérience' : 'Création d\' expérience'">Expérience</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="${experience.id} ? 'Modification d\'une expérience' : 'Création d\' expérience'">Expérience</title>
+        <link rel="stylesheet" href="/css/style.css">
 
-<form method="post" th:action="@{/admin/experience}" th:object="${experience}">
-    <input name="id" th:field="*{id}" type="hidden">
-    <label for="experience-job-title">Intitulé du poste :</label>
-    <input id="experience-job-title" name="job-title" placeholder="Développeur" required th:field="*{jobTitle}" type="text">
-    <br><br>
-    <label for="experience-company-name">Entreprise :</label>
-    <input id="experience-company-name" name="company-name" placeholder="Google" required th:field="*{companyName}" type="text">
-    <br><br>
-    <label for="experience-description">Description du contexte :</label>
-    <input id="experience-description" name="description" placeholder="Description du contexte" th:field="*{description}" type="text">
-    <br><br>
-    <label for="experience-main-mission">Description des missions principales :</label>
-    <input id="experience-main-mission" name="main-mission" placeholder="Description des missions réalisées." th:field="*{mainMission}" type="text">
-    <br><br>
-    <label for="experience-start-date">Date de prise de poste :</label>
-    <input id="experience-start-date" name="start-date" class="datepicker" value="01/01/2021" required th:field="*{startDate}" type="date">
-    <br><br>
-    <label for="experience-end-date">Date de fin du contrat :</label>
-    <input id="experience-end-date" name="end-date" value="01/01/2021" required th:field="*{endDate}" type="date">
-    <br><br>
-    <label for="experience-duration">Durée :</label>
-    <input id="experience-duration" name="duration" placeholder="6 mois" th:field="*{duration}" type="text">
-    <br><br>
-    <label for="experience-sector">Secteur d'activité :</label>
-    <input id="experience-sector" name="sector" placeholder="Industrie automobile"  th:field="*{sector}" type="text">
-    <br><br>
-    <label for="experience-contract-type">Type de contrat :</label>
-    <input id="experience-contract-type" name="contract-type" placeholder="CDI" th:field="*{contractType}" type="text">
-    <br><br>
-    <label for="experience-city">Ville :</label>
-    <input id="experience-city" name="city" placeholder="Nantes" required th:field="*{city}" type="text">
-    <br><br>
-    <label for="experience-company-logo">URL du logo de l'entreprise :</label>
-    <input id="experience-company-logo" name="company-logo" placeholder="URL de l'image" th:field="*{companyLogoUrl}" type="text">
-    <br><br>
-    <label for="experience-illustration">URL d'une illustration de l'expérience :</label>
-    <input id="experience-illustration" name="experience-illustration" placeholder="URL de l'image" th:field="*{experienceIllustrationUrl}" type="text">
-    <br><br>
-    <label for="experience-filter-tag">Libellés :</label>
-    <input id="experience-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
-    <br><br>
-    <div class="form-field">
-        <select multiple th:field="*{skills}">
-            <option value="" disabled selected>Sélectionner des compétences : </option>
-            <option th:each="skill : ${skillList}" th:value="${skill.name}" th:text="${skill.name}"></option>
-        </select>
-    </div>
-    <input type="submit" value="Valider">
-</form>
+        <!-- Google icons and fonts importation -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
 
-<br>
-<a href="/admin">Retour</a>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div th:replace="navbar.html :: navbar"></div>
+        <div class="container">
+            <br><br>
+            <form method="post" th:action="@{/admin/experience}" th:object="${experience}">
+                <input name="id" th:field="*{id}" type="hidden">
+                <label for="experience-job-title">Intitulé du poste :</label>
+                <input id="experience-job-title" name="job-title" placeholder="Développeur" required th:field="*{jobTitle}" type="text">
+                <br><br>
+                <label for="experience-company-name">Entreprise :</label>
+                <input id="experience-company-name" name="company-name" placeholder="Google" required th:field="*{companyName}" type="text">
+                <br><br>
+                <label for="experience-description">Description du contexte :</label>
+                <input id="experience-description" name="description" placeholder="Description du contexte" th:field="*{description}" type="text">
+                <br><br>
+                <label for="experience-main-mission">Description des missions principales :</label>
+                <input id="experience-main-mission" name="main-mission" placeholder="Description des missions réalisées." th:field="*{mainMission}" type="text">
+                <br><br>
+                <label for="experience-start-date">Date de prise de poste :</label>
+                <input id="experience-start-date" name="start-date" class="datepicker" value="01/01/2021" required th:field="*{startDate}" type="date">
+                <br><br>
+                <label for="experience-end-date">Date de fin du contrat :</label>
+                <input id="experience-end-date" name="end-date" value="01/01/2021" required th:field="*{endDate}" type="date">
+                <br><br>
+                <label for="experience-duration">Durée :</label>
+                <input id="experience-duration" name="duration" placeholder="6 mois" th:field="*{duration}" type="text">
+                <br><br>
+                <label for="experience-sector">Secteur d'activité :</label>
+                <input id="experience-sector" name="sector" placeholder="Industrie automobile"  th:field="*{sector}" type="text">
+                <br><br>
+                <label for="experience-contract-type">Type de contrat :</label>
+                <input id="experience-contract-type" name="contract-type" placeholder="CDI" th:field="*{contractType}" type="text">
+                <br><br>
+                <label for="experience-city">Ville :</label>
+                <input id="experience-city" name="city" placeholder="Nantes" required th:field="*{city}" type="text">
+                <br><br>
+                <label for="experience-company-logo">URL du logo de l'entreprise :</label>
+                <input id="experience-company-logo" name="company-logo" placeholder="URL de l'image" th:field="*{companyLogoUrl}" type="text">
+                <br><br>
+                <label for="experience-illustration">URL d'une illustration de l'expérience :</label>
+                <input id="experience-illustration" name="experience-illustration" placeholder="URL de l'image" th:field="*{experienceIllustrationUrl}" type="text">
+                <br><br>
+                <label for="experience-filter-tag">Libellés :</label>
+                <input id="experience-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
+                <br><br>
+                <div class="form-field">
+                    <select multiple th:field="*{skills}">
+                        <option value="" disabled selected>Sélectionner des compétences : </option>
+                        <option th:each="skill : ${skillList}" th:value="${skill.name}" th:text="${skill.name}"></option>
+                    </select>
+                </div>
+                <input type="submit" value="Valider">
+            </form>
+        </div>
 
-</body>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                M.AutoInit();
+            });
+        </script>
+    </body>
 </html>
