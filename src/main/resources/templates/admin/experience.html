@@ -19,18 +19,57 @@
             <br><br>
             <form method="post" th:action="@{/admin/experience}" th:object="${experience}">
                 <input name="id" th:field="*{id}" type="hidden">
-                <label for="experience-job-title">Intitulé du poste :</label>
-                <input id="experience-job-title" name="job-title" placeholder="Développeur" required th:field="*{jobTitle}" type="text">
-                <br><br>
-                <label for="experience-company-name">Entreprise :</label>
-                <input id="experience-company-name" name="company-name" placeholder="Google" required th:field="*{companyName}" type="text">
-                <br><br>
-                <label for="experience-description">Description du contexte :</label>
-                <input id="experience-description" name="description" placeholder="Description du contexte" th:field="*{description}" type="text">
-                <br><br>
-                <label for="experience-main-mission">Description des missions principales :</label>
-                <input id="experience-main-mission" name="main-mission" placeholder="Description des missions réalisées." th:field="*{mainMission}" type="text">
-                <br><br>
+
+                <div class="row">
+                    <div class="input-field col s12 l6">
+                        <i class="material-icons prefix">assignment_ind</i>
+                        <label for="experience-job-title">Intitulé du poste :</label>
+                        <input id="experience-job-title"
+                               name="job-title"
+                               placeholder="Développeur"
+                               required
+                               th:field="*{jobTitle}"
+                               type="text">
+                    </div>
+                    <div class="input-field col s12 l6">
+                        <i class="material-icons prefix">location_city</i>
+                        <input id="experience-company-name"
+                               name="company-name"
+                               placeholder="Google"
+                               required
+                               th:field="*{companyName}"
+                               type="text">
+                        <label for="experience-company-name">Entreprise :</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">short_text</i>
+                        <textarea id="experience-description"
+                                  name="description"
+                                  placeholder="Au sein d'une agence web, ..."
+                                  th:field="*{description}"
+                                  type="text"
+                                  class="materialize-textarea">
+                        </textarea>
+                        <label for="experience-description">Description du contexte :</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">list</i>
+                        <textarea id="experience-main-mission"
+                                  name="main-mission"
+                                  placeholder="développement de fonctionnalité, intégration de page web, ..."
+                                  th:field="*{mainMission}"
+                                  type="text"
+                                  class="materialize-textarea">
+                        </textarea>
+                        <label for="experience-main-mission">Description des missions principales :</label>
+                    </div>
+                </div>
+
+
                 <label for="experience-start-date">Date de prise de poste :</label>
                 <input id="experience-start-date" name="start-date" class="datepicker" value="01/01/2021" required th:field="*{startDate}" type="date">
                 <br><br>
