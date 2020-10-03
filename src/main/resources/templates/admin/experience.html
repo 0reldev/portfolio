@@ -98,32 +98,84 @@
                                type="text">
                     </div>
                 </div>
-
-<!--
-                TODO: clean the code form below
--->
-                <label for="experience-sector">Secteur d'activité :</label>
-                <input id="experience-sector" name="sector" placeholder="Industrie automobile"  th:field="*{sector}" type="text">
-                <br><br>
-                <label for="experience-contract-type">Type de contrat :</label>
-                <input id="experience-contract-type" name="contract-type" placeholder="CDI" th:field="*{contractType}" type="text">
-                <br><br>
-                <label for="experience-city">Ville :</label>
-                <input id="experience-city" name="city" placeholder="Nantes" required th:field="*{city}" type="text">
-                <br><br>
-                <label for="experience-illustration">URL d'une illustration de l'expérience :</label>
-                <input id="experience-illustration" name="experience-illustration" placeholder="URL de l'image" th:field="*{experienceIllustrationUrl}" type="text">
-                <br><br>
-                <div class="form-field">
-                    <select multiple th:field="*{skills}">
-                        <option value="" disabled selected>Sélectionner des compétences : </option>
-                        <option th:each="skill : ${skillList}" th:value="${skill.name}" th:text="${skill.name}"></option>
-                    </select>
+                <div class="row">
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">gps_not_fixed</i>
+                        <label for="experience-sector">Secteur d'activité :</label>
+                        <input id="experience-sector"
+                               name="sector"
+                               placeholder="Industrie automobile"
+                               th:field="*{sector}"
+                               type="text">
+                    </div>
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">description</i>
+                        <select id="experience-contract-type"
+                                th:field="*{contractType}" required>
+                            <option value="0" disabled selected>Sélectionner un type de contrat :</option>
+                            <option value="CDI">CDI</option>
+                            <option value="CDD">CDD</option>
+                            <option value="stage">stage</option>
+                            <option value="intérim">intérim</option>
+                        </select>
+                        <label for="experience-contract-type">Type de contrat :</label>
+<!--                        <input id="experience-contract-type"
+                               name="contract-type"
+                               placeholder="CDI"
+                               th:field="*{contractType}"
+                               type="text">-->
+                    </div>
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">location_on</i>
+                        <label for="experience-city">Ville :</label>
+                        <input id="experience-city"
+                               name="city"
+                               placeholder="Nantes"
+                               required
+                               th:field="*{city}"
+                               type="text">
+                    </div>
                 </div>
-                <input type="submit" value="Valider">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">photo</i>
+                        <label for="experience-illustration">URL d'une illustration de l'expérience :</label>
+                        <input id="experience-illustration"
+                               name="experience-illustration"
+                               placeholder="URL de l'image"
+                               th:field="*{experienceIllustrationUrl}"
+                               type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">business_center</i>
+                        <select id="skills" multiple th:field="*{skills}">
+                            <option value="" disabled selected>Sélectionner des compétences</option>
+                            <option th:each="skill : ${skillList}" th:value="${skill.name}" th:text="${skill.name}"></option>
+                        </select>
+                        <label for="skills">Compétences mobilisées :</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m8 offset-m2 l6 offset-l3 xl8 offset-xl2 center-align">
+                        <div class="row">
+                            <div class="col s6">
+                                <a class="btn waves-effect waves-light yellow darken-1" th:href="@{/admin#experiencesSection}" name="action">
+                                    <i class="material-icons left">undo</i>
+                                    Retour
+                                </a>
+                            </div>
+                            <div class="col s6">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+                                    <i class="material-icons right">check</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
-
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
