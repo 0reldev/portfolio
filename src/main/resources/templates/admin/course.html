@@ -111,6 +111,30 @@
                         <label for="skill">Ajouter des compétences mobilisées :</label>
                     </div>
                 </div>
+                <h6 class="center-align">Compétences associées</h6> <!--TODO  trier les compétences à afficher par catégories puis par ordre alphabétique-->
+                <div class="row">
+                    <div class="col s12 l8 offset-l2 xl6 offset-xl3">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th></th> <!--TODO : ajouter un chemin vers l'édition de la compétence pour la modifier-->
+                                <th></th> <!--TODO : ajouter un chemin pour dissocier la compétence de la formation-->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="skill : ${course.courseSkills}">
+                                <td th:text="${skill.id}">id</td>
+                                <td th:text="${skill.name}">name</td>
+                                <td><i class="material-icons right">edit</i></td>
+                                <td><i class="material-icons right">block</i></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br><br>
                 <div class="row">
                     <div class="col s12 m8 offset-m2 l6 offset-l3 xl8 offset-xl2 center-align">
                         <div class="row">
@@ -130,27 +154,7 @@
                 </div>
             </form>
 
-            <h4 class="center-align">Compétences associées</h4> <!--TODO  trier les compétences à afficher par catégories puis par ordre alphabétique-->
-            <table>
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th></th> <!--TODO : ajouter un chemin vers l'édition de la compétence pour la modifier-->
-                    <th></th> <!--TODO : ajouter un chemin pour dissocier la compétence de la formation-->
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="skill : ${course.courseSkills}">
-                    <td th:text="${skill.id}">id</td>
-                    <td th:text="${skill.name}">name</td>
-                    <td>modifier</td>
-                    <td>dissocier</td>
-                </tr>
-                </tbody>
-            </table>
-            <br>
-            <a href="/admin">Retour</a>
+
 
         </div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
