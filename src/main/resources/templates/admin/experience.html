@@ -150,11 +150,23 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">business_center</i>
-                        <select id="skills" multiple th:field="*{skills}">
+                        <select id="skills" multiple name="skills">
+                            <optgroup th:each="skillCategory : ${skillCategoryList}"
+                                      th:label="${skillCategory.name}">
+                                <option th:each="skill : ${skillList}"
+                                        th:text="${skill.name}"
+                                        th:value="${skill.id}"
+                                        th:if="${(skill.skillCategory.getId() == skillCategory.getId())
+                                        && !experience.getSkills().contains(skill)}">Compétence
+                                </option>
+                            </optgroup>
+                        </select>
+
+             <!--           <select id="skills" multiple th:field="*{skills}">
                             <option value="" disabled selected>Sélectionner des compétences</option>
                             <option th:each="skill : ${skillList}" th:value="${skill.name}" th:text="${skill.name}"></option>
-                        </select>
-                        <label for="skills">Compétences mobilisées :</label>
+                        </select>-->
+                        <label for="skills">Ajouter des compétences mobilisées :</label>
                     </div>
                 </div>
                 <div class="row">

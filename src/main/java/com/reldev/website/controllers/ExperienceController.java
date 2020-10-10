@@ -3,6 +3,7 @@ package com.reldev.website.controllers;
 import com.reldev.website.entities.Experience;
 import com.reldev.website.entities.User;
 import com.reldev.website.repositories.ExperienceRepository;
+import com.reldev.website.repositories.SkillCategoryRepository;
 import com.reldev.website.repositories.SkillRepository;
 import com.reldev.website.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class ExperienceController {
     @Autowired
     private SkillRepository skillRepository;
 
+    @Autowired
+    private SkillCategoryRepository skillCategoryRepository;
+
     @GetMapping("/admin/experience")
     public String getExperience(Model out,
                                 @RequestParam(required = false) Long id) {
@@ -44,6 +48,7 @@ public class ExperienceController {
         out.addAttribute("user", user);
         out.addAttribute("experience", experience);
         out.addAttribute("skillList", skillRepository.findAllOrderedByCategoryAndName());
+        out.addAttribute("skillCategoryList", skillCategoryRepository.findAllOrderedByName());
         out.addAttribute("adminPage", true);
         out.addAttribute("subAdminPage", true);
         return "/admin/experience";
