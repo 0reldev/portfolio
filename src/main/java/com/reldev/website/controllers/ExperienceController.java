@@ -58,14 +58,14 @@ public class ExperienceController {
     public String postExperience(@ModelAttribute Experience experience) {
 
         repository.save(experience);
-        return "redirect:/admin";
+        return "redirect:/admin#experiencesSection";
     }
 
     @GetMapping("/admin/experience/delete")
     public String deleteExperience(@RequestParam Long id) {
 
         repository.deleteById(id);
-        return "redirect:/admin";
+        return "redirect:/admin#experiencesSection";
     }
 
 }

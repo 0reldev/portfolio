@@ -49,13 +49,13 @@ public class SkillCategoryController {
     public String postSkillCategory(@ModelAttribute SkillCategory skillCategory) {
 
         repository.save(skillCategory);
-        return "redirect:/admin";
+        return "redirect:/admin#skillCategoriesSection";
     }
 
     @GetMapping("/admin/skill-category/delete")
     public String deleteSkillCategory(@RequestParam Long id) {
 
         repository.deleteById(id);
-        return "redirect:/admin";
+        return "redirect:/admin#skillCategoriesSection";
     }
 }

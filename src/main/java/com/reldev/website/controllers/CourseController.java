@@ -114,7 +114,7 @@ public class CourseController {
                 }
             }
         }
-        return "redirect:/admin";
+        return "redirect:/admin#coursesSection";
     }
 
 
@@ -125,7 +125,7 @@ public class CourseController {
     public String deleteCourse(@RequestParam Long id) {
 
         repository.deleteById(id);
-        return "redirect:/admin";
+        return "redirect:/admin#coursesSection";
     }
 
     public Method getMethod(Object obj, String methodName, Class[] args) {

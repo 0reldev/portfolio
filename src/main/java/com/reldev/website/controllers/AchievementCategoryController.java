@@ -48,13 +48,13 @@ public class AchievementCategoryController {
     public String postAchievementCategory(@ModelAttribute AchievementCategory achievementCategory) {
 
         repository.save(achievementCategory);
-        return "redirect:/admin";
+        return "redirect:/admin#achievementCategoriesSection";
     }
 
     @GetMapping("/admin/achievement-category/delete")
     public String deleteAchievementCategory(@RequestParam Long id) {
 
         repository.deleteById(id);
-        return "redirect:/admin";
+        return "redirect:/admin#achievementCategoriesSection";
     }
 }

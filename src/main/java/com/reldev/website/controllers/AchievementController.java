@@ -58,13 +58,13 @@ public class AchievementController {
     public String postAchievement(@ModelAttribute Achievement achievement) {
 
         repository.save(achievement);
-        return "redirect:/admin";
+        return "redirect:/admin#achievementsSection";
     }
 
     @GetMapping("/admin/achievement/delete")
     public String deleteAchievement(@RequestParam Long id) {
 
         repository.deleteById(id);
-        return "redirect:/admin";
+        return "redirect:/admin#achievementsSection";
     }
 }
