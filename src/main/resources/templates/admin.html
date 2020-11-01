@@ -30,7 +30,7 @@
                         <th>Id</th>
                         <th>Poste</th>
                         <th>Entreprise</th>
-                        <th>Ville</th>
+                        <th class="hide-on-small-only">Ville</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -40,7 +40,7 @@
                             <td th:text="${experience.id}">id</td>
                             <td th:text="${experience.jobTitle}">Intitulé du poste</td>
                             <td th:text="${experience.companyName}">Entreprise</td>
-                            <td th:text="${experience.city}">Ville</td>
+                            <td class= "hide-on-small-only" th:text="${experience.city}">Ville</td>
                             <td><a th:href="@{/admin/experience(id=${experience.id})}"><i class="material-icons">create</i></a></td>
                             <td><a th:href="@{/admin/experience/delete(id=${experience.id})}"><i class="material-icons">delete</i></a></td>
                         </tr>
@@ -62,8 +62,8 @@
                         <tr>
                             <th>Id</th>
                             <th>Intitulé</th>
-                            <th>École/organisme</th>
-                            <th>Ville</th>
+                            <th class="hide-on-small-only">École/organisme</th>
+                            <th class="hide-on-small-only">Ville</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -71,9 +71,9 @@
                     <tbody>
                         <tr th:each="course : ${courses}">
                             <td th:text="${course.id}">id</td>
-                            <td th:text="${course.courseTitle}">Intitulé de la formation</td>
-                            <td th:text="${course.schoolName}">Entreprise</td>
-                            <td th:text="${course.city}">Ville</td>
+                            <td  th:text="${course.courseTitle}">Intitulé de la formation</td>
+                            <td class="hide-on-small-only" th:text="${course.schoolName}">École/Centre de formation</td>
+                            <td class="hide-on-small-only" th:text="${course.city}">Ville</td>
                             <td><a th:href="@{/admin/course(id=${course.id})}"><i class="material-icons">create</i></a></td>
                             <td><a th:href="@{/admin/course/delete(id=${course.id})}"><i class="material-icons">delete</i></a></td>
                         </tr>
@@ -131,7 +131,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Titre</th>
-                            <th>Client</th>
+                            <th class="hide-on-small-only">Client</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -140,7 +140,7 @@
                         <tr th:each="achievement : ${achievements}">
                             <td th:text="${achievement.id}">id</td>
                             <td th:text="${achievement.title}">Compétence</td>
-                            <td th:text="${achievement.customer}">Client</td>
+                            <td class="hide-on-small-only" th:text="${achievement.customer}">Client</td>
                             <td><a th:href="@{/admin/achievement(id=${achievement.id})}"><i class="material-icons">create</i></a></td>
                             <td><a th:href="@{/admin/achievement/delete(id=${achievement.id})}"><i class="material-icons">delete</i></a></td>
                         </tr>
