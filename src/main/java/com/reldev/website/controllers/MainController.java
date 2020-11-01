@@ -46,9 +46,9 @@ public class MainController {
         out.addAttribute("homePage", true);
         out.addAttribute("aboutPage", false);
         out.addAttribute("cvPage", false);
-        out.addAttribute("musicPage", false);
         out.addAttribute("contactPage", false);
         out.addAttribute("adminPage", false);
+        out.addAttribute("subAdminPage", false);
         return "/index";
     }
 
@@ -63,6 +63,12 @@ public class MainController {
         out.addAttribute("skillCategories", skillCategoryRepository.findAllOrderedByName());
         out.addAttribute("achievements", achievementRepository.findAll());
         out.addAttribute("achievementCategories", achievementCategoryRepository.findAllOrderedByName());
+        out.addAttribute("homePage", false);
+        out.addAttribute("aboutPage", false);
+        out.addAttribute("cvPage", false);
+        out.addAttribute("contactPage", false);
+        out.addAttribute("adminPage", true);
+        out.addAttribute("subAdminPage", false);
         return "/admin";
     }
 
@@ -78,9 +84,9 @@ public class MainController {
         out.addAttribute("homePage", false);
         out.addAttribute("aboutPage", true);
         out.addAttribute("cvPage", false);
-        out.addAttribute("musicPage", false);
         out.addAttribute("contactPage", false);
         out.addAttribute("adminPage", false);
+        out.addAttribute("subAdminPage", false);
         return "/about";
     }
 
@@ -90,7 +96,6 @@ public class MainController {
         out.addAttribute("homePage", false);
         out.addAttribute("aboutPage", false);
         out.addAttribute("cvPage", true);
-        out.addAttribute("musicPage", false);
         out.addAttribute("contactPage", false);
         out.addAttribute("adminPage", false);
         out.addAttribute("experiences", experienceRepository.findAllOrderedByDate());
@@ -101,19 +106,8 @@ public class MainController {
         out.addAttribute("skillCategories", skillCategoryRepository.findAllOrderedByName());
         out.addAttribute("achievements", achievementRepository.findAllOrderedByDate());
         out.addAttribute("achievementCategories", achievementCategoryRepository.findAllOrderedByName());
+        out.addAttribute("subAdminPage", false);
         return "/cv";
-    }
-
-    @GetMapping("/music")
-    public String getMusic(Model out) {
-
-        out.addAttribute("homePage", false);
-        out.addAttribute("aboutPage", false);
-        out.addAttribute("cvPage", false);
-        out.addAttribute("musicPage", true);
-        out.addAttribute("contactPage", false);
-        out.addAttribute("adminPage", false);
-        return "/music";
     }
 
     @GetMapping("/contact")
@@ -122,9 +116,9 @@ public class MainController {
         out.addAttribute("homePage", false);
         out.addAttribute("aboutPage", false);
         out.addAttribute("cvPage", false);
-        out.addAttribute("musicPage", false);
         out.addAttribute("contactPage", true);
         out.addAttribute("adminPage", false);
+        out.addAttribute("subAdminPage", false);
         return "/contact";
     }
 
@@ -143,6 +137,5 @@ public class MainController {
         userRepository.save(user);
         return "ok";
     }
-
 }
 

@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -54,6 +53,8 @@ public class CourseController {
         out.addAttribute("course", course);
         out.addAttribute("skillListForSelection", skillRepository.findAllOrderedByCategoryAndName());
         out.addAttribute("skillCategoryList", skillCategoryRepository.findAllOrderedByName());
+        out.addAttribute("adminPage", true);
+        out.addAttribute("subAdminPage", true);
 
 
         List<Skill> skills = new ArrayList<>();
@@ -113,7 +114,7 @@ public class CourseController {
                 }
             }
         }
-        return "redirect:/admin";
+        return "redirect:/admin#coursesSection";
     }
 
 
@@ -124,7 +125,7 @@ public class CourseController {
     public String deleteCourse(@RequestParam Long id) {
 
         repository.deleteById(id);
-        return "redirect:/admin";
+        return "redirect:/admin#coursesSection";
     }
 
     public Method getMethod(Object obj, String methodName, Class[] args) {

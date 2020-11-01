@@ -7,10 +7,6 @@
     padding: 2em;
 }
 
-#cvNavbar {
-    height: 9rem;
-}
-
 #skillCard {
     height: 200px;
 }
@@ -23,8 +19,8 @@
 
 .skillElement {
     margin: .2em;
-
 }
+
 
 /*h1, h2, h3, nav, footer {
     font-family: 'Quicksand', sans-serif;
@@ -108,8 +104,6 @@ section {
 .jobDescriptionBlock {
     padding-right: 10%;
 }
-
-
 
 
 @media screen and (max-width: 600px) {

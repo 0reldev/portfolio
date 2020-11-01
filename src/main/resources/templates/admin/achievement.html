@@ -1,52 +1,140 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${achievement.id} ? 'Modification d\'une réalisation' : 'Création d\'une réalisation'">Réalisations</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="${achievement.id} ? 'Modification d\'une réalisation' : 'Création d\'une réalisation'">Réalisations</title>
+        <link rel="stylesheet" href="/css/style.css">
 
-<form method="post" th:action="@{/admin/achievement}" th:object="${achievement}">
-    <input name="id" th:field="*{id}" type="hidden">
-    <label for="achievement-title">Nom de la réalisation :</label>
-    <input id="achievement-title" name="achievement-title" placeholder="Nom du projet" required th:field="*{title}" type="text">
-    <br><br>
-    <label for="achievementCategory-id">Catégorie :</label>
-    <select id="achievementCategory-id" th:field="*{achievementCategory.id}" required>
-        <option value="0" disabled selected>Sélectionner une catégorie</option>
-        <option th:each="achievementCategory : ${achievementCategories}"
-                th:value="${achievementCategory.id}"
-                th:text="${achievementCategory.name}">Catégorie</option>
-    </select>
-    <br><br>
+        <!-- Google icons and fonts importation -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
 
-    <label for="achievement-company">Entreprise :</label>
-    <input id="achievement-company" name="achievement-company" placeholder="Wild Code School" th:field="*{organism}" type="text">
-    <br><br>
-    <label for="course-description">Description :</label>
-    <input id="course-description" name="description" placeholder="Description du cursus." th:field="*{description}" type="text">
-    <br><br>
-    <label for="achievement-date">Date :</label>
-    <input id="achievement-date" name="date" class="datepicker" value="01/01/2021" required th:field="*{date}" type="date">
-    <br><br>
-    <label for="achievement-customer">Client :</label>
-    <input id="achievement-customer" name="customer" placeholder="Synergie Family" th:field="*{customer}" type="text">
-    <br><br>
-    <label for="achievement-url">URL :</label>
-    <input id="achievement-url" name="url" placeholder="URL du projet"  th:field="*{url}" type="text">
-    <br><br>
-    <label for="achievement-picture-url">URL d'une image représentant la réalisation :</label>
-    <input id="achievement-picture-url" name="picture-url" placeholder="URL de l'image" th:field="*{pictureUrl}" type="text">
-    <br><br>
-    <label for="achievement-filter-tag">Libellés :</label>
-    <input id="achievement-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
-    <br><br>
-<!--    TODO: add the skills-->
-    <input type="submit" value="Valider">
-</form>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div th:replace="navbar.html :: navbar"></div>
+        <div class="container">
+            <br><br>
+            <form method="post" th:action="@{/admin/achievement}" th:object="${achievement}">
+                <input name="id" th:field="*{id}" type="hidden">
+                <div class="row">
+                    <div class="input-field col s12 l8">
+                        <i class="material-icons prefix">assignment_turned_in</i>
+                        <label for="achievement-title">Nom de la réalisation :</label>
+                        <input id="achievement-title" name="achievement-title" placeholder="Nom du projet" required th:field="*{title}" type="text">
+                    </div>
+                    <div class="col s12 l4">
+                        <label for="achievement-date">Date :</label>
+                        <input id="achievement-date"
+                               name="date"
+                               class="datepicker"
+                               value="01/01/2021"
+                               required th:field="*{date}"
+                               type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 l6 xl8">
+                        <i class="material-icons prefix">folder_open</i>
 
-<br>
-<a href="/admin">Retour</a>
+                        <select id="achievementCategory-id" th:field="*{achievementCategory.id}" required>
+                            <option value="0" disabled selected>Sélectionner une catégorie</option>
+                            <option th:each="achievementCategory : ${achievementCategories}"
+                                    th:value="${achievementCategory.id}"
+                                    th:text="${achievementCategory.name}">Catégorie</option>
+                        </select>
+                        <label for="achievementCategory-id">Catégorie :</label>
+                    </div>
+                    <div class="col s12 l6 xl4 center-align">
+                        <a class="waves-effect waves-light btn green accent-2"
+                           href="/admin/achievement-category">
+                            <i class="material-icons left">add_circle</i>
+                            Ajouter une catégorie
+                        </a>
+                    </div>
+                </div>
 
-</body>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">short_text</i>
+                        <textarea id="achievement-description"
+                                  name="description"
+                                  placeholder="Description du projet."
+                                  th:field="*{description}"
+                                  type="text"
+                                  class="materialize-textarea">
+                        </textarea>
+                        <label for="achievement-description">Description :</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">link</i>
+                        <label for="achievement-url">URL :</label>
+                        <input id="achievement-url" name="url" placeholder="URL du projet"  th:field="*{url}" type="text">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12 m8 offset-m2 l6 offset-l3 xl8 offset-xl2 center-align">
+                        <div class="row">
+                            <div class="col s6">
+                                <a class="btn waves-effect waves-light yellow darken-1" th:href="@{/admin#achievementsSection}" name="action">
+                                    <i class="material-icons left">undo</i>
+                                    Retour
+                                </a>
+                            </div>
+                            <div class="col s6">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+                                    <i class="material-icons right">check</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--    TODO: add the skills-->
+            </form>
+
+
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                M.AutoInit();
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('select').formSelect();
+            });
+            $(document).ready(function () {
+                $('.datepicker').datepicker({
+                    autoClose: true,
+                    today: 'Today',
+                    clear: 'Réinitialiser',
+                    close: 'Close',
+                    firstDay: true,
+                    selectMonths: true,
+                    yearRange: [1980,2030],
+                    labelMonthNext: 'Mois suivant',
+                    labelMonthPrev: 'Mois précédent',
+                    labelMonthSelect: 'Sélectionner un mois',
+                    labelYearSelect: 'Sélectionner une année',
+                    format: 'dd/mm/yyyy',
+                    i18n: {
+                        months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                        monthsShort: ["Janv", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Aoû", "Sep", "Oct", "Nov", "Dec"],
+                        weekdays: ["Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+                        weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                        weekdaysAbbrev: ["D", "L", "M", "M", "J", "V", "S"],
+                        cancel:'Annuler'
+                    }
+                });
+            });
+        </script>
+
+    </body>
 </html>

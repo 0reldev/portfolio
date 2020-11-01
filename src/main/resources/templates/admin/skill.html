@@ -1,42 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${skill.id} ? 'Modification d\'une compétence' : 'Création d\'une compétence'">Compétences</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="${skill.id} ? 'Modification d\'une compétence' : 'Création d\'une compétence'">Compétences</title>
+        <link rel="stylesheet" href="/css/style.css">
 
-<form method="post" th:action="@{/admin/skill}" th:object="${skill}">
-    <input name="id" th:field="*{id}" type="hidden">
-    <label for="skill-name">Compétence :</label>
-    <input id="skill-name" name="skill-name" placeholder="Anglais" required th:field="*{name}" type="text">
-    <br><br>
+        <!-- Google icons and fonts importation -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
 
-    <label for="skillCategory-id">Catégorie :</label>
-    <select id="skillCategory-id" th:field="*{skillCategory.id}" required>
-        <option value="0" disabled selected>Sélectionner une catégorie</option>
-        <option th:each="skillCategory : ${skillCategories}"
-                th:value="${skillCategory.id}"
-                th:text="${skillCategory.name}">Catégorie</option>
-    </select>
-    <br><br>
-    <label for="skill-certification">Certification :</label>
-    <input id="skill-certification" name="certification" placeholder="BEC Vantage" th:field="*{certification}" type="text">
-    <br><br>
-    <label for="skill-expertise-level">Niveau de maitrise :</label>
-    <input id="skill-expertise-level" name="expertise-level" placeholder="1, 2 ou 3" th:field="*{expertiseLevel}" type="text">
-    <br><br>
-    <label for="skill-icon-logo">URL de l'icône :</label>
-    <input id="skill-icon-logo" name="icon-logo" placeholder="URL de l'icône" th:field="*{iconURL}" type="text">
-    <br><br>
-    <label for="course-filter-tag">Libellés :</label>
-    <input id="course-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" th:field="*{filterTag}" type="text">
-    <br><br>
-    <input type="submit" value="Valider">
-</form>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div th:replace="navbar.html :: navbar"></div>
+        <div class="container">
+            <br><br>
+            <form method="post" th:action="@{/admin/skill}" th:object="${skill}">
+                <input name="id" th:field="*{id}" type="hidden">
 
-<br>
-<a href="/admin">Retour</a>
+                <div class="row">
+                    <div class="input-field col s12 l8">
+                        <i class="material-icons prefix">title</i>
+                        <label for="skill-name">Nom de la compétence :</label>
+                        <input id="skill-name"
+                               name="skill-name"
+                               placeholder="Anglais"
+                               required
+                               th:field="*{name}"
+                               type="text">
+                    </div>
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">star_half</i>
+                        <select id="skill-expertise-level" th:field="*{expertiseLevel}" required>
+                            <option value="0" disabled selected>Sélectionner un niveau de maîtrise</option>
+                            <option value="1">Notions</option>
+                            <option value="2">Bon niveau</option>
+                            <option value="3">Maîtrise professionnelle complète</option>
+                        </select>
+                        <label for="skill-expertise-level">Niveau de maitrise :</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 l6 xl8">
+                        <i class="material-icons prefix">label_outline</i>
+                        <select id="skillCategory-id" th:field="*{skillCategory.id}" required>
+                            <option value="0" disabled selected>Sélectionner une catégorie</option>
+                            <option th:each="skillCategory : ${skillCategories}"
+                                    th:value="${skillCategory.id}"
+                                    th:text="${skillCategory.name}">Catégorie</option>
+                        </select>
+                        <label for="skillCategory-id">Catégorie :</label>
+                    </div>
+                    <div class="col s12 l6 xl4 center-align">
+                        <a class="waves-effect waves-light btn green accent-2"
+                           href="/admin/skill-category">
+                            <i class="material-icons left">add_circle</i>
+                            Ajouter une catégorie
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">school</i>
+                        <label for="skill-certification">Certification :</label>
+                        <input id="skill-certification" name="certification" placeholder="BEC Vantage" th:field="*{certification}" type="text">
+                    </div>
+                </div>
+                <br><br>
+                <div class="row">
+                    <div class="col s12 m8 offset-m2 l6 offset-l3 xl8 offset-xl2 center-align">
+                        <div class="row">
+                            <div class="col s6">
+                                <a class="btn waves-effect waves-light yellow darken-1" th:href="@{/admin#skillsSection}" name="action">
+                                    <i class="material-icons left">undo</i>
+                                    Retour
+                                </a>
+                            </div>
+                            <div class="col s6">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+                                    <i class="material-icons right">check</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
 
-</body>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                M.AutoInit();
+            });
+        </script>
+    </body>
 </html>

@@ -44,6 +44,8 @@ public class SkillController {
         out.addAttribute("user", user);
         out.addAttribute("skill", skill);
         out.addAttribute("skillCategories", skillCategoryRepository.findAllOrderedByName());
+        out.addAttribute("adminPage", true);
+        out.addAttribute("subAdminPage", true);
 
         return "/admin/skill";
     }
@@ -52,14 +54,14 @@ public class SkillController {
     public String postSkill(@ModelAttribute Skill skill) {
 
         repository.save(skill);
-        return "redirect:/admin";
+        return "redirect:/admin#skillsSection";
     }
 
     @GetMapping("/admin/skill/delete")
     public String deleteSkill(@RequestParam Long id) {
 
         repository.deleteById(id);
-        return "redirect:/admin";
+        return "redirect:/admin#skillsSection";
     }
 
 }

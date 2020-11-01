@@ -44,11 +44,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/music">
-                                    MUSIQUE
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/contact">
                                     CONTACT
                                 </a>
@@ -87,11 +82,6 @@
                             <li>
                                 <a href="/cv">
                                     CV
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/music">
-                                    MUSIQUE
                                 </a>
                             </li>
                             <li>
@@ -136,11 +126,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/music">
-                                    MUSIQUE
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/contact">
                                     CONTACT
                                 </a>
@@ -152,57 +137,51 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="row hide-on-small-only">
-                        <div class="nav-wrapper col s10 center-align">
-                            <ul>
-                                <li>
-                                    <a href="#experienceSection">
+
+                        <div class="nav-wrapper hide-on-small-only">
+                            <ul class="tabs tabs-transparent">
+                                <li class="tab">
+                                    <a th:href="@{/cv#experienceSection}">
                                         Expérience
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#educationSection">
+                                <li class="tab">
+                                    <a th:href="@{/cv#educationSection}">
                                         Formation
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#skillsSection">
+                                <li class="tab">
+                                    <a th:href="@{/cv#skillsSection}">
                                         Compétences
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#achievementsSection">
+                                <li class="tab">
+                                    <a th:href="@{/cv#achievementsSection}">
                                         Réalisations
                                     </a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="col s2 center-align">
-                            <a class="btn pulse yellow darken-1">
-                                Embaucher
-                            </a>
-                        </div>
-                    </div>
                     <div class="row hide-on-med-and-up">
-                        <div class="nav-wrapper col s12">
-                            <ul>
-                                <li class="col s3 center-align" >
-                                    <a href="#experienceSection">
+                        <div class="nav-wrapper">
+                            <ul class="tabs tabs-transparent">
+                                <li class="tab" >
+                                    <a th:href="@{/cv#experienceSection}">
                                         <i class="material-icons">work</i>
                                     </a>
                                 </li>
-                                <li class="col s3 center-align">
-                                    <a href="#educationSection">
+                                <li class="tab">
+                                    <a th:href="@{/cv#educationSection}">
                                         <i class="material-icons">school</i>
                                     </a>
                                 </li>
-                                <li class="col s3 center-align">
-                                    <a href="#skillsSection">
+                                <li class="tab">
+                                    <a th:href="@{/cv#skillsSection}">
                                         <i class="material-icons">business_center</i>
                                     </a>
                                 </li>
-                                <li class="col s3 center-align">
-                                    <a href="#achievementsSection">
+                                <li class="tab">
+                                    <a th:href="@{/cv#achievementsSection}">
                                         <i class="material-icons">assignment_turned_in</i>
                                     </a>
                                 </li>
@@ -210,71 +189,6 @@
                         </div>
                     </div>
                     <!-- TODO: jouter les filtres par tags dans une barre fixe-->
-                </div>
-            </nav>
-            <nav th:if="${musicPage}" class="nav-extended cyan darken-2">
-                <div class="container">
-                    <div class="nav-wrapper">
-                        <div class="hide-on-small-only">
-                            <a href="/" class="brand-logo">
-                                Aurélien Lonni
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/" class="brand-logo hide-on-med-and-up">
-                                A. Lonni
-                            </a>
-                        </div>
-                        <a href="#" data-target="menu-responsive" class="sidenav-trigger">
-                            <i class="material-icons">menu</i>
-                        </a>
-                        <ul class="right hide-on-med-and-down">
-                            <li>
-                                <a href="/about">
-                                    À PROPOS
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/cv">
-                                    CV
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a href="/music">
-                                    MUSIQUE
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/contact">
-                                    CONTACT
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/admin">
-                                    ADMINISTRATION
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="nav-content">
-                        <ul class="tabs tabs-transparent">
-                            <li class="tab">
-                                <a href="#repertorySection">
-                                    Répertoire
-                                </a>
-                            </li>
-                            <li class="tab">
-                                <a href="#scoresSection">
-                                    Partitions
-                                </a>
-                            </li>
-                            <li class="tab">
-                                <a href="#gigsSection">
-                                    Concerts
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </nav>
             <nav th:if="${contactPage}" class="nav-extended purple darken-1">
@@ -302,11 +216,6 @@
                             <li>
                                 <a href="/cv">
                                     CV
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/music">
-                                    MUSIQUE
                                 </a>
                             </li>
                             <li class="active">
@@ -351,11 +260,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/music">
-                                    MUSIQUE
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/contact">
                                     CONTACT
                                 </a>
@@ -363,6 +267,40 @@
                             <li class="active">
                                 <a href="/admin">
                                     ADMINISTRATION
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div th:if="${!subAdminPage}" class="nav-content">
+                        <ul class="tabs tabs-transparent">
+                            <li class="tab">
+                                <a href="#experiencesSection">
+                                    <i class="material-icons">work</i>
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#coursesSection">
+                                    <i class="material-icons">school</i>
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#skillsSection">
+                                    <i class="material-icons">business_center</i>
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#achievementsSection">
+                                    <i class="material-icons">assignment_turned_in</i>
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#skillCategoriesSection">
+                                    <i class="material-icons">label_outline</i>
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#achievementCategoriesSection">
+                                    <i class="material-icons">folder_open</i>
                                 </a>
                             </li>
                         </ul>
@@ -385,11 +323,6 @@
                 </a>
             </li>
             <li>
-                <a href="/music">MUSIQUE
-                    <i class="material-icons">audiotrack</i>
-                </a>
-            </li>
-            <li>
                 <a href="/contact">
                     CONTACT
                     <i class="material-icons">email</i>
@@ -409,7 +342,6 @@
                 </a>
             </li>
         </ul>
-
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>

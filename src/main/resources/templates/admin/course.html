@@ -14,100 +14,149 @@
 
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     </head>
     <body>
-        <form th:action="@{/admin/course}" method="post" th:object="${course}">
-            <input name="idCourse" th:value="*{id}" type="hidden">
-            <label for="course-title">Intitulé de la formation :</label>
-            <input id="course-title" name="course-title" placeholder="Développeur web" required th:field="*{courseTitle}" type="text">
+        <div th:replace="navbar.html :: navbar"></div>
+        <div class="container">
             <br><br>
-            <label for="course-school-name">École/organisme de formation :</label>
-            <input id="course-school-name" name="school-name" placeholder="Wild Code School" required th:field="*{schoolName}" type="text">
-            <br><br>
-            <label for="course-description">Description :</label>
-            <input id="course-description" name="description" placeholder="Description du cursus." th:field="*{description}" type="text">
-            <br><br>
-            <label for="course-start-date">Date d'entrée en formation :</label>
-            <input id="course-start-date" name="start-date" class="datepicker" value="01/01/2021" required th:field="*{startDate}" type="date">
-            <br><br>
-            <label for="course-end-date">Date de fin de formation :</label>
-            <input id="course-end-date" name="end-date" value="01/01/2021" required th:field="*{endDate}" type="date">
-            <br><br>
-            <label for="course-duration">Durée :</label>
-            <input id="course-duration" name="duration" placeholder="6 mois" th:field="*{duration}" type="text">
-            <br><br>
-            <label for="course-diploma">Diplôme/certification :</label>
-            <input id="course-diploma" name="diploma" placeholder="Diplôme d'ingénieur"  th:field="*{diploma}" type="text">
-            <br><br>
-            <label for="course-city">Ville :</label>
-            <input id="course-city" name="city" placeholder="Nantes" required th:field="*{city}" type="text">
-            <br><br>
-            <label for="course-school-logo">URL du logo de l'entreprise :</label>
-            <input id="course-school-logo" name="school-logo" placeholder="URL de l'image" th:field="*{schoolLogoUrl}" type="text">
-            <br><br>
-            <label for="course-filter-tag">Libellés :</label>
-            <input id="course-filter-tag" name="filter-tag" placeholder="développement/acoustique/musique" required th:field="*{filterTag}" type="text">
-            <br><br>
-          <!--  <div class="form-field">-->
-               <!-- <label for="skillTEST">Compétences : </label>-->
+            <form th:action="@{/admin/course}" method="post" th:object="${course}">
+                <input name="idCourse" th:value="*{id}" type="hidden">
 
-                   <!-- TODO : comprendre pourquoi ceci ne veut pas fonctionner-->
-<!--                <select id="skillTEST" multiple name="selectedSkills" th:field="*{courseSkills}"> &lt;!&ndash;Mettre th:field pour que les valeurs soient préselectionnées&ndash;&gt;
-                    <optgroup th:each="skillCategory : ${skillCategoryList}"
-                              th:label="${skillCategory.name}">
-                        <option th:each="skill : ${skillListForSelection}"
-                                th:value="${skill}"
-                                th:text="${skill.name}"
-                                th:if="${skill.skillCategory.getId() == skillCategory.getId()}">compétence
-                        </option> &lt;!&ndash; Mette ${skill} pour que les compétences de courseSkills soient reconnues et présélectionnées&ndash;&gt;
-                    </optgroup>
-  &lt;!&ndash;               <option value="" disabled selected>Sélectionner des compétences : </option>&ndash;&gt;
-                </select>-->
+                <div class="row">
+                    <div class="input-field col s12 l6">
+                        <i class="material-icons prefix">school</i>
+                        <label for="course-title">Intitulé de la formation :</label>
+                        <input id="course-title" name="course-title" placeholder="Développeur web" required th:field="*{courseTitle}" type="text">
+                    </div>
+                    <div class="input-field col s12 l6">
+                        <i class="material-icons prefix">domain</i>
+                        <label for="course-school-name">École/organisme de formation :</label>
+                        <input id="course-school-name" name="school-name" placeholder="Wild Code School" required th:field="*{schoolName}" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">short_text</i>
+                        <label for="course-description">Description :</label>
+                        <input id="course-description" name="description" placeholder="Description du cursus." th:field="*{description}" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">timer</i>
+                        <label for="course-duration">Durée :</label>
+                        <input id="course-duration" name="duration" placeholder="6 mois" th:field="*{duration}" type="text">
+                    </div>
+                    <div class="col s12 l4">
+                        <label for="course-start-date">Date d'entrée en formation :</label>
+                        <input id="course-start-date"
+                               name="start-date"
+                               class="datepicker"
+                               value="01/01/2021"
+                               required th:field="*{startDate}"
+                               type="text">
+                    </div>
+                    <div class="col s12 l4">
+                        <label for="course-end-date">Date de fin de formation :</label>
+                        <input id="course-end-date"
+                               name="end-date"
+                               class="datepicker"
+                               value="01/01/2021"
+                                required
+                               th:field="*{endDate}"
+                               type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 l8">
+                        <i class="material-icons prefix">grade</i>
+                        <label for="course-diploma">Diplôme/certification :</label>
+                        <input id="course-diploma" name="diploma" placeholder="Diplôme d'ingénieur"  th:field="*{diploma}" type="text">
+                    </div>
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">location_on</i>
+                        <label for="course-city">Ville :</label>
+                        <input id="course-city" name="city" placeholder="Nantes" required th:field="*{city}" type="text">
+                    </div>
+                </div>
+              <!--  <div class="form-field">-->
+                   <!-- <label for="skillTEST">Compétences : </label>-->
 
-            <div class="form-field">
-                <label for="skill">Associer des compétences :</label>
-                <select id="skill" multiple name="skillIds">
-                    <optgroup th:each="skillCategory : ${skillCategoryList}"
-                              th:label="${skillCategory.name}">
-                        <option th:each="skill : ${skillListForSelection}"
-                                th:text="${skill.name}"
-                                th:value="${skill.id}"
-                                th:if="${(skill.skillCategory.getId() == skillCategory.getId())
-                                && !course.getCourseSkills().contains(skill)}">Compétence
-                        </option>
-                    </optgroup>
-                </select>
-            </div>
+                       <!-- TODO : comprendre pourquoi ceci ne veut pas fonctionner-->
+    <!--                <select id="skillTEST" multiple name="selectedSkills" th:field="*{courseSkills}"> &lt;!&ndash;Mettre th:field pour que les valeurs soient préselectionnées&ndash;&gt;
+                        <optgroup th:each="skillCategory : ${skillCategoryList}"
+                                  th:label="${skillCategory.name}">
+                            <option th:each="skill : ${skillListForSelection}"
+                                    th:value="${skill}"
+                                    th:text="${skill.name}"
+                                    th:if="${skill.skillCategory.getId() == skillCategory.getId()}">compétence
+                            </option> &lt;!&ndash; Mette ${skill} pour que les compétences de courseSkills soient reconnues et présélectionnées&ndash;&gt;
+                        </optgroup>
+      &lt;!&ndash;               <option value="" disabled selected>Sélectionner des compétences : </option>&ndash;&gt;
+                    </select>-->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">business_center</i>
+                        <select id="skill" multiple name="skillIds">
+                            <optgroup th:each="skillCategory : ${skillCategoryList}"
+                                      th:label="${skillCategory.name}">
+                                <option th:each="skill : ${skillListForSelection}"
+                                        th:text="${skill.name}"
+                                        th:value="${skill.id}"
+                                        th:if="${(skill.skillCategory.getId() == skillCategory.getId())
+                                        && !course.getCourseSkills().contains(skill)}">Compétence
+                                </option>
+                            </optgroup>
+                        </select>
+                        <label for="skill">Ajouter des compétences mobilisées :</label>
+                    </div>
+                </div>
+                <h6 class="center-align">Compétences associées</h6> <!--TODO  trier les compétences à afficher par catégories puis par ordre alphabétique-->
+                <div class="row">
+                    <div class="col s12 l8 offset-l2 xl6 offset-xl3">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th></th> <!--TODO : ajouter un chemin vers l'édition de la compétence pour la modifier-->
+                                <th></th> <!--TODO : ajouter un chemin pour dissocier la compétence de la formation-->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="skill : ${course.courseSkills}">
+                                <td th:text="${skill.id}">id</td>
+                                <td th:text="${skill.name}">name</td>
+                                <td><i class="material-icons right">edit</i></td>
+                                <td><i class="material-icons right">block</i></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br><br>
+                <div class="row">
+                    <div class="col s12 m8 offset-m2 l6 offset-l3 xl8 offset-xl2 center-align">
+                        <div class="row">
+                            <div class="col s6">
+                                <a class="btn waves-effect waves-light yellow darken-1" th:href="@{/admin#coursesSection}" name="action">
+                                    <i class="material-icons left">undo</i>
+                                    Retour
+                                </a>
+                            </div>
+                            <div class="col s6">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+                                    <i class="material-icons right">check</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
 
-            <input type="submit" value="Valider">
-        </form>
 
-        <h4>Compétences associées :</h4> <!--TODO  trier les compétences à afficher par catégories puis par ordre alphabétique-->
-        <table>
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th></th> <!--TODO : ajouter un chemin vers l'édition de la compétence pour la modifier-->
-                <th></th> <!--TODO : ajouter un chemin pour dissocier la compétence de la formation-->
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="skill : ${course.courseSkills}">
-                <td th:text="${skill.id}">id</td>
-                <td th:text="${skill.name}">name</td>
-                <td>modifier</td>
-                <td>dissocier</td>
-            </tr>
-            </tbody>
-        </table>
-        <br>
-        <a href="/admin">Retour</a>
 
-        <footer th:replace="footer.html :: footer">
-        </footer>
-
+        </div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
@@ -120,5 +169,35 @@
                 $('select').formSelect();
             });
         </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('select').formSelect();
+            });
+            $(document).ready(function () {
+                $('.datepicker').datepicker({
+                    autoClose: true,
+                    today: 'Today',
+                    clear: 'Réinitialiser',
+                    close: 'Close',
+                    firstDay: true,
+                    selectMonths: true,
+                    yearRange: [1980,2030],
+                    labelMonthNext: 'Mois suivant',
+                    labelMonthPrev: 'Mois précédent',
+                    labelMonthSelect: 'Sélectionner un mois',
+                    labelYearSelect: 'Sélectionner une année',
+                    format: 'dd/mm/yyyy',
+                    i18n: {
+                        months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                        monthsShort: ["Janv", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Aoû", "Sep", "Oct", "Nov", "Dec"],
+                        weekdays: ["Dimanche","Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+                        weekdaysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                        weekdaysAbbrev: ["D", "L", "M", "M", "J", "V", "S"],
+                        cancel:'Annuler'
+                    }
+                });
+            });
+        </script>
+
     </body>
 </html>

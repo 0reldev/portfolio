@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${skillCategory.id} ? 'Modification d\'une catégorie de compétence' : 'Création d\'une catégorie de compétence'">Catégories de compétences</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="${skillCategory.id} ? 'Modification d\'une catégorie de compétence' : 'Création d\'une catégorie de compétence'">Catégories de compétences</title>
 
-<form method="post" th:action="@{/admin/skill-category}" th:object="${skillCategory}">
-    <input name="id" th:field="*{id}" type="hidden">
-    <label for="skill-category-name">Nom de la catégorie de compétence :</label>
-    <input id="skill-category-name" name="skill-category-name" placeholder="Nom de la catégorie" required th:field="*{name}" type="text">
-    <br><br>
+        <!-- Google icons and fonts importation -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
 
-    <input type="submit" value="Valider">
-</form>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div th:replace="navbar.html :: navbar"></div>
+        <div class="container">
+            <br><br>
+            <form method="post" th:action="@{/admin/skill-category}" th:object="${skillCategory}">
+                <input name="id" th:field="*{id}" type="hidden">
 
-<br>
-<a href="/admin">Retour</a>
+                <div class="row">
+                    <div class="input-field col s12 l8 offset-l2">
+                        <i class="material-icons prefix">label_outline</i>
+                        <label for="skill-category-name">Nom de la catégorie de compétence :</label>
+                        <input id="skill-category-name" name="skill-category-name" placeholder="Nom de la catégorie" required th:field="*{name}" type="text">
+                    </div>
+                </div>
 
-</body>
+                <div class="row">
+                    <div class="col s12 m8 offset-m2 l6 offset-l3 xl8 offset-xl2 center-align">
+                        <div class="row">
+                            <div class="col s6">
+                                <a class="btn waves-effect waves-light yellow darken-1" th:href="@{/admin#skillsSection}" name="action">
+                                    <i class="material-icons left">undo</i>
+                                    Retour
+                                </a>
+                            </div>
+                            <div class="col s6">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+                                    <i class="material-icons right">check</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
 </html>

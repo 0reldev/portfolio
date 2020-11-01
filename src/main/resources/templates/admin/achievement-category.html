@@ -1,22 +1,51 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${achievementCategory.id} ? 'Modification d\'une catégorie de réalisation' : 'Création d\'une catégorie de réalisation'">Catégories de réalisations</title>
-</head>
-<body>
+    <html lang="fr" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="${achievementCategory.id} ? 'Modification d\'une catégorie de réalisation' : 'Création d\'une catégorie de réalisation'">Catégories de réalisations</title>
 
-<form method="post" th:action="@{/admin/achievement-category}" th:object="${achievementCategory}">
-    <input name="id" th:field="*{id}" type="hidden">
-    <label for="achievement-title">Nom de la catégorie de réalisation :</label>
-    <input id="achievement-title" name="achievement-title" placeholder="Nom de la catégorie" required th:field="*{name}" type="text">
-    <br><br>
+        <!-- Google icons and fonts importation -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
 
-    <input type="submit" value="Valider">
-</form>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
 
-<br>
-<a href="/admin">Retour</a>
+    <body>
+        <div th:replace="navbar.html :: navbar"></div>
 
-</body>
+        <div class="container">
+            <br><br>
+            <form method="post" th:action="@{/admin/achievement-category}" th:object="${achievementCategory}">
+                <input name="id" th:field="*{id}" type="hidden">
+
+                <div class="row">
+                    <div class="input-field col s12 l8 offset-l2">
+                        <i class="material-icons prefix">folder_open</i>
+                        <label for="achievement-title">Nom de la catégorie de réalisation :</label>
+                        <input id="achievement-title" name="achievement-title" placeholder="Nom de la catégorie" required th:field="*{name}" type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m8 offset-m2 l6 offset-l3 xl8 offset-xl2 center-align">
+                        <div class="row">
+                            <div class="col s6">
+                                <a class="btn waves-effect waves-light yellow darken-1" th:href="@{/admin#skillsSection}" name="action">
+                                    <i class="material-icons left">undo</i>
+                                    Retour
+                                </a>
+                            </div>
+                            <div class="col s6">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+                                    <i class="material-icons right">check</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
 </html>

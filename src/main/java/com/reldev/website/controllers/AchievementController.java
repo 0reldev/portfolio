@@ -49,6 +49,8 @@ public class AchievementController {
         out.addAttribute("achievement", achievement);
         out.addAttribute("achievementCategories", achievementCategoryRepository.findAllOrderedByName());
         out.addAttribute("skillList", skillRepository.findAll());
+        out.addAttribute("adminPage", true);
+        out.addAttribute("subAdminPage", true);
         return "/admin/achievement";
     }
 
@@ -56,14 +58,13 @@ public class AchievementController {
     public String postAchievement(@ModelAttribute Achievement achievement) {
 
         repository.save(achievement);
-        return "redirect:/admin";
+        return "redirect:/admin#achievementsSection";
     }
 
     @GetMapping("/admin/achievement/delete")
     public String deleteAchievement(@RequestParam Long id) {
 
         repository.deleteById(id);
-        return "redirect:/admin";
+        return "redirect:/admin#achievementsSection";
     }
-
 }
