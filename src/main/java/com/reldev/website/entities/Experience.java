@@ -60,8 +60,15 @@ public class Experience {
             inverseJoinColumns = @JoinColumn(name = "skill_id"))
     private List<Skill> skills = new ArrayList<>();*/
 
-    @ManyToMany(mappedBy = "experiences")
-    private List<Skill> skills = new ArrayList<>();
+//    @ManyToMany(mappedBy = "experiences")
+//    private List<Skill> skills = new ArrayList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "skill_experience",
+            joinColumns = @JoinColumn(name ="experience_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"experience_id", "skill_id"}))
+    private List<Skill> experienceSkills = new ArrayList<>();
 
     @Transient
     private List<Skill> skillList;
@@ -165,12 +172,12 @@ public class Experience {
         this.filterTag = filterTag;
     }
 
-    public List<Skill> getSkills() {
-        return skills;
+    public List<Skill> getExperienceSkills() {
+        return experienceSkills;
     }
 
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
+    public void setExperienceSkills(List<Skill> experienceSkills) {
+        this.experienceSkills = experienceSkills;
     }
 
     public String getExperienceIllustrationUrl() {
