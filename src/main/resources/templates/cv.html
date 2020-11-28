@@ -99,7 +99,7 @@
                             <span> Compétences utilisées :</span>
                             <div class="skillsToDisplay">
                                 <div class="skillElement"
-                                     th:each="skill : ${experience.skills}">
+                                     th:each="skill : ${experience.experienceSkills}">
                                     <span class="btn-small disabled grey lighten-1"
                                           th:text="${skill.name}">
                                         Compétence
