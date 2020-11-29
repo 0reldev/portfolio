@@ -74,16 +74,6 @@ public class CourseController {
         return "/admin/course";
     }
 
-
-/*
-    @PostMapping("/admin/course")
-    public String postCourse(@ModelAttribute Course course) {
-
-        repository.save(course);
-        return "redirect:/admin";
-    }
-*/
-
     @PostMapping("/admin/course")
     public String postCourse(@RequestParam Long idCourse,
                              @RequestParam(required = false) Long[] skillIds) {
@@ -98,7 +88,6 @@ public class CourseController {
                 if (optionalSkill.isPresent()) {
                     Skill skill = optionalSkill.get();
 
-                    // call the method getSkills in Course
                     List<Skill> skills;
                     Method method = getMethod(course, "getCourseSkills",
                             new Class[]{});

@@ -44,14 +44,14 @@ public class Achievement {
     @Transient
     private String skillList;
 
-/*    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name = "achievement_skill",
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "skill_achievement",
             joinColumns = @JoinColumn(name ="achievement_id"),
-            inverseJoinColumns = @JoinColumn(name = "skill_id"))
-    private List<Skill> skills = new ArrayList<>();*/
+            inverseJoinColumns = @JoinColumn(name = "skill_id"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"achievement_id", "skill_id"}))
+    private List<Skill> achievementSkills = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "achievements")
-    private List<Skill> skills = new ArrayList<>();
+
 
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "achievementCategory_id")
@@ -125,12 +125,12 @@ public class Achievement {
         this.pictureUrl = pictureUrl;
     }
 
-    public List<Skill> getSkills() {
-        return skills;
+    public List<Skill> getAchievementSkills() {
+        return achievementSkills;
     }
 
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
+    public void setAchievementSkills(List<Skill> skills) {
+        this.achievementSkills = skills;
     }
 
     public String getFilterTag() {

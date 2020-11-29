@@ -18,7 +18,7 @@
         <div class="container">
             <br><br>
             <form method="post" th:action="@{/admin/achievement}" th:object="${achievement}">
-                <input name="id" th:field="*{id}" type="hidden">
+                <input name="idAchievement" th:value="*{id}" type="hidden">
                 <div class="row">
                     <div class="input-field col s12 l8">
                         <i class="material-icons prefix">assignment_turned_in</i>
@@ -76,6 +76,47 @@
                         <input id="achievement-url" name="url" placeholder="URL du projet"  th:field="*{url}" type="text">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">business_center</i>
+                        <select id="skill" multiple name="skillIds">
+                            <optgroup th:each="skillCategory : ${skillCategoryList}"
+                                      th:label="${skillCategory.name}">
+                                <option th:each="skill : ${skillListForSelection}"
+                                        th:text="${skill.name}"
+                                        th:value="${skill.id}"
+                                        th:if="${(skill.skillCategory.getId() == skillCategory.getId())
+                                        && !achievement.getAchievementSkills().contains(skill)}">Compétence
+                                </option>
+                            </optgroup>
+                        </select>
+                        <label for="skill">Ajouter des compétences mobilisées :</label>
+                    </div>
+                </div>
+                <h6 class="center-align">Compétences associées</h6> <!--TODO  trier les compétences à afficher par catégories puis par ordre alphabétique-->
+                <div class="row">
+                    <div class="col s12 l8 offset-l2 xl6 offset-xl3">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th></th> <!--TODO : ajouter un chemin vers l'édition de la compétence pour la modifier-->
+                                <th></th> <!--TODO : ajouter un chemin pour dissocier la compétence de la formation-->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="skill : ${achievement.achievementSkills}">
+                                <td th:text="${skill.id}">id</td>
+                                <td th:text="${skill.name}">name</td>
+                                <td><i class="material-icons right">edit</i></td>
+                                <td><i class="material-icons right">block</i></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br><br>
 
                 <div class="row">
                     <div class="col s12 m8 offset-m2 l6 offset-l3 xl8 offset-xl2 center-align">
