@@ -33,6 +33,9 @@ public class Skill {
     @ManyToMany(mappedBy = "courseSkills")
     private List<Course> courses = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "achievementSkills")
+    private List<Achievement> achievements = new ArrayList<>();
+
    /* @ManyToMany(mappedBy = "skills")
     private List<Experience> experiences = new ArrayList<>();
 
@@ -54,11 +57,11 @@ public class Skill {
             inverseJoinColumns = @JoinColumn(name = "course_id"))
     private List<Course> courses = new ArrayList<>();*/
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "achievement_skill",
-            joinColumns = @JoinColumn(name = "skill_id"),
-            inverseJoinColumns = @JoinColumn(name = "achievement_id"))
-    private List<Achievement> achievements = new ArrayList<>();
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "achievement_skill",
+//            joinColumns = @JoinColumn(name = "skill_id"),
+//            inverseJoinColumns = @JoinColumn(name = "achievement_id"))
+//    private List<Achievement> achievements = new ArrayList<>();
 
 
 
