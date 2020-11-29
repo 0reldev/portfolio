@@ -368,9 +368,20 @@
 
                             </div>
                             <div class="card-action">
-<!--
-                                TODO : ajouter ici les compétences
--->
+                                <span> Compétences utilisées :</span>
+                                    <div class="skillsToDisplay">
+                                        <div class="skillElement"
+                                             th:each="skill : ${achievement.achievementSkills}">
+                                    <span class="btn-small disabled grey lighten-1"
+                                          th:text="${skill.name}">
+                                        Compétence
+                                    </span>
+                                            <!--
+                                             TODO: alterner une couleur sur deux.
+                                            -->
+                                <!--TODO: mettre en place une requête de filtrage quand on clique sur une compétence-->
+                            </div>
+                        </div>
                             </div>
                         </div>
                     </div>

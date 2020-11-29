@@ -44,16 +44,6 @@ public class Achievement {
     @Transient
     private String skillList;
 
-/*    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name = "achievement_skill",
-            joinColumns = @JoinColumn(name ="achievement_id"),
-            inverseJoinColumns = @JoinColumn(name = "skill_id"))
-    private List<Skill> skills = new ArrayList<>();*/
-
-//    @ManyToMany(mappedBy = "achievements")
-//    private List<Skill> skills = new ArrayList<>();
-
-
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "skill_achievement",
             joinColumns = @JoinColumn(name ="achievement_id"),

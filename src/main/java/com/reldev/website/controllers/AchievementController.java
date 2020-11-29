@@ -1,7 +1,6 @@
 package com.reldev.website.controllers;
 
 import com.reldev.website.entities.Achievement;
-import com.reldev.website.entities.Course;
 import com.reldev.website.entities.Skill;
 import com.reldev.website.entities.User;
 import com.reldev.website.repositories.AchievementCategoryRepository;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -80,13 +78,6 @@ public class AchievementController {
         return "/admin/achievement";
     }
 
-//    @PostMapping("/admin/achievement")
-//    public String postAchievement(@ModelAttribute Achievement achievement) {
-//
-//        repository.save(achievement);
-//        return "redirect:/admin#achievementsSection";
-//    }
-
     @PostMapping("/admin/achievement")
     public String postCourse(@RequestParam Long idAchievement,
                              @RequestParam(required = false) Long[] skillIds) {
@@ -119,15 +110,12 @@ public class AchievementController {
         return "redirect:/admin#achievementsSection";
     }
 
-
-
     @GetMapping("/admin/achievement/delete")
     public String deleteAchievement(@RequestParam Long id) {
 
         repository.deleteById(id);
         return "redirect:/admin#achievementsSection";
     }
-
 
     public Method getMethod(Object obj, String methodName, Class[] args) {
         Method method;

@@ -36,35 +36,8 @@ public class Skill {
     @ManyToMany(mappedBy = "achievementSkills")
     private List<Achievement> achievements = new ArrayList<>();
 
-   /* @ManyToMany(mappedBy = "skills")
-    private List<Experience> experiences = new ArrayList<>();
-
-    @ManyToMany(mappedBy = "skills")
-    private List<Achievement> achievements = new ArrayList<>();*/
-
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "experience_skill",
-//        joinColumns = @JoinColumn(name = "skill_id"),
-//        inverseJoinColumns = @JoinColumn(name = "experience_id"))
-//    private List<Experience> experiences = new ArrayList<>();
-
     @ManyToMany(mappedBy = "experienceSkills")
     private List<Experience> experiences = new ArrayList<>();
-
-/*    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "course_skill",
-            joinColumns = @JoinColumn(name = "skill_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_id"))
-    private List<Course> courses = new ArrayList<>();*/
-
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "achievement_skill",
-//            joinColumns = @JoinColumn(name = "skill_id"),
-//            inverseJoinColumns = @JoinColumn(name = "achievement_id"))
-//    private List<Achievement> achievements = new ArrayList<>();
-
-
-
 
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "skillCategory_id")
