@@ -13,9 +13,5 @@ public interface ExperienceRepository extends JpaRepository<Experience, Long> {
     @Query("SELECT e FROM Experience e ORDER BY e.startDate DESC")
     public List<Experience> findAllOrderedByDate();
 
-
-
-
-
 }
 
