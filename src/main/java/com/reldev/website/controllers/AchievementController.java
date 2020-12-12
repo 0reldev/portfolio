@@ -41,7 +41,8 @@ public class AchievementController {
 
     @GetMapping("/admin/achievement")
     public String getAchievement(Model out,
-                                @RequestParam(required = false) Long id) {
+                                @RequestParam(required = false) Long id,
+                                @RequestParam(required = false) Long skillId) {
 
         User user = userService.getLoggedUser();
         Achievement achievement = new Achievement();
@@ -51,6 +52,17 @@ public class AchievementController {
             if (optionalAchievement.isPresent()) {
 
                 achievement = optionalAchievement.get();
+
+                if (skillId != null) {
+
+                    Optional<Skill> optionalSkill = skillRepository.findById(skillId);
+                    if (optionalSkill.isPresent()) {
+
+                        Skill skill = optionalSkill.get();
+                        achievement.removeSkill(skill);
+                    }
+                }
+                repository.save(achievement);
             }
         }
         out.addAttribute("user", user);
