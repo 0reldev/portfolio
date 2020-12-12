@@ -37,18 +37,31 @@ public class ExperienceController {
 
     @GetMapping("/admin/experience")
     public String getExperience(Model out,
-                                @RequestParam(required = false) Long id) {
+                                @RequestParam(required = false) Long id,
+                                @RequestParam(required = false) Long skillId) {
 
         User user = userService.getLoggedUser();
         Experience experience = new Experience();
+
         if (id != null) {
 
             Optional<Experience> optionalExperience = repository.findById(id);
             if (optionalExperience.isPresent()) {
 
                 experience = optionalExperience.get();
+
+                if (skillId != null) {
+
+                    Optional<Skill> optionalSkill = skillRepository.findById(skillId);
+                    if (optionalSkill.isPresent()) {
+
+                        Skill skill = optionalSkill.get();
+                        experience.removeSkill(skill);
+                    }
+                }
             }
         }
+
         out.addAttribute("user", user);
         out.addAttribute("experience", experience);
         out.addAttribute("skillListForSelection", skillRepository.findAllOrderedByCategoryAndName());
@@ -69,12 +82,10 @@ public class ExperienceController {
                 e.printStackTrace();
             }
         }
-
         out.addAttribute("experienceSkills", skills);
 
         return "/admin/experience";
     }
-
 
     @PostMapping("/admin/experience")
     public String postExperience(@RequestParam Long idExperience,
@@ -115,6 +126,10 @@ public class ExperienceController {
         repository.deleteById(id);
         return "redirect:/admin#experiencesSection";
     }
+
+
+
+
 
     public Method getMethod(Object obj, String methodName, Class[] args) {
         Method method;

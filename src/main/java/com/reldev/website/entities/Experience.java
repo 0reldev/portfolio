@@ -203,4 +203,13 @@ public class Experience {
     public void setSkillList(List<Skill> skillList) {
         this.skillList = skillList;
     }
+
+    /* Methods */
+    public void removeSkill(Skill skill) {
+        this.experienceSkills.remove(skill);
+        skill.getExperiences().remove(this);
+    }
+
 }
+
+
