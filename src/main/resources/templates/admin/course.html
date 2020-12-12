@@ -128,7 +128,7 @@
                                 <td th:text="${skill.id}">id</td>
                                 <td th:text="${skill.name}">name</td>
                                 <td><i class="material-icons right">edit</i></td>
-                                <td><i class="material-icons right">block</i></td>
+                                <td><a th:href="@{/admin/course(id=${course.id}, skillId=${skill.id})}"><i class="material-icons right">block</i></a></td>
                             </tr>
                             </tbody>
                         </table>

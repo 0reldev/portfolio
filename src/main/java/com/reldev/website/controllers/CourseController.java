@@ -37,7 +37,8 @@ public class CourseController {
 
     @GetMapping("/admin/course")
     public String getCourse(Model out,
-                                @RequestParam(required = false) Long id) {
+                                @RequestParam(required = false) Long id,
+                                @RequestParam(required = false) Long skillId) {
 
         User user = userService.getLoggedUser();
         Course course = new Course();
@@ -47,6 +48,17 @@ public class CourseController {
             if (optionalCourse.isPresent()) {
 
                 course = optionalCourse.get();
+
+                if (skillId != null) {
+
+                    Optional<Skill> optionalSkill = skillRepository.findById(skillId);
+                    if (optionalSkill.isPresent()) {
+
+                        Skill skill = optionalSkill.get();
+                        course.removeSkill(skill);
+                    }
+                }
+                repository.save(course);
             }
         }
         out.addAttribute("user", user);
@@ -82,26 +94,29 @@ public class CourseController {
         if (optionalCourse.isPresent()) {
             Course course = optionalCourse.get();
 
-            for (Long idSkill : skillIds) {
+            if (skillIds != null) {
+                for (Long idSkill : skillIds) {
 
-                Optional<Skill> optionalSkill = skillRepository.findById(idSkill);
-                if (optionalSkill.isPresent()) {
-                    Skill skill = optionalSkill.get();
+                    Optional<Skill> optionalSkill = skillRepository.findById(idSkill);
+                    if (optionalSkill.isPresent()) {
+                        Skill skill = optionalSkill.get();
 
-                    List<Skill> skills;
-                    Method method = getMethod(course, "getCourseSkills",
-                            new Class[]{});
-                    if (method != null) {
-                        try {
-                            skills = (List<Skill>) method.invoke(course);
-                            skills.add(skill);
-                        } catch (IllegalAccessException | InvocationTargetException e) {
-                            e.printStackTrace();
+                        List<Skill> skills;
+                        Method method = getMethod(course, "getCourseSkills",
+                                new Class[]{});
+                        if (method != null) {
+                            try {
+                                skills = (List<Skill>) method.invoke(course);
+                                skills.add(skill);
+                            } catch (IllegalAccessException | InvocationTargetException e) {
+                                e.printStackTrace();
+                            }
                         }
+                        repository.save(course);
                     }
-                    repository.save(course);
                 }
             }
+            repository.save(course);
         }
         return "redirect:/admin#coursesSection";
     }

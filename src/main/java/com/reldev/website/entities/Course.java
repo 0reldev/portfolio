@@ -152,4 +152,11 @@ public class Course {
     public void setCourseSkills(List<Skill> courseSkills) {
         this.courseSkills = courseSkills;
     }
+
+    /* Methods */
+    public void removeSkill(Skill skill) {
+        this.courseSkills.remove(skill);
+        skill.getCourses().remove(this);
+    }
+
 }

@@ -156,6 +156,12 @@ public class Achievement {
     public void setAchievementCategory(AchievementCategory achievementCategory) {
         this.achievementCategory = achievementCategory;
     }
+
+    /* Methods */
+    public void removeSkill(Skill skill) {
+        this.achievementSkills.remove(skill);
+        skill.getAchievements().remove(this);
+    }
 }
 
 
