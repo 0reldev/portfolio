@@ -59,6 +59,7 @@ public class ExperienceController {
                         experience.removeSkill(skill);
                     }
                 }
+                repository.save(experience);
             }
         }
 
@@ -95,26 +96,29 @@ public class ExperienceController {
         if (optionalExperience.isPresent()) {
             Experience experience = optionalExperience.get();
 
-            for (Long idSkill : skillIds) {
+            if (skillIds != null) {
+                for (Long idSkill : skillIds) {
 
-                Optional<Skill> optionalSkill = skillRepository.findById(idSkill);
-                if (optionalSkill.isPresent()) {
-                    Skill skill = optionalSkill.get();
+                    Optional<Skill> optionalSkill = skillRepository.findById(idSkill);
+                    if (optionalSkill.isPresent()) {
+                        Skill skill = optionalSkill.get();
 
-                    List<Skill> skills;
-                    Method method = getMethod(experience, "getExperienceSkills",
-                            new Class[]{});
-                    if (method != null) {
-                        try {
-                            skills = (List<Skill>) method.invoke(experience);
-                            skills.add(skill);
-                        } catch (IllegalAccessException | InvocationTargetException e) {
-                            e.printStackTrace();
+                        List<Skill> skills;
+                        Method method = getMethod(experience, "getExperienceSkills",
+                                new Class[]{});
+                        if (method != null) {
+                            try {
+                                skills = (List<Skill>) method.invoke(experience);
+                                skills.add(skill);
+                            } catch (IllegalAccessException | InvocationTargetException e) {
+                                e.printStackTrace();
+                            }
                         }
+                        repository.save(experience);
                     }
-                    repository.save(experience);
                 }
             }
+            repository.save(experience);
         }
         return "redirect:/admin#experiencesSection";
     }

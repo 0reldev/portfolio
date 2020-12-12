@@ -82,26 +82,29 @@ public class CourseController {
         if (optionalCourse.isPresent()) {
             Course course = optionalCourse.get();
 
-            for (Long idSkill : skillIds) {
+            if (skillIds != null) {
+                for (Long idSkill : skillIds) {
 
-                Optional<Skill> optionalSkill = skillRepository.findById(idSkill);
-                if (optionalSkill.isPresent()) {
-                    Skill skill = optionalSkill.get();
+                    Optional<Skill> optionalSkill = skillRepository.findById(idSkill);
+                    if (optionalSkill.isPresent()) {
+                        Skill skill = optionalSkill.get();
 
-                    List<Skill> skills;
-                    Method method = getMethod(course, "getCourseSkills",
-                            new Class[]{});
-                    if (method != null) {
-                        try {
-                            skills = (List<Skill>) method.invoke(course);
-                            skills.add(skill);
-                        } catch (IllegalAccessException | InvocationTargetException e) {
-                            e.printStackTrace();
+                        List<Skill> skills;
+                        Method method = getMethod(course, "getCourseSkills",
+                                new Class[]{});
+                        if (method != null) {
+                            try {
+                                skills = (List<Skill>) method.invoke(course);
+                                skills.add(skill);
+                            } catch (IllegalAccessException | InvocationTargetException e) {
+                                e.printStackTrace();
+                            }
                         }
+                        repository.save(course);
                     }
-                    repository.save(course);
                 }
             }
+            repository.save(course);
         }
         return "redirect:/admin#coursesSection";
     }

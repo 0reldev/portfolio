@@ -86,26 +86,29 @@ public class AchievementController {
         if (optionalAchievement.isPresent()) {
             Achievement achievement = optionalAchievement.get();
 
-            for (Long idSkill : skillIds) {
+            if (skillIds != null) {
+                for (Long idSkill : skillIds) {
 
-                Optional<Skill> optionalSkill = skillRepository.findById(idSkill);
-                if (optionalSkill.isPresent()) {
-                    Skill skill = optionalSkill.get();
+                    Optional<Skill> optionalSkill = skillRepository.findById(idSkill);
+                    if (optionalSkill.isPresent()) {
+                        Skill skill = optionalSkill.get();
 
-                    List<Skill> skills;
-                    Method method = getMethod(achievement, "getAchievementSkills",
-                            new Class[]{});
-                    if (method != null) {
-                        try {
-                            skills = (List<Skill>) method.invoke(achievement);
-                            skills.add(skill);
-                        } catch (IllegalAccessException | InvocationTargetException e) {
-                            e.printStackTrace();
+                        List<Skill> skills;
+                        Method method = getMethod(achievement, "getAchievementSkills",
+                                new Class[]{});
+                        if (method != null) {
+                            try {
+                                skills = (List<Skill>) method.invoke(achievement);
+                                skills.add(skill);
+                            } catch (IllegalAccessException | InvocationTargetException e) {
+                                e.printStackTrace();
+                            }
                         }
+                        repository.save(achievement);
                     }
-                    repository.save(achievement);
                 }
             }
+            repository.save(achievement);
         }
         return "redirect:/admin#achievementsSection";
     }
