@@ -119,15 +119,15 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
-                                <th></th> <!--TODO : ajouter un chemin vers l'édition de la compétence pour la modifier-->
-                                <th></th> <!--TODO : ajouter un chemin pour dissocier la compétence de la formation-->
+                                <th></th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr th:each="skill : ${course.courseSkills}">
                                 <td th:text="${skill.id}">id</td>
                                 <td th:text="${skill.name}">name</td>
-                                <td><i class="material-icons right">edit</i></td>
+                                <td><a th:href="@{/admin/skill(id=${skill.id})}"><i class="material-icons right">edit</i></a></td>
                                 <td><a th:href="@{/admin/course(id=${course.id}, skillId=${skill.id})}"><i class="material-icons right">block</i></a></td>
                             </tr>
                             </tbody>
